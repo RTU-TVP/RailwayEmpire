@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
@@ -28,23 +29,31 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-            transform.position = _playerPosition1.position;
+            transform.DORotate(new Vector3(0, 0, 0), .25f);
+            transform.DOMove(_playerPosition1.position,.25f);
+            /*transform.eulerAngles = new Vector3(0, 0, 0);
+            transform.position = _playerPosition1.position;*/
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-            transform.position = _playerPosition2.position;
+            transform.DORotate(new Vector3(0, 180, 0), .25f);
+            transform.DOMove(_playerPosition2.position,.25f);
+            /*transform.eulerAngles = new Vector3(0, 180, 0);
+            transform.position = _playerPosition2.position;*/
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-            transform.position = _playerPosition3.position;
+            transform.DORotate(new Vector3(0, 0, 0), .25f);
+            transform.DOMove(_playerPosition3.position,.25f);
+            /*transform.eulerAngles = new Vector3(0, 0, 0);
+            transform.position = _playerPosition3.position;*/
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-            transform.position = _playerPosition4.position;
+            transform.DORotate(new Vector3(0, 180, 0), .25f);
+            transform.DOMove(_playerPosition4.position,.25f);
+            /*transform.eulerAngles = new Vector3(0, 180, 0);
+            transform.position = _playerPosition4.position;*/
         }
     }
 }
