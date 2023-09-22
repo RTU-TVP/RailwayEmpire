@@ -19,10 +19,10 @@ public class MainCard : MonoBehaviour {
     public int Id { get; private set; }
     
 
-    public void ChangeSprite(int id, Mesh mesh)
+    public void ChangeSprite(int id, GameObject gameObject)
     {
         Id = id;
-        GetComponent<MeshFilter>().mesh = mesh; //This gets the sprite renderer component and changes the property of it's sprite!
+        Instantiate(gameObject, this.transform); //This gets the sprite renderer component and changes the property of it's sprite!
     }
 
     public void Unreveal()

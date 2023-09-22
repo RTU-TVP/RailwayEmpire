@@ -11,7 +11,7 @@ public class SceneController : MonoBehaviour {
     public const float offsetY = 5f;
 
     [SerializeField] private MainCard originalCard;
-    [SerializeField] private Mesh[] meshes;
+    [SerializeField] private GameObject[] childObjects;
 
     private void Start()
     {
@@ -36,7 +36,7 @@ public class SceneController : MonoBehaviour {
 
                 int index = j * gridCols + i;
                 int id = numbers[index];
-                card.ChangeSprite(id, meshes[id]);
+                card.ChangeSprite(id, childObjects[id]);
 
                 float posX = (offsetX * i) + startPos.x;
                 float posY = (offsetY * j) + startPos.y;
