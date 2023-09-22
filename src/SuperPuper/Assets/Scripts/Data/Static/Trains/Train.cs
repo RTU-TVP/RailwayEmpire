@@ -1,40 +1,22 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace Data.Static.Trains
 {
-	[Serializable]
-	public class Train
+	[CreateAssetMenu(fileName = "Train", menuName = "Data/Static/Trains/Train", order = 0)]
+	public class Train : ScriptableObject
 	{
-		public Train(RailwayCarriage[] railwayCarriages)
+		[field: SerializeField] public RailwayCarriage[] RailwayCarriages { get; private set; }
+		public float Lifetime { get; private set; }
+
+		private void OnEnable()
 		{
-			RailwayCarriages = railwayCarriages;
 			Lifetime = GetLifetime(RailwayCarriages);
 		}
 
-		public Train(RailwayCarriagesDatabase railwayCarriagesDatabase, int countRailwayCarriages)
-		{
-			RailwayCarriages = GenerateRailwayCarriages(railwayCarriagesDatabase, countRailwayCarriages);
-			Lifetime = GetLifetime(RailwayCarriages);
-		}
-
-		public float Lifetime { get; private set; } = 0;
-		public RailwayCarriage[] RailwayCarriages { get; private set; }
-
-		private static RailwayCarriage[] GenerateRailwayCarriages(RailwayCarriagesDatabase railwayCarriagesDatabase,
-			int countRailwayCarriages)
-		{
-			var railwayCarriages = new RailwayCarriage[countRailwayCarriages];
-			for (var i = 0; i < countRailwayCarriages; i++)
-			{
-				railwayCarriages[i] = railwayCarriagesDatabase.GetRandomRailwayCarriage();
-			}
-
-			return railwayCarriages;
-		}
-
-		private float GetLifetime(IEnumerable<RailwayCarriage> railwayCarriages)
+		private static float GetLifetime(IEnumerable<RailwayCarriage> railwayCarriages)
 		{
 			return railwayCarriages.Sum(railwayCarriage => railwayCarriage.Lifetime);
 		}
