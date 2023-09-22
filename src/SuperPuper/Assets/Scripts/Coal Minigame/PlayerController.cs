@@ -48,22 +48,22 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            transform.DORotate(new Vector3(0, 0, 0), .25f);
+            //transform.DORotate(new Vector3(0, 0, 0), .25f);
             transform.DOMove(_playerPosition1.position,.25f);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            transform.DORotate(new Vector3(0, 180, 0), .25f);
+            //transform.DORotate(new Vector3(0, 180, 0), .25f);
             transform.DOMove(_playerPosition2.position,.25f);
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            transform.DORotate(new Vector3(0, 0, 0), .25f);
+            //transform.DORotate(new Vector3(0, 0, 0), .25f);
             transform.DOMove(_playerPosition3.position,.25f);
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            transform.DORotate(new Vector3(0, 180, 0), .25f);
+            //transform.DORotate(new Vector3(0, 180, 0), .25f);
             transform.DOMove(_playerPosition4.position,.25f);
         }
     }
