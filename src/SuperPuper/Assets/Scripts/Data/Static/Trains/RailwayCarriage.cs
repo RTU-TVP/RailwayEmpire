@@ -7,6 +7,7 @@ namespace Data.Static.Trains
 	public class RailwayCarriage : ScriptableObject
 	{
 		[field: SerializeField] public RailwayCarriageType RailwayCarriageType { get; private set; }
+		[field: SerializeField] public float Lifetime { get; private set; }
 		[field: SerializeField] public GameObject Prefab { get; private set; }
 	}
 }
