@@ -5,16 +5,14 @@ using UnityEngine;
 public class pushVagon : MonoBehaviour
 {
     private Camera _mainCamera;
-    private Renderer _renderer;
     private Ray _ray;
     private RaycastHit _hit;
     GameObject buttons;
     bool isVagonPressed = false;
-    bool isMenuFollowing = true;
+    bool isMenuActive = false;
     void Start()
     {
         _mainCamera = Camera.main;
-        _renderer = GetComponent<Renderer>();
         buttons = FindObjectOfType<ButtonsFollowMouse>().gameObject;
     }
     void Update()
@@ -37,14 +35,22 @@ public class pushVagon : MonoBehaviour
                 buttons.GetComponent<ButtonsFollowMouse>().TeleportToMouse();
                 ChosenVagonInfo.ChooseVagon(this.gameObject);
                 buttons.gameObject.SetActive(true);
+                isMenuActive = true;
             }
             else
             {
                 ChosenVagonInfo.StopChoosingVagon();
                 buttons.gameObject.SetActive(false);
+                isMenuActive = false;
             }
         }
-        if(Input.GetMouseButton(0))
+        if (Input.anyKey && isMenuActive && !Input.GetMouseButton(0))
+        {
+            ChosenVagonInfo.StopChoosingVagon();
+            buttons.gameObject.SetActive(false);
+            isMenuActive=false;
+        }
+        if (Input.GetMouseButton(0))
         {
             GetComponent<Outline>().OutlineColor = new Color32(255, 0, 0, 255);
         }
