@@ -17,7 +17,7 @@ public class DefeatCondition : MonoBehaviour {
 	{
 		if (other.CompareTag("StopTrigger"))
 		{
-			gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+			//gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 			_movementSpawn.AddScore(1);
 		}
 	}
