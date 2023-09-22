@@ -12,4 +12,8 @@ public class VagonMenuButtons : MonoBehaviour
     {
         Debug.Log("Я позову рабочих!");
     }
+    public void UnloadVagon()
+    {
+        Debug.Log("Разгрузка Вагона!");
+    }
 }

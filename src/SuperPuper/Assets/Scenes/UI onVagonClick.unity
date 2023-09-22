@@ -454,7 +454,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -6, y: -2}
+  m_AnchoredPosition: {x: -4.8, y: -2}
   m_SizeDelta: {x: 1106, y: 622}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &802018335
@@ -1054,7 +1054,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1688650778}
         m_TargetAssemblyTypeName: VagonMenuButtons, Assembly-CSharp
-        m_MethodName: ButtonCallWorkers
+        m_MethodName: UnloadVagon
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1120,7 +1120,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2064364580
 RectTransform:
   m_ObjectHideFlags: 0
