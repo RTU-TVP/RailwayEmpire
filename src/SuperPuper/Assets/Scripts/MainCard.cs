@@ -22,7 +22,15 @@ public class MainCard : MonoBehaviour {
     public void ChangeSprite(int id, GameObject gameObject)
     {
         Id = id;
-        Instantiate(gameObject, this.transform); //This gets the sprite renderer component and changes the property of it's sprite!
+        
+            int i = 1;
+            while (i < transform.childCount)
+            {
+
+                i ++;
+                Destroy(transform.GetChild(1).gameObject);
+            }
+            Instantiate(gameObject, this.transform); //This gets the sprite renderer component and changes the property of it's sprite!
     }
 
     public void Unreveal()
