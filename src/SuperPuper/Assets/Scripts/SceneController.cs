@@ -7,8 +7,8 @@ public class SceneController : MonoBehaviour {
 
     public const int gridRows = 3;
     public const int gridCols = 4;
-    public const float offsetX = 4f;
-    public const float offsetY = 5f;
+    [SerializeField] private float offsetX = 4f;
+    [SerializeField] private float offsetY = 5f;
 
     [SerializeField] private MainCard originalCard;
     [SerializeField] private GameObject[] childObjects;
@@ -64,6 +64,7 @@ public class SceneController : MonoBehaviour {
     private MainCard _secondRevealed;
 
     private int _score = 0;
+    private int _targetScore = 6;
 
     public bool canReveal
     {
@@ -88,6 +89,10 @@ public class SceneController : MonoBehaviour {
         if(_firstRevealed.Id == _secondRevealed.Id)
         {
             _score++;
+            if (_score == _targetScore)
+            {
+                Debug.Log("Win");
+            }
         }
         else
         {
