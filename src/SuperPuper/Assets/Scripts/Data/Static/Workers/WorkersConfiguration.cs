@@ -6,5 +6,6 @@ namespace Data.Static.Workers
     public class WorkersConfiguration : ScriptableObject
     {
         public float WorkTimeDefault;
+        public float MoveSpeedDefault;
     }
 }
