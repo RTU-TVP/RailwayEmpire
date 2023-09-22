@@ -43,6 +43,31 @@ namespace Train
 
 			_trains.RemoveAt(0);
 			_railTracks[index].SetOccupied(true);
+
+			StartCoroutine(TrainMovement(index));
+		}
+
+		private IEnumerator TrainMovement(int index)
+		{
+			var train = _railsStart[index];
+			var trigger = _railTracks[index].EndPoint;
+
+			var startPosition = train.position;
+			var endPosition = trigger.position;
+
+			var journeyLength = Vector3.Distance(startPosition, endPosition);
+			var journeyTime = journeyLength / _trainConfiguration.Speed;
+
+			var startTime = Time.time;
+			var distanceCovered = 0.0f;
+
+			while (distanceCovered < journeyLength)
+			{
+				var distanceFraction = (Time.time - startTime) / journeyTime;
+				train.position = Vector3.Lerp(startPosition, endPosition, distanceFraction);
+				distanceCovered = distanceFraction * journeyLength;
+				yield return null;
+			}
 		}
 
 		private static GameObject CreatedRailwayCarriage(GameObject prefab, Transform parent,
