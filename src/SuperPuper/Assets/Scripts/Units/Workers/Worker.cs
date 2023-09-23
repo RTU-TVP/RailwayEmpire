@@ -1,5 +1,4 @@
 using System;
-using Data.Static.Workers;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -12,32 +11,56 @@ namespace Workers
     {
         [SerializeField] private Animator _animator;
         [SerializeField] private NavMeshAgent _navMeshAgent;
-        [SerializeField] private WorkersConfiguration _workersConfiguration;
         private StateMachine _stateMachine;
 
-        public void SetUp(Transform target, Transform home, UnityAction onWorkDone)
+        public void SetUp(Transform workTransform, Transform homeTransform, Transform shopTransform,
+            UnityAction onWorkDone, float moveSpeed, float workTime, float saleTime)
         {
+            var isWorkDone = false;
+            var isSaleDone = false;
+
             _stateMachine = new StateMachine();
 
-            var move = new Move(_animator, _navMeshAgent, _workersConfiguration.MoveSpeedDefault);
-            move.SetTarget(target);
+            var move = new Move(_animator, _navMeshAgent, moveSpeed);
+            move.SetTarget(workTransform);
 
-            var work = new Work(_animator, _workersConfiguration.WorkTimeDefault);
+            var work = new Work(_animator, workTime);
+
+            var sellingResources = new SellingResources(_animator, saleTime);
+
+            #region Transitions
 
             At(move, work, () =>
             {
                 if (!(work.WorkTime <= 0f)) return false;
 
-                move.SetTarget(home);
+                move.SetTarget(shopTransform);
                 onWorkDone?.Invoke();
+                isWorkDone = true;
                 return true;
             });
             At(work, move, () =>
             {
-                if (!(_navMeshAgent.remainingDistance <= 0.5f)) return false;
+                if (_navMeshAgent.remainingDistance > 0.5f || isWorkDone == true) return false;
 
                 return true;
             });
+            At(sellingResources, move, () =>
+            {
+                if (_navMeshAgent.remainingDistance > 0.5f || isWorkDone == false) return false;
+
+                return true;
+            });
+            At(move, sellingResources, () =>
+            {
+                if (!(sellingResources.SaleTime <= 0f)) return false;
+
+                move.SetTarget(homeTransform);
+                isSaleDone = true;
+                return true;
+            });
+
+            #endregion
 
             _stateMachine.SetState(move);
         }

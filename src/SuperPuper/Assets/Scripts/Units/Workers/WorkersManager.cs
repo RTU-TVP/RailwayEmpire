@@ -10,8 +10,9 @@ namespace Workers
         [SerializeField] private GameObject _workerPrefab;
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private Transform _home;
+        [SerializeField] private Transform _shop;
 
-        private void CreateWorker(Transform target)
+        private void CreateWorker(Transform work)
         {
             var moveSpeedLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_MOVE_SPEED);
             var workTimeLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_WORK_TIME);
@@ -19,8 +20,9 @@ namespace Workers
 
             var worker = Instantiate(_workerPrefab, _spawnPoint.position, Quaternion.identity);
             worker.GetComponent<Worker>().SetUp(
-                target,
+                work,
                 _home,
+                _shop,
                 () => Debug.Log("Work done!"),
                 _workersConfiguration.MoveSpeedDefault + moveSpeedLvl * _workersConfiguration.MoveSpeedDefault * 0.01f,
                 _workersConfiguration.WorkTimeDefault - workTimeLvl * _workersConfiguration.WorkTimeDefault * 0.01f,
