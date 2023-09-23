@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class pushVagon : MonoBehaviour
 {
-    private Camera _mainCamera;
+    private UnityEngine.Camera _mainCamera;
     private Ray _ray;
     private RaycastHit _hit;
     GameObject buttons;
@@ -12,7 +12,7 @@ public class pushVagon : MonoBehaviour
     bool isMenuActive = false;
     void Start()
     {
-        _mainCamera = Camera.main;
+        _mainCamera = UnityEngine.Camera.main;
         buttons = FindObjectOfType<ButtonsFollowMouse>().gameObject;
     }
     void Update()
