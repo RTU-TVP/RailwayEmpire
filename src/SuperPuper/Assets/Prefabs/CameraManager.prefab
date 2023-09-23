@@ -153,6 +153,7 @@ MonoBehaviour:
   _inputActionsReader: {fileID: 11400000, guid: 4e1aed94732622b4fa78788b5ceaedd3, type: 2}
   _cameraMovementRestriction: {fileID: 11400000, guid: dd7d938f1935a1b469022b63b38768d1, type: 2}
   _targetTransform: {fileID: 8641437067345560333}
+  _virtualCameraTransform: {fileID: 7548065239156545599}
 --- !u!1 &7597535455964282505
 GameObject:
   m_ObjectHideFlags: 0

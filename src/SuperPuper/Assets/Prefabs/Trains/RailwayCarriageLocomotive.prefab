@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2468850311641475608}
   m_Layer: 0
-  m_Name: carriage_locomotive_obj
+  m_Name: RailwayCarriageLocomotive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 3050557733266124064}
   - component: {fileID: 8132440706072151954}
   - component: {fileID: 1592799564022374861}
-  - component: {fileID: 2478015350001293597}
   - component: {fileID: 3172243453129253849}
   m_Layer: 0
   m_Name: carriage_locomotive
@@ -123,30 +122,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2478015350001293597
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7143593139047909218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43670672efd0c754aaac28d1d2b28636, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cells:
-  - <MatIndex>k__BackingField: 3
-    <Colors>k__BackingField:
-    - {r: 0.101960786, g: 0.21568628, b: 0.039215688, a: 1}
-    - {r: 0.3773585, g: 0, b: 0, a: 0}
-    - {r: 0, g: 0.33962262, b: 0.30599982, a: 0}
-    - {r: 0.6603774, g: 0.6324028, b: 0.046724807, a: 0}
-  - <MatIndex>k__BackingField: 1
-    <Colors>k__BackingField:
-    - {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
-    - {r: 0.9811321, g: 0.9756159, b: 0, a: 0}
-    - {r: 0, g: 0.9528302, b: 0.6435872, a: 0}
 --- !u!65 &3172243453129253849
 BoxCollider:
   m_ObjectHideFlags: 0

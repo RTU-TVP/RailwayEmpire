@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 1796260800785674238}
   - component: {fileID: 107806428569384462}
   - component: {fileID: 5995834429504149538}
-  - component: {fileID: 1093147206284780986}
   - component: {fileID: 6755411493235699364}
+  - component: {fileID: 4997460524459862568}
   m_Layer: 0
   m_Name: coal2
   m_TagString: Untagged
@@ -86,23 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1093147206284780986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4353563539412549582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43670672efd0c754aaac28d1d2b28636, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cells:
-  - <MatIndex>k__BackingField: 0
-    <Colors>k__BackingField:
-    - {r: 1, g: 1, b: 1, a: 0}
-    - {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 0}
 --- !u!65 &6755411493235699364
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -124,6 +107,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.044136547, y: 0.1609377, z: 0.03656301}
   m_Center: {x: 0.000000008381903, y: -0.00000006705521, z: 0.044725407}
+--- !u!114 &4997460524459862568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4353563539412549582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4485e100ccd74fc1bc34e5ba69290aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5693255355629244603
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2058908220043121518}
   m_Layer: 0
-  m_Name: Coal2
+  m_Name: RailwayCarriageCoal2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c644e8718dbe4e6a99e185437691f1b2, type: 3}
-  m_Name: RailwayCarriage_Test
+  m_Name: RailwayCarriage_Coal2
   m_EditorClassIdentifier: 
-  <RailwayCarriageType>k__BackingField: 0
+  <RailwayCarriageType>k__BackingField: 5
+  <IsInteractive>k__BackingField: 1
   <Lifetime>k__BackingField: 2
-  <Prefab>k__BackingField: {fileID: 5709439741983391027, guid: 950b2067086eb2d49a22fe236b9277b9, type: 3}
+  <Prefab>k__BackingField: {fileID: 6300111106102273845, guid: 3e9a45e2277026849a4e7634d0ae2408, type: 3}

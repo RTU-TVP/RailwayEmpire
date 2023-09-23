@@ -159,7 +159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3867872537617811131}
   m_Layer: 0
-  m_Name: tank_obj
+  m_Name: RailwayCarriageTank_obj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
