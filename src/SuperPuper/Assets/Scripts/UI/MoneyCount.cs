@@ -12,7 +12,7 @@ namespace UI
     {
         private void Update()
         {
-            gameObject.GetComponent<TextMeshProUGUI>().text = Convert.ToString(MoneyAndUpgradesStats.money);
+            gameObject.GetComponent<TextMeshProUGUI>().text = Convert.ToString(MoneyStats.money);
         }
     }
 }

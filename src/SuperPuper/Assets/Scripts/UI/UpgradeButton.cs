@@ -1,5 +1,6 @@
 #region
 
+using Data.Constant;
 using System;
 using System.Collections.Generic;
 using TMPro;
@@ -26,9 +27,26 @@ namespace UI
         private TypeOfUpgrade typeOfUpgrade;
         [SerializeField] private List<int> _costsPerLevel = new List<int>();
         private int currentLevel;
-        private void Start()
+        private void Awake()
         {
             currentLevel = 1;
+            MoneyStats.money = 0;
+            if (typeOfUpgrade == TypeOfUpgrade.Walkspeed && PlayerPrefs.HasKey(WorkersConstantData.WORKERS_LVL_MOVE_SPEED))
+            {
+                currentLevel = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_MOVE_SPEED);
+            }
+            if (typeOfUpgrade == TypeOfUpgrade.UnloadSpeed && PlayerPrefs.HasKey(WorkersConstantData.WORKERS_LVL_WORK_TIME))
+            {
+                currentLevel = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_WORK_TIME);
+            }
+            if (typeOfUpgrade == TypeOfUpgrade.SellSpeed && PlayerPrefs.HasKey(WorkersConstantData.WORKERS_LVL_SALE_TIME))
+            {
+                currentLevel = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_SALE_TIME);
+            }
+            if (PlayerPrefs.HasKey(WorkersConstantData.MONEY))
+            {
+                MoneyStats.money = PlayerPrefs.GetInt(WorkersConstantData.MONEY);
+            }
         }
         private void Update()
         {
@@ -41,7 +59,7 @@ namespace UI
                 _nextLvlPriceText.GetComponent<TextMeshProUGUI>().text = "None";
             }
             _levelText.GetComponent<TextMeshProUGUI>().text = Convert.ToString(currentLevel);
-            if (currentLevel < _costsPerLevel.Count && MoneyAndUpgradesStats.money >= _costsPerLevel[currentLevel])
+            if (currentLevel < _costsPerLevel.Count && MoneyStats.money >= _costsPerLevel[currentLevel])
             {
                 gameObject.GetComponent<Button>().interactable = true;
             }
@@ -57,23 +75,17 @@ namespace UI
                 currentLevel++;
                 if (typeOfUpgrade == TypeOfUpgrade.Walkspeed)
                 {
-                    MoneyAndUpgradesStats.levelWalkSpeed = currentLevel;
+                    PlayerPrefs.SetInt(WorkersConstantData.WORKERS_LVL_MOVE_SPEED, currentLevel);
                 }
-                else
+                if (typeOfUpgrade == TypeOfUpgrade.SellSpeed)
                 {
-                    if (typeOfUpgrade == TypeOfUpgrade.UnloadSpeed)
-                    {
-                        MoneyAndUpgradesStats.levelUnloadSpeed = currentLevel;
-                    }
-                    else
-                    {
-                        if (typeOfUpgrade == TypeOfUpgrade.SellSpeed)
-                        {
-                            MoneyAndUpgradesStats.levelSellSpeed = currentLevel;
-                        }
-                    }
+                    PlayerPrefs.SetInt(WorkersConstantData.WORKERS_LVL_SALE_TIME, currentLevel);
                 }
-                MoneyAndUpgradesStats.money -= _costsPerLevel[currentLevel - 1];
+                if (typeOfUpgrade == TypeOfUpgrade.UnloadSpeed)
+                {
+                    PlayerPrefs.SetInt(WorkersConstantData.WORKERS_LVL_WORK_TIME, currentLevel);
+                }
+                MoneyStats.ChangeMoney(-_costsPerLevel[currentLevel - 1]);
             }
         }
     }
