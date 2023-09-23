@@ -1,10 +1,17 @@
+#region
+
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+#endregion
+
+namespace Coal_Minigame
 {
-    private void Start()
+    public class PlayerMovement : MonoBehaviour
     {
-        Debug.Log("12");
-        //fdsfdsdffds
+        private void Start()
+        {
+            Debug.Log("12");
+            //fdsfdsdffds
+        }
     }
 }

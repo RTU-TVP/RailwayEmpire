@@ -1,12 +1,12 @@
+#region
 
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
-using Object = UnityEngine.Object;
 using Random = System.Random;
+
+#endregion
 
 public class RandMats : MonoBehaviour
 
@@ -14,25 +14,25 @@ public class RandMats : MonoBehaviour
     [SerializeField] private GameObject prefab;
     [SerializeField] private Material _material;
     private Object[] _mats = new Object[10];
-    private Random rnd = new Random();
     private List<Object> asd = new List<Object>();
-    private string[] materialNames = new [] { "helmet_02", "Pants_02", "Pants_03" };
+    private string[] materialNames = { "helmet_02", "Pants_02", "Pants_03" };
+    private Random rnd = new Random();
     private void Start()
     {
         _mats = AssetDatabase.LoadAllAssetsAtPath("Assets/Materials/helmet_02.mat");
-        foreach (var mat in _mats)
+        foreach (Object mat in _mats)
         {
             print(mat);
         }
         StartCoroutine(wait());
     }
 
-    IEnumerator wait()
+    private IEnumerator wait()
     {
         while (true)
         {
-            
-            var spawned = Instantiate(prefab);
+
+            GameObject spawned = Instantiate(prefab);
             /*foreach (var x in spawned.GetComponent<Renderer>().materials)
             {
                 print(x);

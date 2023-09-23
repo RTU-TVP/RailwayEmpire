@@ -1,7 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+#region
+
 using UnityEngine;
+
+#endregion
 
 public class Uncover : MonoBehaviour
 {

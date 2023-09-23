@@ -1,23 +1,31 @@
+#region
+
+using Coal_Minigame;
 using TMPro;
 using UnityEngine;
 
-public class ScoreDisplay : MonoBehaviour
+#endregion
+
+namespace UI
 {
-    [SerializeField] private Player _player;
-    [SerializeField] private TextMeshProUGUI _scoreText;
-
-    private void OnEnable()
+    public class ScoreDisplay : MonoBehaviour
     {
-        _player.ScoreChanged += DisplayScore;
-    }
+        [SerializeField] private Player _player;
+        [SerializeField] private TextMeshProUGUI _scoreText;
 
-    private void OnDisable()
-    {
-        _player.ScoreChanged -= DisplayScore;
-    }
+        private void OnEnable()
+        {
+            _player.ScoreChanged += DisplayScore;
+        }
 
-    private void DisplayScore(int score)
-    {
-        _scoreText.text = "" + score;
+        private void OnDisable()
+        {
+            _player.ScoreChanged -= DisplayScore;
+        }
+
+        private void DisplayScore(int score)
+        {
+            _scoreText.text = "" + score;
+        }
     }
 }

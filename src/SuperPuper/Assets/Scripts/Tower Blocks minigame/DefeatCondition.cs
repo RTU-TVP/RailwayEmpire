@@ -1,31 +1,40 @@
-﻿using UnityEngine;
+﻿#region
+
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DefeatCondition : MonoBehaviour {
+#endregion
 
-	private Scene _scene;
-	private MovementSpawn _movementSpawn;
-	
+namespace Tower_Blocks_minigame
+{
+    public class DefeatCondition : MonoBehaviour
+    {
+        private MovementSpawn _movementSpawn;
 
-	void Start ()
-	{
-		_movementSpawn = FindObjectOfType<MovementSpawn>();
-		_scene = SceneManager.GetActiveScene ();
-	}
+        private Scene _scene;
 
-	private void OnTriggerEnter(Collider other)
-	{
-		if (other.CompareTag("StopTrigger"))
-		{
-			//gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-			_movementSpawn.AddScore(1);
-		}
-	}
 
-	void OnCollisionEnter(Collision col)
-	{
-		if (col.gameObject.CompareTag("Floor")) {
-			SceneManager.LoadScene (_scene.name);
-		}
-	}
+        private void Start()
+        {
+            _movementSpawn = FindObjectOfType<MovementSpawn>();
+            _scene = SceneManager.GetActiveScene();
+        }
+
+        private void OnCollisionEnter(Collision col)
+        {
+            if (col.gameObject.CompareTag("Floor"))
+            {
+                SceneManager.LoadScene(_scene.name);
+            }
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("StopTrigger"))
+            {
+                //gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+                _movementSpawn.AddScore(1);
+            }
+        }
+    }
 }

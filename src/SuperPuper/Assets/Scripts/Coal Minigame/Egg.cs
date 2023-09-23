@@ -1,45 +1,56 @@
-using System.Collections;
-using System.Collections.Generic;
+#region
+
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Egg : MonoBehaviour
+#endregion
+
+namespace Coal_Minigame
 {
-    [SerializeField] private float _speed;
-
-    public UnityAction IsDestroyed;
-    public UnityAction IsTaked;
-
-    public float Speed => _speed;
-
-    private Transform _currentPosition;
-
-    public void SetSpeed(float newSpeed)
+    public class Egg : MonoBehaviour
     {
-        _speed = newSpeed;
-    }
+        [SerializeField] private float _speed;
 
-    public void SetEggPosition(Transform position)
-    {
-        _currentPosition = position;
+        private Transform _currentPosition;
 
-        transform.position = _currentPosition.transform.position;
-        transform.rotation = _currentPosition.transform.rotation;
-        transform.localScale = _currentPosition.transform.localScale;
-    }
+        public UnityAction IsDestroyed;
+        public UnityAction IsTaked;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
+        public float Speed
         {
-            IsTaked?.Invoke();
-            Destroy(gameObject);
+            get
+            {
+                return _speed;
+            }
         }
 
-        if (collision.tag == "Floor")
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            IsDestroyed?.Invoke();
-            Destroy(gameObject);
+            if (collision.tag == "Player")
+            {
+                IsTaked?.Invoke();
+                Destroy(gameObject);
+            }
+
+            if (collision.tag == "Floor")
+            {
+                IsDestroyed?.Invoke();
+                Destroy(gameObject);
+            }
+        }
+
+        public void SetSpeed(float newSpeed)
+        {
+            _speed = newSpeed;
+        }
+
+        public void SetEggPosition(Transform position)
+        {
+            _currentPosition = position;
+
+            transform.position = _currentPosition.transform.position;
+            transform.rotation = _currentPosition.transform.rotation;
+            transform.localScale = _currentPosition.transform.localScale;
         }
     }
 }

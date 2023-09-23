@@ -1,18 +1,18 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+#region
+
 using UnityEngine;
-using Random = UnityEngine.Random;
+
+#endregion
 
 public class PipeScript : MonoBehaviour
 {
-    private float[] rotations = { 0, 90, 180, 270 };
     [SerializeField] private PipesGameManager _pipesGameManager;
     [SerializeField] private int[] _correctRotation;
     [SerializeField] private int _currentRotation;
-    [field:SerializeField] public bool IsPlaced { get; private set; } = false;
+    [field: SerializeField] public bool IsPlaced { get; private set; }
+    private readonly float[] rotations = { 0, 90, 180, 270 };
 
-    void Start()
+    private void Start()
     {
         int rand = Random.Range(0, rotations.Length);
         transform.eulerAngles = new Vector3(0, rotations[rand], 0);
@@ -25,9 +25,9 @@ public class PipeScript : MonoBehaviour
                 IsPlaced = true;
                 _pipesGameManager.CorrectMove();
             }
-            
+
         }
-        
+
     }
 
     // Update is called once per frame
@@ -44,13 +44,10 @@ public class PipeScript : MonoBehaviour
                 _pipesGameManager.CorrectMove();
                 break;
             }
-            else
+            if (IsPlaced)
             {
-                if (IsPlaced == true)
-                {
-                    IsPlaced = false;
-                    _pipesGameManager.WrongMove();
-                }
+                IsPlaced = false;
+                _pipesGameManager.WrongMove();
             }
         }
     }
