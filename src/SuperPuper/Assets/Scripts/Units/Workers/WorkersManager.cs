@@ -10,11 +10,25 @@ namespace Units.Workers
 {
     public class WorkersManager : MonoBehaviour
     {
+        public static WorkersManager Instance;
+
         [SerializeField] private WorkersConfiguration _workersConfiguration;
         [SerializeField] private GameObject _workerPrefab;
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private Transform _home;
         [SerializeField] private Transform _shop;
+
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
 
         private void Start()
         {

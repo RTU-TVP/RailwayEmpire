@@ -10,6 +10,8 @@ namespace Units.Train
 {
     public class RailTrackManager : MonoBehaviour
     {
+        public static RailTrackManager Instance;
+        
         [field: SerializeField] public RailwayCarriagesDatabaseScriptableObject railwayCarriagesDatabaseScriptableObject { get; private set; }
         [field: SerializeField] public TrainConfigurationScriptableObject trainConfigurationScriptableObject { get; private set; }
         [field: SerializeField] public RailTrack[] _railTracks { get; private set; }
@@ -17,6 +19,18 @@ namespace Units.Train
 
         public readonly Transform[] _rails = new Transform[4];
         public UnityAction<int> _railTrackEmpty { get; private set; }
+        
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject); 
+            }
+        }
 
         private void Start()
         {
