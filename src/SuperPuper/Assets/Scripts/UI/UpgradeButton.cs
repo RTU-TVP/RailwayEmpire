@@ -30,7 +30,7 @@ namespace UI
         private void Awake()
         {
             currentLevel = 1;
-            MoneyStats.money = 500;
+            MoneyStats.money = 0;
             if (typeOfUpgrade == TypeOfUpgrade.Walkspeed && PlayerPrefs.HasKey(WorkersConstantData.WORKERS_LVL_MOVE_SPEED))
             {
                 currentLevel = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_MOVE_SPEED);
