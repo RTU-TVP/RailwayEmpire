@@ -11,18 +11,22 @@ public class CoalSpawner : MonoBehaviour
     [SerializeField] private Transform _pos3;
     [SerializeField] private Transform _pos4;
     [SerializeField] private GameObject _coal;
+    public bool _canStart;
     private Random rnd = new Random();
     private Vector3 _spawnPosition;
-    private void Start()
+        
+    public void GoGame()
     {
-        StartCoroutine(wait());
+        if (_canStart)
+        {
+            StartCoroutine(wait());
+        }
     }
 
     IEnumerator wait()
     {
         while (true)
         {
-            //int _switch = rnd.Next(0, 4);
             switch (rnd.Next(0, 4))
             {
                 case 0:

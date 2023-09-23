@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -6,18 +7,35 @@ using UnityEngine;
 public class MovementSpawn : MonoBehaviour {
 
 	private bool conditionMovementHorizontal = true;
-	private bool conditionMovementVertical = true;
-	public Camera camaraPrincipal;
+	public Camera cameraPrincipal;
 	private int _score;
+	public GameObject CubePrefab;
+	private bool _canSpawn = true;
+	private float _spawnTimer = 0;
+	public bool _hasStarted;
 	[SerializeField] private TextMeshProUGUI _scoreText;
 
-	void Update () {
+	private void Start()
+	{
+		cameraPrincipal = FindObjectOfType<Camera>();
+	}
 
-		if (Input.GetKeyDown (KeyCode.Space) && conditionMovementVertical) 
+	void Update () 
+	{
+		if (_hasStarted)
 		{
+			Movement();
+			UpdateTime();
+		}
+	}
+
+	private void Movement()
+	{
+		if (Input.GetKeyDown (KeyCode.Space)  && _canSpawn) 
+		{
+			SpawnCube();
 			transform.Translate (new Vector3(0,1.9f,0));
-			camaraPrincipal.transform.Translate (new Vector3(0,1.9f,0));
-			conditionMovementVertical = false;
+			cameraPrincipal.transform.Translate (new Vector3(0,1.9f,0));
 		}
 		if (transform.position.x <= 6 && conditionMovementHorizontal) 
 		{
@@ -35,7 +53,6 @@ public class MovementSpawn : MonoBehaviour {
 				conditionMovementHorizontal = true;
 			}
 		}
-		conditionMovementVertical = true;
 	}
 
 	public void AddScore(int points)
@@ -45,6 +62,24 @@ public class MovementSpawn : MonoBehaviour {
 		if (_score == 10)
 		{
 			print("Winner Winner Chicken Dinner");
+		}
+	}
+
+	private void UpdateTime()
+	{
+		_spawnTimer += Time.deltaTime;
+		if (_spawnTimer >= 1.0f)
+		{
+			_spawnTimer = 0;
+			_canSpawn = true;
+		}
+	}
+
+	private void SpawnCube()
+	{
+		if (Input.GetKeyDown (KeyCode.Space) && _canSpawn) {
+			Instantiate (CubePrefab, transform.position, Quaternion.identity);
+			_canSpawn = false;
 		}
 	}
 }

@@ -19,6 +19,7 @@ public class DefeatCondition : MonoBehaviour {
 		{
 			//gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 			_movementSpawn.AddScore(1);
+			Destroy(other.gameObject);
 		}
 	}
 
