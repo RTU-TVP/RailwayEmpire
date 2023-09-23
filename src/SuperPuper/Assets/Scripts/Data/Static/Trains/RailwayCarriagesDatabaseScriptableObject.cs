@@ -20,7 +20,7 @@ namespace Data.Static.Trains
             _railwayCarriagesDictionary = new Dictionary<RailwayCarriageType, RailwayCarriageScriptableObject>();
             foreach (var railwayCarriage in _railwayCarriages)
             {
-                _railwayCarriagesDictionary.Add(railwayCarriage.RailwayCarriageType, railwayCarriage);
+                _railwayCarriagesDictionary.TryAdd(railwayCarriage.RailwayCarriageType, railwayCarriage);
             }
         }
 
