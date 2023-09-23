@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,11 +15,12 @@ public class SceneController : MonoBehaviour {
     [SerializeField] private GameObject[] childObjects;
 
     [SerializeField] private float _looseTimer;
-    [SerializeField] private float _looseTime;
+    [SerializeField] private TMP_Text _timerUI;
     void FixedUpdate()
     {
-        _looseTimer += Time.deltaTime;
-        if (_looseTimer >= _looseTime){ print("Loose"); FindObjectOfType<MemoGameLoader>().DestroyGame();}
+        _looseTimer -= Time.deltaTime;
+        _timerUI.text = "Осталось времени: "+((int)_looseTimer).ToString();
+        if (_looseTimer <= 0){ print("Loose"); FindObjectOfType<MemoGameLoader>().DestroyGame();}
     }
 
     private void Start()
