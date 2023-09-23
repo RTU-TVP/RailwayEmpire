@@ -148,7 +148,7 @@ Transform:
   m_GameObject: {fileID: 150295073}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -24.25, y: 7.25, z: 18.75}
+  m_LocalPosition: {x: -22.25, y: -4.67, z: 19.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -236,7 +236,7 @@ Transform:
   m_GameObject: {fileID: 1258766253}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 5.37, y: 7.25, z: 21.55}
+  m_LocalPosition: {x: 5.37, y: -4, z: 21.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -287,7 +287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3910367774150029378, guid: 818f304c4e230d844870ea334512eac4, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3910367774150029378, guid: 818f304c4e230d844870ea334512eac4, type: 3}
       propertyPath: m_IsActive
@@ -433,13 +433,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAYIezR020qigEAALMCAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFNUstu4zAM/BXD541hyfGrxw2Knpos4C6w2MuCkelEgCMFerR1gvz7UrZb+yRKwxlySN1jq70R+Ir2HD9F93gPF6QgBuvA/DuCnaAfUfw2XEfkt5JueFYnqTAZsQeBuussuqAQxZ90pPQ20LlJk4zCW3iKQqLRDpzUaknd1F/JY7CkWgF9qMgCDekifA8O99pcoLcEOOORMAHijG3z7eOn9qq1r3JdgxcJq1LGC/7VWF4lecrKgm/nopsqyba8rNlYvNOk1k5SjbzhopWzpGRZWZVslmLpNkkrXlXFrMR5UtRZkeX15OOsP0JfB+96GtrSeAD2usWdVgpFmEpw1ZE5XNEabzoQK5pCMGhdQ4c4H1Q//Pm7oqGCY497eL8Qd+edk+q0cE9etpOVd+j9uE/GeNfxoq4A8EjBBrJKiKxsIWfpUYg8Hl1IWruE/hfp926YV6yvqFaNzX9nLh69GLiOX6c18PEibxe92ppUnW6EQVSHSeTbNxqqQyNvn1vptGlw9BCo8f0RP/4DUEsDBBQAAAgIAAAYIexvUogLbwAAAHsAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSSoaFRWpqRmaVFYmJqEpChm2hskZxsbJ6SaGpokJScbKoUC1RfUlmQ6peYmwrRE5BYkpGWmZeSmZeu55dY5ptanOEOMl0pthYAUEsBAi0AFAAACAgAABgh7NHTbSqKAQAAswIAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAABgh7G9SiAtvAAAAewAAAAkAJAAAAAAAAAAAAAAA1wEAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAACRAgAAAAA=
+    dataString: UEsDBBQAAAgIAAAYIexpCmob2QEAAL0DAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGVU8GO2jAQ/ZUo526VpFDaHptF20OBKtnDalc9DPaQWOvY1LGBBfHvHRunhKqXioOZN/PeeJ4np5S1YIBZNBVw4fr0S5K9z98lKdPKamcWcJgbow3hhUdRylocMZR5YA/yFdYSv6FoWhurBrCUoluH0imhHRxqqbeeO4nxnDf4HVVjW8/MPChUhY3QKnb5QBhyYbV5FBJHoI3h01/xc4xdj57hB7LGISEGJe5A2QcD27Z2ZgMMF5p7wfReL7Wt8JcTBlNfCz1ZQnKlllJwNGOdIbfAvg0NNiD7m8wjGgNC/TNlcHwpFvWrIX+PFoSkgjzYAf0r/T8l6Q6k81e9y5OzHxeaxSX38tOHl4Y1dNsbl4y2YMnNi8bBvwWhb/E8+jPIbbRhyL9qp3hfoiK5/2HEhrE+zwbGZKAQFEh9q/fetZWzUii82uATS3qLUiuFzN947OtAi492pSkEg72t6WDtSsm3p+cRDZVfwiXsOuKWzlqhmiu3cYLfWpuyfP05m32aTicZ0C+/K2ZTgFkBxXo2KYqPkIYphBJWgPxB+tIOztBiq9HFoAuKFTJ62CSsnN8rbmD/II6dHq2AUBtdM1oLtbpo/BmbFgIkecvn4QuoMYzgqenpnJ5/A1BLAwQUAAAICAAAGCHs3swcf24AAAB6AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0UrJhkqWBuYWpqYlBIhAa6hqZmyYmmhslGiWZmxgZmSUqxQLVl1QWpPol5qZC9AQklmSkZealZOal6wWlJicWl7iDDFeKrQUAUEsBAi0AFAAACAgAABgh7GkKahvZAQAAvQMAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAABgh7N7MHH9uAAAAegAAAAkAJAAAAAAAAAAAAAAAJgIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAADfAgAAAAA=
     upgradeData: 
-    file_cachedStartup: {fileID: 0}
+    file_cachedStartup: {fileID: 4900000, guid: 1b211dd969c67454fb3e0d78e7385973, type: 3}
     data_cachedStartup: 
     cacheStartup: 0
   showNavGraphs: 1
-  showUnwalkableNodes: 1
+  showUnwalkableNodes: 0
   debugMode: 0
   debugFloor: 0
   debugRoof: 1
@@ -448,9 +448,9 @@ MonoBehaviour:
   unwalkableNodeDebugSize: 0.3
   logPathResults: 1
   maxNearestNodeDistance: 100
-  scanOnStartup: 1
-  fullGetNearestSearch: 0
-  prioritizeGraphs: 0
+  scanOnStartup: 0
+  fullGetNearestSearch: 1
+  prioritizeGraphs: 1
   prioritizeGraphsLimit: 1
   colorSettings:
     _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
@@ -497,7 +497,7 @@ MonoBehaviour:
   heuristic: 2
   heuristicScale: 1
   threadCount: 1
-  maxFrameTime: 1
+  maxFrameTime: 10
   batchGraphUpdates: 0
   graphUpdateBatchingInterval: 0.2
   euclideanEmbedding:
