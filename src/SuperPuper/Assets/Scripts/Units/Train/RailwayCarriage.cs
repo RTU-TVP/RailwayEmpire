@@ -9,25 +9,26 @@ namespace Train
 {
     static public class RailwayCarriage
     {
-        static public void CreateTrain(RailTrack railTrack, Data.Static.Trains.Train train)
+        static public GameObject CreateTrain(Vector3 startPointPosition, Data.Static.Trains.Train train)
         {
-            if (train == null) return;
+            if (train == null) return null;
 
             int count = train.RailwayCarriages.Length;
             Transform oldParent = new GameObject("Train").transform;
+            oldParent.position = startPointPosition;
 
+            var tempParent = oldParent;
             for (int i = 0; i < count; i++)
             {
-                oldParent = CreateRailwayCarriage(
+                tempParent = CreateRailwayCarriage(
                     train.RailwayCarriages[i].Prefab,
-                    oldParent,
-                    railTrack.StartPoint.position).transform;
+                    tempParent).transform;
             }
 
-            railTrack.SetOccupied(true);
+            return oldParent.gameObject;
         }
 
-        private static GameObject CreateRailwayCarriage(GameObject prefab, Transform parent, Vector3 startPosition)
+        private static GameObject CreateRailwayCarriage(GameObject prefab, Transform parent, Vector3 startPosition = default)
         {
             GameObject railwayCarriage = Object.Instantiate(prefab, startPosition, Quaternion.identity, parent);
             railwayCarriage.transform.localPosition = new Vector3(

@@ -29,13 +29,14 @@ namespace Train
             if (_trains.Count == 0) return;
             Data.Static.Trains.Train train = _trains[0];
 
-            RailwayCarriage.CreateTrain(_railTracks[index], train);
+            _railTracks[index].SetOccupied(true);
+            _railsStart[index] = RailwayCarriage.CreateTrain(_railTracks[index].StartPoint.position, train).transform;
             _trains.RemoveAt(0);
 
             StartCoroutine(
                 TrainMovement.MoveTrain(
                     _railsStart[index],
-                    _railTracks[index].EndPoint,
+                    _railTracks[index].StopPoint.position,
                     _trainConfiguration.Speed));
         }
 

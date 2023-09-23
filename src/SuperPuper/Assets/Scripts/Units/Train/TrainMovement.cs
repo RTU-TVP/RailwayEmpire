@@ -9,12 +9,11 @@ namespace Train
 {
     static public class TrainMovement
     {
-        static public IEnumerator MoveTrain(Transform train, Transform endPoint, float speed)
+        static public IEnumerator MoveTrain(Transform train, Vector3 stopPointPosition, float speed)
         {
             Vector3 startPosition = train.position;
-            Vector3 endPosition = endPoint.position;
 
-            float journeyLength = Vector3.Distance(startPosition, endPosition);
+            float journeyLength = Vector3.Distance(startPosition, stopPointPosition);
             float journeyTime = journeyLength / speed;
 
             float startTime = Time.time;
@@ -23,7 +22,7 @@ namespace Train
             while (distanceCovered < journeyLength)
             {
                 float distanceFraction = (Time.time - startTime) / journeyTime;
-                train.position = Vector3.Lerp(startPosition, endPosition, distanceFraction);
+                train.position = Vector3.Lerp(startPosition, stopPointPosition, distanceFraction);
                 distanceCovered = distanceFraction * journeyLength;
                 yield return null;
             }
