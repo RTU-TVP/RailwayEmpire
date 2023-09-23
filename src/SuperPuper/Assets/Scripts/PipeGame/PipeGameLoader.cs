@@ -7,9 +7,10 @@ using UnityEngine.UI;
 public class PipeGameLoader : MonoBehaviour
 {
     [SerializeField] private Button _button;
+    [Header("Prefab PipeGame")]
     [SerializeField] private GameObject _gamePrefab;
 
-    [Header("Позиция y относительно земли ~5,5")]
+    [Header("Позиция относительно земли ~5,5")]
     [SerializeField] private Vector3 _position = new Vector3(0, 5.5f, 0);
 
     private GameObject InstObject;

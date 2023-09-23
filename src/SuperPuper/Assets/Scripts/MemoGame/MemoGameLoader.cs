@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MemoGameLoader : MonoBehaviour
 {
     [SerializeField] private Button _button;
+    [Header("Prefab MemoGame")]
     [SerializeField] private GameObject _gamePrefab;
 
     [SerializeField] private Vector3 _position = new Vector3(0, 5.5f, 0);
