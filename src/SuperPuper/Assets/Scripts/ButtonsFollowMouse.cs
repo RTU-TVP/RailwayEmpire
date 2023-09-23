@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ButtonsFollowMouse : MonoBehaviour
 {
-    Camera cam;
+    UnityEngine.Camera cam;
     void Start()
     {
-        cam = Camera.main;
+        cam = UnityEngine.Camera.main;
     }
 
     void Update()

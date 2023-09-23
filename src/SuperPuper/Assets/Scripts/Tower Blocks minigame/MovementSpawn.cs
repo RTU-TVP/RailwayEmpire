@@ -7,7 +7,7 @@ public class MovementSpawn : MonoBehaviour {
 
 	private bool conditionMovementHorizontal = true;
 	private bool conditionMovementVertical = true;
-	public Camera camaraPrincipal;
+	public UnityEngine.Camera camaraPrincipal;
 	private int _score;
 	[SerializeField] private TextMeshProUGUI _scoreText;
 
