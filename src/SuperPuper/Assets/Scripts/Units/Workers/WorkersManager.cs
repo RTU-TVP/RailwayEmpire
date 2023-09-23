@@ -24,6 +24,8 @@ namespace Workers
                 _home,
                 _shop,
                 () => Debug.Log("Work done!"),
+                () => Debug.Log("Sale done!"),
+                () => Debug.Log("Home done!"),
                 _workersConfiguration.MoveSpeedDefault + moveSpeedLvl * _workersConfiguration.MoveSpeedDefault * 0.01f,
                 _workersConfiguration.WorkTimeDefault - workTimeLvl * _workersConfiguration.WorkTimeDefault * 0.01f,
                 _workersConfiguration.SaleTimeDefault - saleTimeLvl * _workersConfiguration.SaleTimeDefault * 0.01f);

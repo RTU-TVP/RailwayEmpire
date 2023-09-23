@@ -14,7 +14,8 @@ namespace Workers
         private StateMachine _stateMachine;
 
         public void SetUp(Transform workTransform, Transform homeTransform, Transform shopTransform,
-            UnityAction onWorkDone, float moveSpeed, float workTime, float saleTime)
+            UnityAction onWorkDone, UnityAction onSaleDone, UnityAction onHomeDone,
+            float moveSpeed, float workTime, float saleTime)
         {
             var isWorkDone = false;
             var isSaleDone = false;
@@ -41,13 +42,13 @@ namespace Workers
             });
             At(work, move, () =>
             {
-                if (_navMeshAgent.remainingDistance > 0.5f || isWorkDone == true) return false;
+                if (_navMeshAgent.remainingDistance > 0.5f && isWorkDone == false && isSaleDone == false) return false;
 
                 return true;
             });
             At(sellingResources, move, () =>
             {
-                if (_navMeshAgent.remainingDistance > 0.5f || isWorkDone == false) return false;
+                if (_navMeshAgent.remainingDistance > 0.5f && isWorkDone == true && isSaleDone == false) return false;
 
                 return true;
             });
@@ -56,7 +57,15 @@ namespace Workers
                 if (!(sellingResources.SaleTime <= 0f)) return false;
 
                 move.SetTarget(homeTransform);
+                onSaleDone?.Invoke();
                 isSaleDone = true;
+                return true;
+            });
+            At(move, null, () =>
+            {
+                if (_navMeshAgent.remainingDistance > 0.5f && isWorkDone == true && isSaleDone == true) return false;
+
+                onHomeDone?.Invoke();
                 return true;
             });
 
