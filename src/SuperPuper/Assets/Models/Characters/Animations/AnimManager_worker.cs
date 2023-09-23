@@ -9,12 +9,6 @@ public class AnimManager_worker : MonoBehaviour
     [SerializeField] private Animator _animator;
     public readonly string[] AnimStates = new string[4] { "Idle", "Working", "Moving", "Happy" };
 
-    private void Start()
-    {
-        SwitchAnimationState(AnimStates[0]);
-        StartCoroutine(TestCaroutine());
-    }
-
     public void SwitchAnimationState(string toState)
     {
         foreach (string stateName in AnimStates)
@@ -50,15 +44,5 @@ public class AnimManager_worker : MonoBehaviour
         {
             _animator.SetFloat("Moving_Blend", blendFactor);
         }
-    }
-
-    private IEnumerator TestCaroutine()
-    {
-        yield return new WaitForSeconds(5f);
-        SwitchAnimationState(AnimStates[1]);
-        yield return new WaitForSeconds(5f);
-        SwitchAnimationState(AnimStates[0]);
-        yield return new WaitForSeconds(5f);
-        SwitchAnimationState(AnimStates[2]);
     }
 }
