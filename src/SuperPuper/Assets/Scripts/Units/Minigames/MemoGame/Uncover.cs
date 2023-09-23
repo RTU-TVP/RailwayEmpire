@@ -4,7 +4,7 @@ using UnityEngine;
 
 #endregion
 
-namespace Minigames.MemoGame
+namespace Units.Minigames.MemoGame
 {
     public class Uncover : MonoBehaviour
     {

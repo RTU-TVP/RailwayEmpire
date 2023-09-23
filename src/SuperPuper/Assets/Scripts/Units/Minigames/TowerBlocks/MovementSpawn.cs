@@ -5,7 +5,7 @@ using UnityEngine;
 
 #endregion
 
-namespace Minigames.TowerBlocks
+namespace Units.Minigames.TowerBlocks
 {
     public class MovementSpawn : MonoBehaviour
     {

@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 #endregion
 
-namespace Interactive
+namespace Units.Interactive
 {
     [RequireComponent(typeof(Collider))]
     public class InteractiveObject : MonoBehaviour

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ScenesManagers.MainGame
+namespace Units.ScenesManagers.MainGame
 {
     public class MainGameManager : MonoBehaviour
     {

@@ -1,14 +1,13 @@
 #region
 
 using System.Collections;
-using Data.Static;
 using Data.Static.Camera;
 using Services.Input;
 using UnityEngine;
 
 #endregion
 
-namespace Camera
+namespace Units.Camera
 {
     public class CameraMovement : MonoBehaviour
     {

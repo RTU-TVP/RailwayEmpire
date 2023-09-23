@@ -6,10 +6,13 @@ using UnityEngine;
 
 #endregion
 
-public class MoneyCount : MonoBehaviour
+namespace UI
 {
-    private void Update()
+    public class MoneyCount : MonoBehaviour
     {
-        gameObject.GetComponent<TextMeshProUGUI>().text = Convert.ToString(MoneyAndUpgradesStats.money);
+        private void Update()
+        {
+            gameObject.GetComponent<TextMeshProUGUI>().text = Convert.ToString(MoneyAndUpgradesStats.money);
+        }
     }
 }

@@ -4,18 +4,21 @@ using UnityEngine;
 
 #endregion
 
-public class VagonMenuButtons : MonoBehaviour
+namespace UI
 {
-    public void ButtonDoMyself()
+    public class VagonMenuButtons : MonoBehaviour
     {
-        Debug.Log("Я сам разгружу вагон!");
-    }
-    public void ButtonCallWorkers()
-    {
-        Debug.Log("Я позову рабочих!");
-    }
-    public void UnloadVagon()
-    {
-        Debug.Log("Разгрузка Вагона!");
+        public void ButtonDoMyself()
+        {
+            Debug.Log("Я сам разгружу вагон!");
+        }
+        public void ButtonCallWorkers()
+        {
+            Debug.Log("Я позову рабочих!");
+        }
+        public void UnloadVagon()
+        {
+            Debug.Log("Разгрузка Вагона!");
+        }
     }
 }

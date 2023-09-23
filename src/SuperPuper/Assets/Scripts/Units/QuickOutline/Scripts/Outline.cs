@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace QuickOutline.Scripts
+namespace Units.QuickOutline.Scripts
 {
   [DisallowMultipleComponent]
 

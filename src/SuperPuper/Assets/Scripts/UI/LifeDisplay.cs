@@ -1,7 +1,7 @@
 #region
 
-using Minigames.Coal;
 using TMPro;
+using Units.Minigames.Coal;
 using UnityEngine;
 
 #endregion

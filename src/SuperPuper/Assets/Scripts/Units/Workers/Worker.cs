@@ -1,15 +1,15 @@
 #region
 
 using System;
+using Units.Workers.State_Machine;
+using Units.Workers.States;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
-using Workers.State_Machine;
-using Workers.States;
 
 #endregion
 
-namespace Workers
+namespace Units.Workers
 {
     public class Worker : MonoBehaviour
     {

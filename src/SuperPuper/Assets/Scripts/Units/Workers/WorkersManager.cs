@@ -6,7 +6,7 @@ using UnityEngine;
 
 #endregion
 
-namespace Workers
+namespace Units.Workers
 {
     public class WorkersManager : MonoBehaviour
     {

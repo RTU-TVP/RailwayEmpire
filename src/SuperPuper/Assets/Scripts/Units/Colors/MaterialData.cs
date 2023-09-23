@@ -5,7 +5,7 @@ using UnityEngine;
 
 #endregion
 
-namespace Colors
+namespace Units.Colors
 {
     [Serializable]
     public class MaterialData

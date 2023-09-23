@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Units.Minigames.Coal;
+using Units.Minigames.TowerBlocks;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;

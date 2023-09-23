@@ -1,14 +1,12 @@
 #region
 
-using System.Collections.Generic;
 using Data.Static.Trains;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 #endregion
 
-namespace Train
+namespace Units.Train
 {
     public class RailTrackManager : MonoBehaviour
     {

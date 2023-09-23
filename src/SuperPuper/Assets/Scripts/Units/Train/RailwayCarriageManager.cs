@@ -1,10 +1,9 @@
-﻿using System;
-using Data.Static.Trains;
-using Interactive;
-using QuickOutline.Scripts;
+﻿using Data.Static.Trains;
+using Units.Interactive;
+using Units.QuickOutline.Scripts;
 using UnityEngine;
 
-namespace Train
+namespace Units.Train
 {
     public class RailwayCarriageManager : MonoBehaviour
     {

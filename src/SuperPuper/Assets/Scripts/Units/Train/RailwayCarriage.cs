@@ -1,12 +1,11 @@
 #region
 
 using Data.Static.Trains;
-using Interactive;
 using UnityEngine;
 
 #endregion
 
-namespace Train
+namespace Units.Train
 {
     static public class RailwayCarriage
     {

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 #endregion
 
-namespace Minigames.MemoGame
+namespace Units.Minigames.MemoGame
 {
     public class SceneController : MonoBehaviour
     {

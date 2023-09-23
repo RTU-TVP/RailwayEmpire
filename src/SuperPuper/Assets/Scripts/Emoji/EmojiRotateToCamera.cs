@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class EmojiRotateToCamera : MonoBehaviour
+namespace Emoji
 {
-    void Update()
+    public class EmojiRotateToCamera : MonoBehaviour
     {
-        transform.LookAt(UnityEngine.Camera.main.transform);
+        void Update()
+        {
+            transform.LookAt(UnityEngine.Camera.main.transform);
+        }
     }
 }

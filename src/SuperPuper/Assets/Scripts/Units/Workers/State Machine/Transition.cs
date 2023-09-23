@@ -4,7 +4,7 @@ using System;
 
 #endregion
 
-namespace Workers.State_Machine
+namespace Units.Workers.State_Machine
 {
     public class Transition
     {

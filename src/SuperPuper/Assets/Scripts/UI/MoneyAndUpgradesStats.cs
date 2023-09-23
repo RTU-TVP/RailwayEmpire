@@ -1,7 +1,10 @@
-static public class MoneyAndUpgradesStats
+namespace UI
 {
-    static public int money = 500;
-    static public int levelWalkSpeed;
-    static public int levelUnloadSpeed;
-    static public int levelSellSpeed;
+    static public class MoneyAndUpgradesStats
+    {
+        static public int money = 500;
+        static public int levelWalkSpeed;
+        static public int levelUnloadSpeed;
+        static public int levelSellSpeed;
+    }
 }

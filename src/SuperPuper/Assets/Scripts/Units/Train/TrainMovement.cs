@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 #endregion
 
-namespace Train
+namespace Units.Train
 {
     static public class TrainMovement
     {

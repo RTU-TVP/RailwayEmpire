@@ -4,7 +4,7 @@ using UnityEngine;
 
 #endregion
 
-namespace Minigames.Coal
+namespace Units.Minigames.Coal
 {
     [RequireComponent(typeof(Rigidbody))]
     public class CustomGravity : MonoBehaviour

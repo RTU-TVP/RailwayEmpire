@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 #endregion
 
-namespace Minigames.TowerBlocks
+namespace Units.Minigames.TowerBlocks
 {
     public class DefeatCondition : MonoBehaviour
     {

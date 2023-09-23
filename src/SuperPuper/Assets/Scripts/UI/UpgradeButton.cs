@@ -8,70 +8,73 @@ using UnityEngine.UI;
 
 #endregion
 
-public class UpgradeButton : MonoBehaviour
+namespace UI
 {
-    public enum TypeOfUpgrade
+    public class UpgradeButton : MonoBehaviour
     {
-        Walkspeed,
-        UnloadSpeed,
-        SellSpeed
-    }
-    [SerializeField]
-    private GameObject _levelText;
-    [SerializeField]
-    private GameObject _nextLvlPriceText;
-    [SerializeField]
-    private TypeOfUpgrade typeOfUpgrade;
-    [SerializeField] private List<int> _costsPerLevel = new List<int>();
-    private int currentLevel;
-    private void Start()
-    {
-        currentLevel = 1;
-    }
-    private void Update()
-    {
-        if (currentLevel < _costsPerLevel.Count)
+        public enum TypeOfUpgrade
         {
-            _nextLvlPriceText.GetComponent<TextMeshProUGUI>().text = Convert.ToString(_costsPerLevel[currentLevel]);
+            Walkspeed,
+            UnloadSpeed,
+            SellSpeed
         }
-        else
+        [SerializeField]
+        private GameObject _levelText;
+        [SerializeField]
+        private GameObject _nextLvlPriceText;
+        [SerializeField]
+        private TypeOfUpgrade typeOfUpgrade;
+        [SerializeField] private List<int> _costsPerLevel = new List<int>();
+        private int currentLevel;
+        private void Start()
         {
-            _nextLvlPriceText.GetComponent<TextMeshProUGUI>().text = "None";
+            currentLevel = 1;
         }
-        _levelText.GetComponent<TextMeshProUGUI>().text = Convert.ToString(currentLevel);
-        if (currentLevel < _costsPerLevel.Count && MoneyAndUpgradesStats.money >= _costsPerLevel[currentLevel])
+        private void Update()
         {
-            gameObject.GetComponent<Button>().interactable = true;
-        }
-        else
-        {
-            gameObject.GetComponent<Button>().interactable = false;
-        }
-    }
-    public void OnClickEvent()
-    {
-        if (currentLevel < _costsPerLevel.Count)
-        {
-            currentLevel++;
-            if (typeOfUpgrade == TypeOfUpgrade.Walkspeed)
+            if (currentLevel < _costsPerLevel.Count)
             {
-                MoneyAndUpgradesStats.levelWalkSpeed = currentLevel;
+                _nextLvlPriceText.GetComponent<TextMeshProUGUI>().text = Convert.ToString(_costsPerLevel[currentLevel]);
             }
             else
             {
-                if (typeOfUpgrade == TypeOfUpgrade.UnloadSpeed)
+                _nextLvlPriceText.GetComponent<TextMeshProUGUI>().text = "None";
+            }
+            _levelText.GetComponent<TextMeshProUGUI>().text = Convert.ToString(currentLevel);
+            if (currentLevel < _costsPerLevel.Count && MoneyAndUpgradesStats.money >= _costsPerLevel[currentLevel])
+            {
+                gameObject.GetComponent<Button>().interactable = true;
+            }
+            else
+            {
+                gameObject.GetComponent<Button>().interactable = false;
+            }
+        }
+        public void OnClickEvent()
+        {
+            if (currentLevel < _costsPerLevel.Count)
+            {
+                currentLevel++;
+                if (typeOfUpgrade == TypeOfUpgrade.Walkspeed)
                 {
-                    MoneyAndUpgradesStats.levelUnloadSpeed = currentLevel;
+                    MoneyAndUpgradesStats.levelWalkSpeed = currentLevel;
                 }
                 else
                 {
-                    if (typeOfUpgrade == TypeOfUpgrade.SellSpeed)
+                    if (typeOfUpgrade == TypeOfUpgrade.UnloadSpeed)
                     {
-                        MoneyAndUpgradesStats.levelSellSpeed = currentLevel;
+                        MoneyAndUpgradesStats.levelUnloadSpeed = currentLevel;
+                    }
+                    else
+                    {
+                        if (typeOfUpgrade == TypeOfUpgrade.SellSpeed)
+                        {
+                            MoneyAndUpgradesStats.levelSellSpeed = currentLevel;
+                        }
                     }
                 }
+                MoneyAndUpgradesStats.money -= _costsPerLevel[currentLevel - 1];
             }
-            MoneyAndUpgradesStats.money -= _costsPerLevel[currentLevel - 1];
         }
     }
 }

@@ -1,12 +1,12 @@
 #region
 
+using Units.Workers.State_Machine;
 using UnityEngine;
 using UnityEngine.AI;
-using Workers.State_Machine;
 
 #endregion
 
-namespace Workers.States
+namespace Units.Workers.States
 {
     public class Move : IState
     {

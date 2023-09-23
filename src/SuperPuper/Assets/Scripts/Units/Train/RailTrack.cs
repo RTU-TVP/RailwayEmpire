@@ -4,7 +4,7 @@ using UnityEngine;
 
 #endregion
 
-namespace Train
+namespace Units.Train
 {
     public class RailTrack : MonoBehaviour
     {
