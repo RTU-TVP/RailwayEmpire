@@ -6,10 +6,11 @@ using UnityEngine;
 public class Coal : MonoBehaviour
 {
     private PlayerController _player;
-    public float _speed;
+    private CoalSpawner _coalSpawner;
     private void Start()
     {
         _player = FindObjectOfType<PlayerController>();
+        _coalSpawner = FindObjectOfType<CoalSpawner>();
     }
     
     private void OnCollisionEnter(Collision collision)
@@ -22,6 +23,11 @@ public class Coal : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
+            if (_player.time >= .2f)
+            {
+                _player.time -= .05f;
+            }
+            _coalSpawner.waitTime -= .1f;
             _player.AddScore(1);
             Destroy(gameObject);
         }
