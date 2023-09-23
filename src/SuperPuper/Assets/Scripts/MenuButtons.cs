@@ -9,11 +9,10 @@ using UnityEngine.UI;
 
 public class MenuButtons : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject _progressBar;
-    public void StartLevel()
-    {
 
+    [SerializeField] GameObject _progressBar;
+    public void NewGame()
+    {
         _progressBar.SetActive(true);
         StartCoroutine(GameSceneStarter("GameTestScene"));
         gameObject.SetActive(false);
@@ -32,5 +31,9 @@ public class MenuButtons : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+    public void ContinueGame()
+    {
+        Debug.Log("Continue");
     }
 }
