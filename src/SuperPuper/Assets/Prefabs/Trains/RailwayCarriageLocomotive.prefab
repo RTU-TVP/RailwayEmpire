@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2468850311641475608}
+  - component: {fileID: 3821261331875527296}
+  - component: {fileID: 1007791350559800405}
   m_Layer: 0
   m_Name: RailwayCarriageLocomotive
   m_TagString: Untagged
@@ -32,6 +34,41 @@ Transform:
   - {fileID: 3050557733266124064}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3821261331875527296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2259460985200945643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b99e0ff13b742b081f57f3961eab844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _railwayCarriageScriptableObject: {fileID: 11400000, guid: d3c9240bebddafc4d815562ecf41b202, type: 2}
+  _trainConfigurationScriptableObject: {fileID: 11400000, guid: cdc0449f504c1194d97882758fc929d5, type: 2}
+--- !u!65 &1007791350559800405
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2259460985200945643}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 5, z: 16.5}
+  m_Center: {x: 0, y: 3, z: 0}
 --- !u!1 &7143593139047909218
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +80,6 @@ GameObject:
   - component: {fileID: 3050557733266124064}
   - component: {fileID: 8132440706072151954}
   - component: {fileID: 1592799564022374861}
-  - component: {fileID: 3172243453129253849}
   m_Layer: 0
   m_Name: carriage_locomotive
   m_TagString: Untagged
@@ -122,24 +158,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3172243453129253849
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7143593139047909218}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.05400528, y: 0.2319464, z: 0.07681713}
-  m_Center: {x: -0.000000014901161, y: 0, z: 0.044583913}

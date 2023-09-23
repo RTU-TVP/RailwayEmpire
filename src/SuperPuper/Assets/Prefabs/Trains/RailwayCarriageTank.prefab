@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 8485956954649062556}
   - component: {fileID: 6624197588651450546}
   - component: {fileID: 1578018365417216379}
-  - component: {fileID: 8649362241697560197}
-  - component: {fileID: 1875024546818718776}
   m_Layer: 0
   m_Name: tank
   m_TagString: Untagged
@@ -93,39 +91,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8649362241697560197
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419121895941201278}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.050604552, y: 0.16183949, z: 0.05498023}
-  m_Center: {x: 0, y: 0, z: 0.047486898}
---- !u!114 &1875024546818718776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1419121895941201278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4485e100ccd74fc1bc34e5ba69290aaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1476824839221117997
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,6 +100,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7899305782634729762}
+  - component: {fileID: 7842709533748741975}
+  - component: {fileID: -9192290645788464847}
   m_Layer: 0
   m_Name: RailwayCarriageTank
   m_TagString: Untagged
@@ -159,6 +126,41 @@ Transform:
   - {fileID: 3164920335749625121}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7842709533748741975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476824839221117997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b99e0ff13b742b081f57f3961eab844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _railwayCarriageScriptableObject: {fileID: 11400000, guid: 3813ec87da7a5014c9689bb6e800d2dd, type: 2}
+  _trainConfigurationScriptableObject: {fileID: 11400000, guid: cdc0449f504c1194d97882758fc929d5, type: 2}
+--- !u!65 &-9192290645788464847
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476824839221117997}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 5, z: 16.5}
+  m_Center: {x: 0, y: 3, z: 0}
 --- !u!1 &2599799916271777118
 GameObject:
   m_ObjectHideFlags: 0

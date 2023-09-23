@@ -4,7 +4,7 @@ using UnityEngine;
 
 #endregion
 
-namespace Data.Static
+namespace Data.Static.Camera
 {
     [CreateAssetMenu(fileName = "CameraMovementRestriction", menuName = "Data/Static/CameraMovementRestriction")]
     public class CameraMovementRestriction : ScriptableObject

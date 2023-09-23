@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4394164205921548614}
   - component: {fileID: 7227205038875430735}
   - component: {fileID: 6927566780806092419}
-  - component: {fileID: 212293145356037979}
   m_Layer: 0
   m_Name: carriage_base
   m_TagString: Untagged
@@ -87,27 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &212293145356037979
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 432362464058129324}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.04495712, y: 0.16443375, z: 0.022722196}
-  m_Center: {x: 5.820766e-10, y: 0, z: 0.017536439}
 --- !u!1 &661549952779851039
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,6 +95,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7379157961660151036}
+  - component: {fileID: 1759600354919703832}
+  - component: {fileID: 4304815103478502544}
   m_Layer: 0
   m_Name: RailwayCarriageCoal1
   m_TagString: Untagged
@@ -141,6 +121,41 @@ Transform:
   - {fileID: 4394164205921548614}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1759600354919703832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661549952779851039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b99e0ff13b742b081f57f3961eab844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _railwayCarriageScriptableObject: {fileID: 11400000, guid: 13e6bada52606f542a2f2c8600ca851b, type: 2}
+  _trainConfigurationScriptableObject: {fileID: 11400000, guid: cdc0449f504c1194d97882758fc929d5, type: 2}
+--- !u!65 &4304815103478502544
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661549952779851039}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 5, z: 16.5}
+  m_Center: {x: 0, y: 3, z: 0}
 --- !u!1 &3245904775150668769
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,8 +167,6 @@ GameObject:
   - component: {fileID: 3395480208754405897}
   - component: {fileID: 8610202970866245238}
   - component: {fileID: 7236640562377534590}
-  - component: {fileID: 2088459934712873913}
-  - component: {fileID: 5155252028695547923}
   m_Layer: 0
   m_Name: coal1
   m_TagString: Untagged
@@ -228,36 +241,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2088459934712873913
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3245904775150668769}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.05338928, y: 0.16272527, z: 0.035064444}
-  m_Center: {x: 0.000000027939677, y: 0.00000009313224, z: 0.04436136}
---- !u!114 &5155252028695547923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3245904775150668769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4485e100ccd74fc1bc34e5ba69290aaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
