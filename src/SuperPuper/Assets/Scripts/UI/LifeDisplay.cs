@@ -1,23 +1,31 @@
+#region
+
+using Coal_Minigame;
 using TMPro;
 using UnityEngine;
 
-public class LifeDisplay : MonoBehaviour
+#endregion
+
+namespace UI
 {
-    [SerializeField] private Player _player;
-    [SerializeField] private TextMeshProUGUI _lifeText;
-
-    private void OnEnable()
+    public class LifeDisplay : MonoBehaviour
     {
-        _player.HealthChanged += DisplayHealth;
-    }
+        [SerializeField] private Player _player;
+        [SerializeField] private TextMeshProUGUI _lifeText;
 
-    private void OnDisable()
-    {
-        _player.HealthChanged -= DisplayHealth;
-    }
+        private void OnEnable()
+        {
+            _player.HealthChanged += DisplayHealth;
+        }
 
-    private void DisplayHealth(int count)
-    {
-        _lifeText.text = "x" + count;
+        private void OnDisable()
+        {
+            _player.HealthChanged -= DisplayHealth;
+        }
+
+        private void DisplayHealth(int count)
+        {
+            _lifeText.text = "x" + count;
+        }
     }
 }

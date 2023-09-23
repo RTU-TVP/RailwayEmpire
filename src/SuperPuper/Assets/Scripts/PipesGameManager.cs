@@ -1,14 +1,15 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+#region
+
 using UnityEngine;
+
+#endregion
 
 public class PipesGameManager : MonoBehaviour
 {
     [SerializeField] private GameObject _pipesHold;
     [SerializeField] private int _correctPipesCount;
-    [SerializeField] private int _totalPipes = 0;
-    void OnEnable()
+    [SerializeField] private int _totalPipes;
+    private void OnEnable()
     {
         _totalPipes = _pipesHold.transform.childCount;
         _correctPipesCount = 0;
@@ -24,7 +25,7 @@ public class PipesGameManager : MonoBehaviour
     }
 
     public void WrongMove()
-    {        
+    {
         _correctPipesCount--;
     }
 }

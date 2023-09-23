@@ -1,6 +1,10 @@
+#region
+
 using Data.Constant;
 using Data.Static.Workers;
 using UnityEngine;
+
+#endregion
 
 namespace Workers
 {
@@ -14,11 +18,11 @@ namespace Workers
 
         private void CreateWorker(Transform work)
         {
-            var moveSpeedLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_MOVE_SPEED);
-            var workTimeLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_WORK_TIME);
-            var saleTimeLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_SALE_TIME);
+            int moveSpeedLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_MOVE_SPEED);
+            int workTimeLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_WORK_TIME);
+            int saleTimeLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_SALE_TIME);
 
-            var worker = Instantiate(_workerPrefab, _spawnPoint.position, Quaternion.identity);
+            GameObject worker = Instantiate(_workerPrefab, _spawnPoint.position, Quaternion.identity);
             worker.GetComponent<Worker>().SetUp(
                 work,
                 _home,

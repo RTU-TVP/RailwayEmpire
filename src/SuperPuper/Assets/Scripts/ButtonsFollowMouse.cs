@@ -1,16 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+#region
+
 using UnityEngine;
+
+#endregion
 
 public class ButtonsFollowMouse : MonoBehaviour
 {
-    UnityEngine.Camera cam;
-    void Start()
+    private UnityEngine.Camera cam;
+    private void Start()
     {
         cam = UnityEngine.Camera.main;
     }
 
-    void Update()
+    private void Update()
     {
         if (ChosenVagonInfo.isVagonChosen)
         {

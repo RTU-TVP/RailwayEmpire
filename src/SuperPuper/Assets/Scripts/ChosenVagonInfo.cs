@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+#region
+
 using UnityEngine;
 
-public static class ChosenVagonInfo
+#endregion
+
+static public class ChosenVagonInfo
 {
-    public static GameObject vagonData;
-    public static bool isVagonChosen = false;
-    public static void ChooseVagon(GameObject vagon)
+    static public GameObject vagonData;
+    static public bool isVagonChosen;
+    static public void ChooseVagon(GameObject vagon)
     {
         isVagonChosen = true;
         vagonData = vagon;
     }
-    public static void StopChoosingVagon()
+    static public void StopChoosingVagon()
     {
         isVagonChosen = false;
     }

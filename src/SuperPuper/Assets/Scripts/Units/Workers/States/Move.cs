@@ -1,7 +1,10 @@
+#region
+
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Events;
 using Workers.State_Machine;
+
+#endregion
 
 namespace Workers.States
 {
@@ -15,8 +18,8 @@ namespace Workers.States
         }
 
         private static readonly int _IsMoving = Animator.StringToHash("isMoving");
-        private readonly NavMeshAgent _navMeshAgent;
         private readonly Animator _animator;
+        private readonly NavMeshAgent _navMeshAgent;
         private readonly float _speed;
         private Transform _target;
 
@@ -36,7 +39,10 @@ namespace Workers.States
             _animator.SetBool(_IsMoving, false);
         }
 
-        public void SetTarget(Transform target) => _target = target;
+        public void SetTarget(Transform target)
+        {
+            _target = target;
+        }
     }
 
 }
