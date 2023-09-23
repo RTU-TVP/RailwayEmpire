@@ -2,6 +2,7 @@
 
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 #endregion
 
@@ -9,7 +10,7 @@ namespace Train
 {
     static public class TrainMovement
     {
-        static public IEnumerator MoveTrain(Transform train, Vector3 stopPointPosition, float speed)
+        static public IEnumerator MoveTrain(Transform train, Vector3 stopPointPosition, float speed, UnityAction onTrainArrived = null)
         {
             Vector3 startPosition = train.position;
 
@@ -26,6 +27,8 @@ namespace Train
                 distanceCovered = distanceFraction * journeyLength;
                 yield return null;
             }
+            
+            onTrainArrived?.Invoke();
         }
     }
 }
