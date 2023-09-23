@@ -14,5 +14,8 @@ namespace Data.Static
         [field: SerializeField] public float MinZoom { get; private set; }
         [field: SerializeField] public float MaxZoom { get; private set; }
         [field: SerializeField] public float Speed { get; private set; }
+        [field: SerializeField] public float ZoomSpeed { get; private set; }
+        [SerializeField] private Vector3 _rotation;
+        [field: SerializeField] public Quaternion Rotation => Quaternion.Euler(_rotation);
     }
 }
