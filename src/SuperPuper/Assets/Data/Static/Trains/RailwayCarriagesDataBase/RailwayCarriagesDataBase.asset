@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _railwayCarriages:
   - {fileID: 11400000, guid: 13e6bada52606f542a2f2c8600ca851b, type: 2}
-  - {fileID: 11400000, guid: 34f24d1071c07dd42840f228a69193c9, type: 2}
+  - {fileID: 11400000, guid: 70ed84b610a96254b89cbb2d4b0d0b6b, type: 2}
   - {fileID: 11400000, guid: 958ba05d60129da4f8ba0639794ae124, type: 2}
   - {fileID: 11400000, guid: dfc0e195a15069942afc5837dbd3bbc7, type: 2}
   - {fileID: 11400000, guid: d3c9240bebddafc4d815562ecf41b202, type: 2}

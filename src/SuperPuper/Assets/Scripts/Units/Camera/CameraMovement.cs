@@ -50,7 +50,7 @@ namespace Units.Camera
             while (true)
             {
                 Vector3 targetPosition = _targetTransform.position;
-                Vector3 targetPositionNew = targetPosition + new Vector3(_movementInput.x, 0f, _movementInput.y);
+                Vector3 targetPositionNew = targetPosition + new Vector3(_movementInput.x, 0, _movementInput.y);
 
                 targetPositionNew.x = Mathf.Clamp(
                     targetPositionNew.x,
@@ -61,6 +61,11 @@ namespace Units.Camera
                     targetPositionNew.y,
                     _cameraMovementRestriction.MinPosition.y,
                     _cameraMovementRestriction.MaxPosition.y);
+
+                targetPositionNew.z = Mathf.Clamp(
+                    targetPositionNew.z,
+                    _cameraMovementRestriction.MinPosition.z,
+                    _cameraMovementRestriction.MaxPosition.z);
 
                 Vector3 smoothedPosition = Vector3.Lerp(
                     targetPosition,

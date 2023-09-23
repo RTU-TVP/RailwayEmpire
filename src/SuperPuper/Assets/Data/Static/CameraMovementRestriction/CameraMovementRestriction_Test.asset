@@ -12,10 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465b174cb07147f1a884e5f3414921ec, type: 3}
   m_Name: CameraMovementRestriction_Test
   m_EditorClassIdentifier: 
-  <MinPosition>k__BackingField: {x: -50, y: -50}
-  <MaxPosition>k__BackingField: {x: 50, y: 50}
-  <MinZoom>k__BackingField: 1
-  <MaxZoom>k__BackingField: 2
-  <Speed>k__BackingField: 10
+  <MinPosition>k__BackingField: {x: -60, y: 2.5, z: -10}
+  <MaxPosition>k__BackingField: {x: 45, y: 5, z: 50}
+  <Speed>k__BackingField: 80
   <ZoomSpeed>k__BackingField: 0
   _rotation: {x: 30, y: 0, z: 0}
