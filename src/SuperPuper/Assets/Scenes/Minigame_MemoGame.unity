@@ -743,7 +743,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1879095230}
-  - component: {fileID: 1879095229}
+  - component: {fileID: 1879095231}
   m_Layer: 0
   m_Name: MemoGameLoader
   m_TagString: Untagged
@@ -751,21 +751,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1879095229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1879095228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80001a02dfb829a4d928b346ca2b7e86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _button: {fileID: 1735287293}
-  _gamePrefab: {fileID: 1943762624215851021, guid: b2520c54b7dafe347bba307deaf125af, type: 3}
-  _position: {x: -6, y: -2.5, z: 0}
 --- !u!4 &1879095230
 Transform:
   m_ObjectHideFlags: 0
@@ -781,6 +766,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1879095231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879095228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ca3a8890885b9641a8f05563a43f9a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1735287293}
+  _gamePrefab: {fileID: 1943762624215851021, guid: b2520c54b7dafe347bba307deaf125af, type: 3}
+  _position: {x: -5, y: -4, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
