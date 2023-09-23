@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< Updated upstream:src/SuperPuper/Assets/_Prefabs.meta
 guid: 1f8a147a7a448c745bf0859506473f19
+========
+guid: b99ee635e835d0e418e0265b29e9f6f2
+>>>>>>>> Stashed changes:src/SuperPuper/Assets/Models2.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
