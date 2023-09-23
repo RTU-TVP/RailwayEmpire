@@ -1,12 +1,15 @@
+#region
+
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
+
+#endregion
 
 public class MenuButtons : MonoBehaviour
 {
+
     [SerializeField] GameObject _progressBar;
     public void NewGame()
     {
@@ -14,17 +17,16 @@ public class MenuButtons : MonoBehaviour
         StartCoroutine(GameSceneStarter("GameTestScene"));
         gameObject.SetActive(false);
     }
-    IEnumerator GameSceneStarter(string scene)
+    private IEnumerator GameSceneStarter(string scene)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(scene);
         while (!operation.isDone)
         {
-            _progressBar.GetComponent<UnityEngine.UI.Slider>().value = operation.progress;
+            _progressBar.GetComponent<Slider>().value = operation.progress;
             yield return null;
         }
         _progressBar.SetActive(false);
-        _progressBar.GetComponent<UnityEngine.UI.Slider>().value = 0;
-        yield break;
+        _progressBar.GetComponent<Slider>().value = 0;
     }
     public void ExitGame()
     {

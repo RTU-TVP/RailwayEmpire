@@ -1,12 +1,14 @@
+#region
+
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+#endregion
+
 public class MoneyCount : MonoBehaviour
 {
-    void Update()
+    private void Update()
     {
         gameObject.GetComponent<TextMeshProUGUI>().text = Convert.ToString(MoneyAndUpgradesStats.money);
     }

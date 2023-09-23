@@ -1,4 +1,8 @@
+#region
+
 using UnityEngine;
+
+#endregion
 
 namespace Data.Static.Workers
 {

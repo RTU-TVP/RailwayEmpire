@@ -1,13 +1,17 @@
+#region
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+#endregion
+
 namespace Workers.State_Machine
 {
     public class StateMachine
     {
-        private readonly static List<Transition> EmptyTransitions = new List<Transition>(0);
+        private static readonly List<Transition> EmptyTransitions = new List<Transition>(0);
 
         private readonly Dictionary<Type, List<Transition>> _transitions = new Dictionary<Type, List<Transition>>();
 
@@ -17,7 +21,7 @@ namespace Workers.State_Machine
 
         public void Tick()
         {
-            var transition = GetTransition();
+            Transition transition = GetTransition();
             if (transition != null) SetState(transition.To);
 
             _currentState?.Tick();

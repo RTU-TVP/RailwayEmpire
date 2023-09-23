@@ -1,19 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
+#region
+
 using UnityEngine;
+
+#endregion
 
 public class VagonMenuButtons : MonoBehaviour
 {
     public void ButtonDoMyself()
     {
-        Debug.Log("Я сам разгружу вагон!");
+        Debug.Log("РЇ СЃР°Рј СЂР°Р·РіСЂСѓР¶Сѓ РІР°РіРѕРЅ!");
     }
     public void ButtonCallWorkers()
     {
-        Debug.Log("Я позову рабочих!");
+        Debug.Log("РЇ РїРѕР·РѕРІСѓ СЂР°Р±РѕС‡РёС…!");
     }
     public void UnloadVagon()
     {
-        Debug.Log("Разгрузка Вагона!");
+        Debug.Log("Р Р°Р·РіСЂСѓР·РєР° Р’Р°РіРѕРЅР°!");
     }
 }
