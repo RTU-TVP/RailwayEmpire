@@ -54,7 +54,11 @@ public class AnimManager_worker : MonoBehaviour
 
     private IEnumerator TestCaroutine()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(5f);
         SwitchAnimationState(AnimStates[1]);
+        yield return new WaitForSeconds(5f);
+        SwitchAnimationState(AnimStates[0]);
+        yield return new WaitForSeconds(5f);
+        SwitchAnimationState(AnimStates[2]);
     }
 }
