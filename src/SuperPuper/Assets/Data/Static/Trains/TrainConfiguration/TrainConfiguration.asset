@@ -12,4 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c5e2c13bb74362b5b9105ac19cdbdf, type: 3}
   m_Name: TrainConfiguration
   m_EditorClassIdentifier: 
-  <Speed>k__BackingField: 2
+  <Speed>k__BackingField: 20
+  <OutlineColorDefault>k__BackingField:
+    serializedVersion: 2
+    rgba: 65280
+  <OutlineColorChosen>k__BackingField:
+    serializedVersion: 2
+    rgba: 255
+  <OutlineIntensity>k__BackingField: 10

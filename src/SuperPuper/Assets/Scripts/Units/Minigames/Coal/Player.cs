@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 #endregion
 
-namespace Coal_Minigame
+namespace Minigames.Coal
 {
     public class Player : MonoBehaviour
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 #endregion
 
-namespace Coal_Minigame
+namespace Minigames.Coal
 {
     public class PlayerMovement : MonoBehaviour
     {

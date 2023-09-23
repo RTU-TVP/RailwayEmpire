@@ -6,7 +6,7 @@ using Random = System.Random;
 
 #endregion
 
-namespace Coal_Minigame
+namespace Minigames.Coal
 {
     public class CoalSpawner : MonoBehaviour
     {
@@ -15,8 +15,8 @@ namespace Coal_Minigame
         [SerializeField] private Transform _pos3;
         [SerializeField] private Transform _pos4;
         [SerializeField] private GameObject _coal;
-        private Vector3 _spawnPosition;
         private readonly Random rnd = new Random();
+        private Vector3 _spawnPosition;
         private void Start()
         {
             StartCoroutine(wait());

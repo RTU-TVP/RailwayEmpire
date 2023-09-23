@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 #endregion
 
-namespace Coal_Minigame
+namespace Minigames.Coal
 {
     public class PlayerController : MonoBehaviour
     {

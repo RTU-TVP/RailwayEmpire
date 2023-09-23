@@ -2,6 +2,7 @@
 
 using System.Collections;
 using Data.Static;
+using Data.Static.Camera;
 using Services.Input;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ namespace Camera
         [SerializeField] private InputActionsReader _inputActionsReader;
         [SerializeField] private CameraMovementRestriction _cameraMovementRestriction;
         [SerializeField] private Transform _targetTransform;
+        [SerializeField] private Transform _virtualCameraTransform;
         private Coroutine _moveCoroutine;
 
         private Vector2 _movementInput;
@@ -21,6 +23,7 @@ namespace Camera
         private void OnEnable()
         {
             _inputActionsReader.OnMovementAction += UpdateMovementInput;
+            _virtualCameraTransform.rotation = _cameraMovementRestriction.Rotation;
         }
 
         private void OnDisable()
@@ -48,7 +51,7 @@ namespace Camera
             while (true)
             {
                 Vector3 targetPosition = _targetTransform.position;
-                Vector3 targetPositionNew = targetPosition + new Vector3(_movementInput.x, _movementInput.y, 0f);
+                Vector3 targetPositionNew = targetPosition + new Vector3(_movementInput.x, 0f, _movementInput.y);
 
                 targetPositionNew.x = Mathf.Clamp(
                     targetPositionNew.x,

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c644e8718dbe4e6a99e185437691f1b2, type: 3}
+  m_Name: RailwayCarriage_Empty
+  m_EditorClassIdentifier: 
+  <RailwayCarriageType>k__BackingField: 0
+  <IsInteractive>k__BackingField: 0
+  <Lifetime>k__BackingField: 2
+  <Prefab>k__BackingField: {fileID: 2932870643663083793, guid: 3b1be32358fb4f449b7b5ee89bcb17f4, type: 3}

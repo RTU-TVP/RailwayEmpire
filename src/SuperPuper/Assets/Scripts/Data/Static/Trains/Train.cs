@@ -8,18 +8,18 @@ using UnityEngine;
 
 namespace Data.Static.Trains
 {
-    [CreateAssetMenu(fileName = "Train", menuName = "Data/Static/Trains/Train", order = 0)]
-    public class Train : ScriptableObject
+    public class Train
     {
-        [field: SerializeField] public RailwayCarriage[] RailwayCarriages { get; private set; }
-        public float Lifetime { get; private set; }
-
-        private void OnEnable()
+        public Train(RailwayCarriageScriptableObject[] railwayCarriages)
         {
-            Lifetime = GetLifetime(RailwayCarriages);
+            RailwayCarriages = railwayCarriages;
+            Lifetime = GetLifetime(railwayCarriages);
         }
 
-        private static float GetLifetime(IEnumerable<RailwayCarriage> railwayCarriages)
+        public RailwayCarriageScriptableObject[] RailwayCarriages { get; private set; }
+        public float Lifetime { get; private set; }
+        
+        private static float GetLifetime(IEnumerable<RailwayCarriageScriptableObject> railwayCarriages)
         {
             return railwayCarriages.Sum(railwayCarriage => railwayCarriage.Lifetime);
         }

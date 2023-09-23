@@ -4,11 +4,14 @@ using UnityEngine;
 
 #endregion
 
-public class Uncover : MonoBehaviour
+namespace Minigames.MemoGame
 {
-    [SerializeField] private MainCard _mainCard;
-    private void OnMouseDown()
+    public class Uncover : MonoBehaviour
     {
-        _mainCard.Reveal();
+        [SerializeField] private MainCard _mainCard;
+        private void OnMouseDown()
+        {
+            _mainCard.Reveal();
+        }
     }
 }

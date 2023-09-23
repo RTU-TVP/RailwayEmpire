@@ -5,7 +5,7 @@ using UnityEngine;
 
 #endregion
 
-namespace Coal_Minigame
+namespace Minigames.Coal
 {
     public class Spawner : MonoBehaviour
     {

@@ -2,10 +2,13 @@ namespace Data.Static.Trains
 {
     public enum RailwayCarriageType
     {
-        Coal, //Уголь
-        Animals, //Животные
-        Tank, //Цистерна
-        Platform, //Платформа
-        TimberTruck //Лесовоз
+        Empty,      // Пустой
+        Locomotive, // Локомотив
+        
+        Container,  // Контейнер
+        Logs,       // Деревья
+        Pipes,      // Трубы
+        Coal,       // Уголь
+        Tank,       // Бак
     }
 }
