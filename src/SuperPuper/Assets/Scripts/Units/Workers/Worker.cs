@@ -1,6 +1,8 @@
 #region
 
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using Pathfinding;
 using Units.Workers.State_Machine;
 using Units.Workers.States;
@@ -19,6 +21,9 @@ namespace Units.Workers
         private RichAI _richAI;
         private StateMachine _stateMachine;
 
+        public bool isWorkDone = false;
+        public bool isSaleDone = false;
+
         private void Awake()
         {
             _animator = GetComponent<Animator>();
@@ -29,13 +34,12 @@ namespace Units.Workers
             UnityAction onWorkDone, UnityAction onSaleDone, UnityAction onHomeDone,
             float moveSpeed, float workTime, float saleTime)
         {
-            bool isWorkDone = false;
-            bool isSaleDone = false;
 
             _stateMachine = new StateMachine();
 
-            Move move = new Move(_animator, _richAI, moveSpeed);
-            move.SetTarget(workTransform);
+            MoveToWork moveToWork = new MoveToWork(_animator, _richAI, moveSpeed, workTransform);
+            MoveToSelling moveToSelling = new MoveToSelling(_animator, _richAI, moveSpeed, shopTransform);
+            MoveToHome moveToHome = new MoveToHome(_animator, _richAI, moveSpeed, homeTransform);
 
             Work work = new Work(_animator, workTime);
 
@@ -43,52 +47,44 @@ namespace Units.Workers
 
             #region Transitions
 
-            At(move, work, () =>
+            At(work, moveToWork, () => moveToWork.IsArrived() && !isWorkDone);
+            At(moveToSelling, work, () =>
             {
-                if (!(work.WorkTime <= 0f)) return false;
-
-                move.SetTarget(shopTransform);
-                onWorkDone?.Invoke();
-                isWorkDone = true;
-                return true;
+                if (work.WorkTime <= 0)
+                {
+                    isWorkDone = true;
+                    onWorkDone?.Invoke();
+                    return true;
+                }
+                return false;
             });
-            At(work, move, () =>
+            At(sellingResources, moveToSelling, () => moveToSelling.IsArrived() && !isSaleDone);
+            At(moveToHome, sellingResources, () =>
             {
-                if (_richAI.remainingDistance > 0.5f && isWorkDone == false && isSaleDone == false) return false;
-
-                return true;
-            });
-            At(sellingResources, move, () =>
-            {
-                if (_richAI.remainingDistance > 0.5f && isWorkDone && isSaleDone == false) return false;
-
-                return true;
-            });
-            At(move, sellingResources, () =>
-            {
-                if (!(sellingResources.SaleTime <= 0f)) return false;
-
-                move.SetTarget(homeTransform);
-                onSaleDone?.Invoke();
-                isSaleDone = true;
-                return true;
-            });
-            At(null, move, () =>
-            {
-                if (_richAI.remainingDistance > 0.5f && isWorkDone && isSaleDone) return false;
-
-                onHomeDone?.Invoke();
-                return true;
+                if (sellingResources.SaleTime <= 0)
+                {
+                    isSaleDone = true;
+                    onSaleDone?.Invoke();
+                    return true;
+                }
+                return false;
             });
 
             #endregion
 
-            _stateMachine.SetState(move);
+            _stateMachine.SetState(moveToWork);
+
+            StartCoroutine(Updated());
         }
 
-        private void Update()
+
+        private IEnumerator Updated()
         {
-            _stateMachine?.Tick();
+            while (true)
+            {
+                _stateMachine.Tick();
+                yield return new WaitForSeconds(0.1f);
+            }
         }
 
         private void At(IState to, IState from, Func<bool> condition)
