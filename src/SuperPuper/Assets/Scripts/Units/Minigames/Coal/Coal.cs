@@ -1,33 +1,36 @@
-#region
-
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Units.Minigames.Coal;
 using UnityEngine;
 
-#endregion
-
-namespace Units.Minigames.Coal
+public class Coal : MonoBehaviour
 {
-    public class Coal : MonoBehaviour
+    private PlayerController _coal;
+    private CoalSpawner _coalSpawner;
+    private void Start()
     {
-        public float _speed;
-        private PlayerController _player;
-        private void Start()
+        _coal = FindObjectOfType<PlayerController>();
+        _coalSpawner = FindObjectOfType<CoalSpawner>();
+    }
+    
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Floor"))
         {
-            _player = FindObjectOfType<PlayerController>();
+            _coal.AddLostScore(1);
+            Destroy(gameObject);
         }
 
-        private void OnCollisionEnter(Collision collision)
+        if (collision.gameObject.CompareTag("Player"))
         {
-            if (collision.gameObject.CompareTag("Floor"))
+            if (_coal.time >= 0.2f)
             {
-                _player.AddLostScore(1);
-                Destroy(gameObject);
+                _coal.time -= 0.05f;
             }
-
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                _player.AddScore(1);
-                Destroy(gameObject);
-            }
+            _coalSpawner.waitTime -= 0.1f;
+            _coal.AddScore(1);
+            Destroy(gameObject);
         }
     }
 }

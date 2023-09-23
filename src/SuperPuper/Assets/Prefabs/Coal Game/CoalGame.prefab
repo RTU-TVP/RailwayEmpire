@@ -422,7 +422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8651890847802138257}
-  - component: {fileID: 8582474150006975786}
+  - component: {fileID: 1631951785621342799}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -452,7 +452,7 @@ Transform:
   - {fileID: 2271961241750738575}
   m_Father: {fileID: 5989562773201643040}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8582474150006975786
+--- !u!114 &1631951785621342799
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -461,7 +461,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1824130094112449502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11ba70f977bb946479649cf2011228c9, type: 3}
+  m_Script: {fileID: 11500000, guid: bb981a20db28af44bb041adffdf6247a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _pos1: {fileID: 4748188626396681756}
@@ -2334,16 +2334,46 @@ PrefabInstance:
       propertyPath: _playerPosition4
       value: 
       objectReference: {fileID: 3207901850038187911}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4088370129257694637, guid: a14b5dcd2caa2f74d859928070c19639, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1048149867607840889, guid: a14b5dcd2caa2f74d859928070c19639, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1089764296998560007}
   m_SourcePrefab: {fileID: 100100000, guid: a14b5dcd2caa2f74d859928070c19639, type: 3}
 --- !u!4 &6835008298404302133 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3550300369465273212, guid: a14b5dcd2caa2f74d859928070c19639, type: 3}
   m_PrefabInstance: {fileID: 8043394528856909385}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6995258405215895088 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1048149867607840889, guid: a14b5dcd2caa2f74d859928070c19639, type: 3}
+  m_PrefabInstance: {fileID: 8043394528856909385}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1089764296998560007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6995258405215895088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad864d38d08ef824c888978d8e795be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _score: 0
+  _lostCoalScore: 0
+  _playerPosition1: {fileID: 4111193477856448978}
+  _playerPosition2: {fileID: 3027048028133261175}
+  _playerPosition3: {fileID: 521079977970527917}
+  _playerPosition4: {fileID: 3207901850038187911}
+  _scoreScreen: {fileID: 5650118390986225765}
+  _lostScoreScreen: {fileID: 6931847555277405039}
+  time: 0.25
 --- !u!1001 &9155693172198326161
 PrefabInstance:
   m_ObjectHideFlags: 0
