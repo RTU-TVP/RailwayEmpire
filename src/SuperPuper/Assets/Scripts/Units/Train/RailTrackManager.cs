@@ -32,7 +32,7 @@ namespace Units.Train
             var train = RailwayCarriage.GenerationTrain(railwayCarriagesDatabaseScriptableObject);
 
             _railTracks[index].SetOccupied(true);
-            _rails[index] = RailwayCarriage.CreateTrain(train, this).transform;
+            _rails[index] = RailwayCarriage.CreateTrain(train, _railTracks[index].StartPoint.position, this).transform;
 
             StartCoroutine(
                 TrainMovement.MoveTrain(
