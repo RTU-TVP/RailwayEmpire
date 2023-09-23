@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6873269633278678464}
   - component: {fileID: 9079532174144986593}
   - component: {fileID: 7466240475921699585}
-  - component: {fileID: 6295661803155860306}
   m_Layer: 0
   m_Name: tank
   m_TagString: Untagged
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 6588341951781340714}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 12.45, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -114,41 +113,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.050604552, y: 0.16183949, z: 0.05498023}
   m_Center: {x: 0.000000029802322, y: 0, z: 0.047486898}
---- !u!114 &6295661803155860306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6588341951781340714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43670672efd0c754aaac28d1d2b28636, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cells:
-  - <MatIndex>k__BackingField: 0
-    <Colors>k__BackingField:
-    - {r: 0.6886792, g: 0.6634909, b: 0.035733357, a: 0}
-    - {r: 0.2791796, g: 0.6792453, b: 0.1954432, a: 0}
-    - {r: 0.19607842, g: 0.24470697, b: 0.6784314, a: 0}
-    - {r: 0.19607842, g: 0.5934898, b: 0.6784314, a: 0}
-    - {r: 0.6784314, g: 0.19607842, b: 0.24568197, a: 0}
-    - {r: 0.7830189, g: 0.4851545, b: 0.05540227, a: 0}
-  - <MatIndex>k__BackingField: 2
-    <Colors>k__BackingField:
-    - {r: 0.6886792, g: 0.6634909, b: 0.035733357, a: 0}
-    - {r: 0.2791796, g: 0.6792453, b: 0.1954432, a: 0}
-    - {r: 0.19607842, g: 0.24470697, b: 0.6784314, a: 0}
-    - {r: 0.19607842, g: 0.5934898, b: 0.6784314, a: 0}
-    - {r: 0.6784314, g: 0.19607842, b: 0.24568197, a: 0}
-    - {r: 0.7830189, g: 0.4851545, b: 0.05540227, a: 0}
-  - <MatIndex>k__BackingField: 1
-    <Colors>k__BackingField:
-    - {r: 0.6603774, g: 0.08621016, b: 0, a: 0}
-    - {r: 0.07719307, g: 0.4056604, b: 0.009567461, a: 0}
-    - {r: 0.007843133, g: 0.05159577, b: 0.40392157, a: 0}
-    - {r: 0.32556593, g: 0.012014951, b: 0.509434, a: 0}
 --- !u!1 &7347620776187017997
 GameObject:
   m_ObjectHideFlags: 0

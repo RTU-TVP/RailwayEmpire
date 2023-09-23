@@ -236,7 +236,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6797251220226393593}
-  - component: {fileID: 8190575711732710236}
   m_Layer: 0
   m_Name: RailwayCarriageLogs
   m_TagString: Untagged
@@ -252,8 +251,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8963403324945233402}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.05787754, y: 0, z: 26.7}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -261,24 +260,3 @@ Transform:
   - {fileID: 6045384370544991221}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8190575711732710236
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8963403324945233402}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 4.4894247, y: 5.427335, z: 16.419542}
-  m_Center: {x: -0.00883913, y: 3.3348827, z: 0.0011205673}
