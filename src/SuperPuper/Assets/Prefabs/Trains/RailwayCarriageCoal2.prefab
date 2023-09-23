@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 1796260800785674238}
   - component: {fileID: 107806428569384462}
   - component: {fileID: 5995834429504149538}
-  - component: {fileID: 6755411493235699364}
-  - component: {fileID: 4997460524459862568}
   m_Layer: 0
   m_Name: coal2
   m_TagString: Untagged
@@ -86,39 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6755411493235699364
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4353563539412549582}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.044136547, y: 0.1609377, z: 0.03656301}
-  m_Center: {x: 0.000000008381903, y: -0.00000006705521, z: 0.044725407}
---- !u!114 &4997460524459862568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4353563539412549582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4485e100ccd74fc1bc34e5ba69290aaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5693255355629244603
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,7 +95,6 @@ GameObject:
   - component: {fileID: 3608825914779445860}
   - component: {fileID: 5292318373693066456}
   - component: {fileID: 4985997520400163995}
-  - component: {fileID: 3997447062714243991}
   m_Layer: 0
   m_Name: carriage_base
   m_TagString: Untagged
@@ -206,27 +170,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3997447062714243991
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5693255355629244603}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.04495712, y: 0.16443375, z: 0.022722196}
-  m_Center: {x: 5.820766e-10, y: 0, z: 0.017536439}
 --- !u!1 &6300111106102273845
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b99e0ff13b742b081f57f3961eab844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _railwayCarriageScriptableObject: {fileID: 11400000, guid: 34f24d1071c07dd42840f228a69193c9, type: 2}
+  _railwayCarriageScriptableObject: {fileID: 11400000, guid: 70ed84b610a96254b89cbb2d4b0d0b6b, type: 2}
   _trainConfigurationScriptableObject: {fileID: 11400000, guid: cdc0449f504c1194d97882758fc929d5, type: 2}
 --- !u!65 &-1547207092425776733
 BoxCollider:

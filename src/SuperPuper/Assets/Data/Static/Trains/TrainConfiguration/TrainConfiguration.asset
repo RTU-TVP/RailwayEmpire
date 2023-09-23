@@ -15,8 +15,10 @@ MonoBehaviour:
   <Speed>k__BackingField: 20
   <OutlineColorDefault>k__BackingField:
     serializedVersion: 2
-    rgba: 65280
+    rgba: 4278255360
   <OutlineColorChosen>k__BackingField:
     serializedVersion: 2
-    rgba: 255
+    rgba: 4278190335
   <OutlineIntensity>k__BackingField: 10
+  <ScreenPosition>k__BackingField: {x: 2.75, y: 6.5, z: 0}
+  <_screenRotation>k__BackingField: {x: 15, y: -90, z: 0}

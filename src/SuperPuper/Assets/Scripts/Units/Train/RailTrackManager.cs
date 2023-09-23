@@ -10,12 +10,13 @@ namespace Units.Train
 {
     public class RailTrackManager : MonoBehaviour
     {
-        [SerializeField] private RailwayCarriagesDatabaseScriptableObject railwayCarriagesDatabaseScriptableObject;
-        [SerializeField] private TrainConfigurationScriptableObject trainConfigurationScriptableObject;
-        [SerializeField] private RailTrack[] _railTracks;
+        [field: SerializeField] public RailwayCarriagesDatabaseScriptableObject railwayCarriagesDatabaseScriptableObject { get; private set; }
+        [field: SerializeField] public TrainConfigurationScriptableObject trainConfigurationScriptableObject { get; private set; }
+        [field: SerializeField] public RailTrack[] _railTracks { get; private set; }
+        [field: SerializeField] public GameObject _vagonButtonsScreen { get; private set; }
 
-        private readonly Transform[] _rails = new Transform[4];
-        private UnityAction<int> _railTrackEmpty;
+        public readonly Transform[] _rails = new Transform[4];
+        public UnityAction<int> _railTrackEmpty { get; private set; }
 
         private void Start()
         {
@@ -31,7 +32,7 @@ namespace Units.Train
             var train = RailwayCarriage.GenerationTrain(railwayCarriagesDatabaseScriptableObject);
 
             _railTracks[index].SetOccupied(true);
-            _rails[index] = RailwayCarriage.CreateTrain(_railTracks[index].StartPoint.position, train).transform;
+            _rails[index] = RailwayCarriage.CreateTrain(train, this).transform;
 
             StartCoroutine(
                 TrainMovement.MoveTrain(
@@ -47,5 +48,8 @@ namespace Units.Train
                 _railTrackEmpty?.Invoke(index);
             }
         }
+
+        public void DoMyself() {}
+        public void CallWorkers() {}
     }
 }
