@@ -10,27 +10,27 @@ using Random = UnityEngine.Random;
 namespace Data.Static.Trains
 {
     [CreateAssetMenu(fileName = "RailwayCarriagesDataBase", menuName = "Data/Static/Trains/RailwayCarriagesDataBase")]
-    public class RailwayCarriagesDatabase : ScriptableObject
+    public class RailwayCarriagesDatabaseScriptableObject : ScriptableObject
     {
-        [field: SerializeField] private RailwayCarriage[] _railwayCarriages;
-        private Dictionary<RailwayCarriageType, RailwayCarriage> _railwayCarriagesDictionary;
+        [field: SerializeField] private RailwayCarriageScriptableObject[] _railwayCarriages;
+        private Dictionary<RailwayCarriageType, RailwayCarriageScriptableObject> _railwayCarriagesDictionary;
 
         private void OnEnable()
         {
-            _railwayCarriagesDictionary = new Dictionary<RailwayCarriageType, RailwayCarriage>();
+            _railwayCarriagesDictionary = new Dictionary<RailwayCarriageType, RailwayCarriageScriptableObject>();
             foreach (var railwayCarriage in _railwayCarriages)
             {
                 _railwayCarriagesDictionary.Add(railwayCarriage.RailwayCarriageType, railwayCarriage);
             }
         }
 
-        public RailwayCarriage GetRandomRailwayCarriage()
+        public RailwayCarriageScriptableObject GetRandomRailwayCarriage()
         {
             int randomIndex = Random.Range(0, _railwayCarriages.Length);
             return _railwayCarriages[randomIndex];
         }
 
-        public RailwayCarriage GetRailwayCarriage(RailwayCarriageType railwayCarriageType)
+        public RailwayCarriageScriptableObject GetRailwayCarriage(RailwayCarriageType railwayCarriageType)
         {
             if (_railwayCarriagesDictionary.ContainsKey(railwayCarriageType))
             {

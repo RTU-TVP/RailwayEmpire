@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Data.Static.Trains
 {
     [CreateAssetMenu(fileName = "RailwayCarriage", menuName = "Data/Static/Trains/RailwayCarriage")]
-    public class RailwayCarriage : ScriptableObject
+    public class RailwayCarriageScriptableObject : ScriptableObject
     {
         [field: SerializeField] public RailwayCarriageType RailwayCarriageType { get; private set; }
         [field: SerializeField] public bool IsInteractive { get; private set; }
