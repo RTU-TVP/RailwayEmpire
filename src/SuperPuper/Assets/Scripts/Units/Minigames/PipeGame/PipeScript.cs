@@ -36,6 +36,7 @@ namespace Units.Minigames.PipeGame
         private void OnMouseDown()
         {
             transform.Rotate(new Vector3(0, 90, 0));
+            GetComponent<AudioManager>().Play("PipeRotSound");
             _currentRotation += 1;
             if (_currentRotation > 3) _currentRotation = 0;
             foreach (float rot in _correctRotation)
