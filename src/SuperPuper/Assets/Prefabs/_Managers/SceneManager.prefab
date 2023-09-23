@@ -209,6 +209,7 @@ MonoBehaviour:
   - {fileID: 7875730106047584296}
   - {fileID: 7259952447025773283}
   - {fileID: 8308273679973911483}
+  _vagonButtonsScreen: {fileID: 6508133739036750886, guid: e6ff45b2c36af284b9e7b099e276b21e, type: 3}
 --- !u!1 &4935281842352255520
 GameObject:
   m_ObjectHideFlags: 0

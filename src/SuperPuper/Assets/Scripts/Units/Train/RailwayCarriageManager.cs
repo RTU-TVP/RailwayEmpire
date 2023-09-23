@@ -1,4 +1,5 @@
 ﻿using Data.Static.Trains;
+using UI;
 using Units.Interactive;
 using Units.QuickOutline.Scripts;
 using UnityEngine;
@@ -11,6 +12,8 @@ namespace Units.Train
         [SerializeField] private TrainConfigurationScriptableObject _trainConfigurationScriptableObject;
         private Outline _outline;
         private InteractiveObject _interactiveObject;
+        private GameObject _screen;
+
 
         private void Start()
         {
@@ -23,6 +26,19 @@ namespace Units.Train
             _outline.enabled = false;
 
             RegisterCallbacks();
+        }
+
+        public void CreatedScreen(GameObject srenePrefab, Vector3 position, Quaternion rotation, RailTrackManager railTrackManager)
+        {
+            _screen = Instantiate(srenePrefab, transform);
+            _screen.transform.localPosition = position;
+            _screen.transform.localRotation = rotation;
+
+            var vagonMenuButtons = _screen.GetComponentInChildren<VagonMenuButtons>();
+            vagonMenuButtons.SetActions(
+                railTrackManager.DoMyself,
+                railTrackManager.CallWorkers);
+            _screen.SetActive(false);
         }
 
         private void RegisterCallbacks()
@@ -39,10 +55,12 @@ namespace Units.Train
         private void OnMouseExit()
         {
             _outline.enabled = false;
+            _screen.SetActive(false);
         }
         private void OnMouseClick()
         {
             _outline.OutlineColor = _trainConfigurationScriptableObject.OutlineColorChosen;
+            _screen.SetActive(true);
         }
     }
 }

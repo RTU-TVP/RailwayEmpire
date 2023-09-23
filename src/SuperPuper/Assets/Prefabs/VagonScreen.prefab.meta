@@ -1,12 +1,6 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:src/SuperPuper/Assets/AstarPathfindingProject.meta
 guid: e6ff45b2c36af284b9e7b099e276b21e
-folderAsset: yes
-DefaultImporter:
-========
-guid: 669793362583386418df59b978d300db
 PrefabImporter:
->>>>>>>> dev_demo:src/SuperPuper/Assets/Prefabs/VagonScreen.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

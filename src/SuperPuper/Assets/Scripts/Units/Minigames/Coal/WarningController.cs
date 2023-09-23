@@ -3,13 +3,13 @@ using UnityEngine;
 
 namespace Units.Minigames.Coal
 {
-    public class WarningController : MonoBehaviour 
+    public class WarningController : MonoBehaviour
     {
         [SerializeField] private GameObject WTL;
         [SerializeField] private GameObject WTR;
         [SerializeField] private GameObject WBL;
         [SerializeField] private GameObject WBR;
-    
+
         public void ShowSec(int posNum)
         {
             switch (posNum)

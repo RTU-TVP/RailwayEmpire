@@ -179,6 +179,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 12.75
       objectReference: {fileID: 0}
+    - target: {fileID: 4470251703280920462, guid: 54b3696ba3dc9f94ea1adf304252c237, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -32.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7433946337559427171, guid: 54b3696ba3dc9f94ea1adf304252c237, type: 3}
       propertyPath: m_Name
       value: CameraManager
@@ -191,6 +195,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 12.75
       objectReference: {fileID: 0}
+    - target: {fileID: 7548065239156545599, guid: 54b3696ba3dc9f94ea1adf304252c237, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -32.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8641437067345560333, guid: 54b3696ba3dc9f94ea1adf304252c237, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.75
@@ -198,6 +206,10 @@ PrefabInstance:
     - target: {fileID: 8641437067345560333, guid: 54b3696ba3dc9f94ea1adf304252c237, type: 3}
       propertyPath: m_LocalPosition.y
       value: 12.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8641437067345560333, guid: 54b3696ba3dc9f94ea1adf304252c237, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -22.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -218,7 +230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2531077295332518249, guid: 818f304c4e230d844870ea334512eac4, type: 3}
       propertyPath: m_Name
-      value: Map 1
+      value: Map
       objectReference: {fileID: 0}
     - target: {fileID: 6943654710197139214, guid: 818f304c4e230d844870ea334512eac4, type: 3}
       propertyPath: m_IsActive
@@ -342,9 +354,37 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 965150463223129675, guid: 9b66aa096bfedda4da46ef0b09920562, type: 3}
+      propertyPath: <_vagonButtonsScreen>k__BackingField
+      value: 
+      objectReference: {fileID: 7839394952249355725, guid: e6ff45b2c36af284b9e7b099e276b21e, type: 3}
+    - target: {fileID: 965150463223129675, guid: 9b66aa096bfedda4da46ef0b09920562, type: 3}
+      propertyPath: <_railTracks>k__BackingField.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 965150463223129675, guid: 9b66aa096bfedda4da46ef0b09920562, type: 3}
+      propertyPath: <_railTracks>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 4264109006825062820}
+    - target: {fileID: 965150463223129675, guid: 9b66aa096bfedda4da46ef0b09920562, type: 3}
+      propertyPath: <_railTracks>k__BackingField.Array.data[1]
+      value: 
+      objectReference: {fileID: 4264109006825062819}
+    - target: {fileID: 965150463223129675, guid: 9b66aa096bfedda4da46ef0b09920562, type: 3}
+      propertyPath: <_railTracks>k__BackingField.Array.data[2]
+      value: 
+      objectReference: {fileID: 4264109006825062818}
+    - target: {fileID: 965150463223129675, guid: 9b66aa096bfedda4da46ef0b09920562, type: 3}
+      propertyPath: <trainConfigurationScriptableObject>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: cdc0449f504c1194d97882758fc929d5, type: 2}
+    - target: {fileID: 965150463223129675, guid: 9b66aa096bfedda4da46ef0b09920562, type: 3}
+      propertyPath: <railwayCarriagesDatabaseScriptableObject>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 5b0886c9e6997d243ae273549b42cac1, type: 2}
     - target: {fileID: 4131254952576501009, guid: 9b66aa096bfedda4da46ef0b09920562, type: 3}
       propertyPath: m_Name
-      value: SceneManager
+      value: TrainManager
       objectReference: {fileID: 0}
     - target: {fileID: 7412487697206489146, guid: 9b66aa096bfedda4da46ef0b09920562, type: 3}
       propertyPath: m_LocalPosition.x
@@ -391,6 +431,39 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b66aa096bfedda4da46ef0b09920562, type: 3}
+--- !u!114 &4264109006825062818 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8308273679973911483, guid: 9b66aa096bfedda4da46ef0b09920562, type: 3}
+  m_PrefabInstance: {fileID: 4264109006825062817}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f9b6878b7945e7b8cece9d67138861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4264109006825062819 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7259952447025773283, guid: 9b66aa096bfedda4da46ef0b09920562, type: 3}
+  m_PrefabInstance: {fileID: 4264109006825062817}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f9b6878b7945e7b8cece9d67138861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4264109006825062820 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7875730106047584296, guid: 9b66aa096bfedda4da46ef0b09920562, type: 3}
+  m_PrefabInstance: {fileID: 4264109006825062817}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f9b6878b7945e7b8cece9d67138861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

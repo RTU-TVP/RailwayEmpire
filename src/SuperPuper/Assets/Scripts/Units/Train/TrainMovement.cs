@@ -27,7 +27,7 @@ namespace Units.Train
                 distanceCovered = distanceFraction * journeyLength;
                 yield return null;
             }
-            
+
             onTrainArrived?.Invoke();
         }
     }
