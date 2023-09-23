@@ -26,7 +26,10 @@ public class CarsGoBrrr : MonoBehaviour
     }
     void SummonCar()
     {
-        GameObject newCar = Instantiate(_carTypes[Random.Range(0, _carTypes.Count)], gameObject.transform);
-        newCar.transform.position = _point1.transform.position;
+        if(_carTypes.Count != 0 && _carTypes[Random.Range(0, _carTypes.Count)] != null)
+        {
+            GameObject newCar = Instantiate(_carTypes[Random.Range(0, _carTypes.Count)], gameObject.transform);
+            newCar.transform.position = _point1.transform.position;
+        }
     }
 }
