@@ -16,6 +16,11 @@ namespace Units.Workers
         [SerializeField] private Transform _home;
         [SerializeField] private Transform _shop;
 
+        private void Start()
+        {
+            CreateWorker(_shop);
+        }
+
         private void CreateWorker(Transform work)
         {
             int moveSpeedLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_MOVE_SPEED);
@@ -23,7 +28,7 @@ namespace Units.Workers
             int saleTimeLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_SALE_TIME);
 
             GameObject worker = Instantiate(_workerPrefab, _spawnPoint.position, Quaternion.identity);
-            worker.GetComponent<Worker>().SetUp(
+            worker.AddComponent<Worker>().SetUp(
                 work,
                 _home,
                 _shop,
