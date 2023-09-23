@@ -13,6 +13,14 @@ public class SceneController : MonoBehaviour {
     [SerializeField] private MainCard originalCard;
     [SerializeField] private GameObject[] childObjects;
 
+    [SerializeField] private float _looseTimer;
+    [SerializeField] private float _looseTime;
+    void FixedUpdate()
+    {
+        _looseTimer += Time.deltaTime;
+        if (_looseTimer >= _looseTime){ print("Loose"); FindObjectOfType<MemoGameLoader>().DestroyGame();}
+    }
+
     private void Start()
     {
         Vector3 startPos = originalCard.transform.position; //The position of the first card. All other cards are offset from here.
@@ -37,6 +45,7 @@ public class SceneController : MonoBehaviour {
                 int index = j * gridCols + i;
                 int id = numbers[index];
                 card.ChangeSprite(id, childObjects[id]);
+                card.transform.SetParent(gameObject.transform);
 
                 float posX = (offsetX * i) + startPos.x;
                 float posY = (offsetY * j) + startPos.y;
@@ -92,6 +101,7 @@ public class SceneController : MonoBehaviour {
             if (_score == _targetScore)
             {
                 Debug.Log("Win");
+                FindObjectOfType<MemoGameLoader>().DestroyGame();
             }
         }
         else
