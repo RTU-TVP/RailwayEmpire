@@ -1,6 +1,8 @@
 #region
 
+using Data.Constant;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,13 +13,11 @@ namespace UI
 {
     public class MenuButtons : MonoBehaviour
     {
-
         [SerializeField] GameObject _progressBar;
         public void NewGame()
         {
-            _progressBar.SetActive(true);
-            StartCoroutine(GameSceneStarter("GameTestScene"));
-            gameObject.SetActive(false);
+            DeleteProgress();
+            ContinueGame();
         }
         private IEnumerator GameSceneStarter(string scene)
         {
@@ -36,7 +36,20 @@ namespace UI
         }
         public void ContinueGame()
         {
-            Debug.Log("Continue");
+            _progressBar.SetActive(true);
+            StartCoroutine(GameSceneStarter("GameTestScene"));
+            gameObject.SetActive(false);
+        }
+        public void DeleteProgress()
+        {
+            PlayerPrefs.DeleteKey(WorkersConstantData.WORKERS_LVL_MOVE_SPEED);
+            PlayerPrefs.DeleteKey(WorkersConstantData.WORKERS_LVL_WORK_TIME);
+            PlayerPrefs.DeleteKey(WorkersConstantData.WORKERS_LVL_SALE_TIME);
+            PlayerPrefs.DeleteKey(WorkersConstantData.MONEY);
+        }
+        private void Start()
+        {
+            
         }
     }
 }

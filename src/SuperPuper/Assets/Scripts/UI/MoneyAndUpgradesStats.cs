@@ -1,10 +1,15 @@
+using Data.Constant;
+using UnityEngine;
+
 namespace UI
 {
-    static public class MoneyAndUpgradesStats
+    static public class MoneyStats
     {
         static public int money = 500;
-        static public int levelWalkSpeed;
-        static public int levelUnloadSpeed;
-        static public int levelSellSpeed;
+        public static void ChangeMoney(int amount)
+        {
+            money += amount;
+            PlayerPrefs.SetInt(WorkersConstantData.MONEY, money);
+        }
     }
 }
