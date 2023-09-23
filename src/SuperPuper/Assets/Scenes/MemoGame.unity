@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1650131311}
   Card_Back: {fileID: 1382988349}
+  <Id>k__BackingField: 0
 --- !u!4 &85888527
 Transform:
   m_ObjectHideFlags: 0
@@ -456,7 +457,7 @@ Transform:
   m_GameObject: {fileID: 1154995414}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -17.77}
+  m_LocalPosition: {x: 1.5, y: 1, z: -17.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -611,6 +612,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09884e59361d44341a7abb7bb85154f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offsetX: 5
+  offsetY: 3
   originalCard: {fileID: 85888523}
   childObjects:
   - {fileID: 4723200610859359441, guid: 2c233d4320f3494488e77e0c04289b1f, type: 3}
@@ -619,6 +622,10 @@ MonoBehaviour:
   - {fileID: 4363174485252960839, guid: 779ae0452a4f0ee4a8246273de3b8322, type: 3}
   - {fileID: 8078679707739497215, guid: 4ecc70036e6860849bbc906cdf938787, type: 3}
   - {fileID: 2327140163509053140, guid: f4c4aca1fa6b16248b35ba92e475b1b4, type: 3}
+  _firstRevealed: {fileID: 0}
+  _secondRevealed: {fileID: 0}
+  _score: 0
+  _targetScore: 6
 --- !u!4 &1650131312
 Transform:
   m_ObjectHideFlags: 0
