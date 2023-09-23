@@ -11,7 +11,7 @@ namespace Workers
         private void CreateWorker(Transform target)
         {
             var worker = Instantiate(_workerPrefab, _spawnPoint.position, Quaternion.identity);
-            worker.GetComponent<Worker>().SetUp(target, _home);
+            worker.GetComponent<Worker>().SetUp(target, _home, () => Debug.Log("Work done!"));
         }
     }
 }

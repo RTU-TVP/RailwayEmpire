@@ -2,6 +2,7 @@ using System;
 using Data.Static.Workers;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 using Workers.State_Machine;
 using Workers.States;
 
@@ -14,7 +15,7 @@ namespace Workers
         [SerializeField] private WorkersConfiguration _workersConfiguration;
         private StateMachine _stateMachine;
 
-        public void SetUp(Transform target, Transform home)
+        public void SetUp(Transform target, Transform home, UnityAction onWorkDone)
         {
             _stateMachine = new StateMachine();
 
@@ -28,6 +29,7 @@ namespace Workers
                 if (!(work.WorkTime <= 0f)) return false;
 
                 move.SetTarget(home);
+                onWorkDone?.Invoke();
                 return true;
             });
             At(work, move, () =>
@@ -35,7 +37,6 @@ namespace Workers
                 if (!(_navMeshAgent.remainingDistance <= 0.5f)) return false;
 
                 return true;
-
             });
 
             _stateMachine.SetState(move);
