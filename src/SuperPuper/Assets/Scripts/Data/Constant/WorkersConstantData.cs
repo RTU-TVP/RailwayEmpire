@@ -1,6 +1,6 @@
 namespace Data.Constant
 {
-    public static class WorkersConstantData
+    static public class WorkersConstantData
     {
         public const string WORKERS_LVL_MOVE_SPEED = "WorkersLvlMoveSpeed";
         public const string WORKERS_LVL_WORK_TIME = "WorkersLvlWorkTime";

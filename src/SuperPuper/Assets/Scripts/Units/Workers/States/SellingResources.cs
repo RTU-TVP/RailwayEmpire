@@ -1,5 +1,9 @@
+#region
+
 using UnityEngine;
 using Workers.State_Machine;
+
+#endregion
 
 namespace Workers.States
 {
@@ -12,8 +16,8 @@ namespace Workers.States
         }
 
         private static readonly int _SellingResources = Animator.StringToHash("SellingResources");
-        private readonly Animator _animator;
         public float SaleTime { get; private set; }
+        private readonly Animator _animator;
 
         public void OnEnter()
         {
