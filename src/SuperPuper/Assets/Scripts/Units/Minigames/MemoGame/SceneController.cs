@@ -2,6 +2,7 @@
 
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -108,13 +109,14 @@ namespace Units.Minigames.MemoGame
                 _score++;
                 if (_score == _targetScore)
                 {
+                    yield return new WaitForSeconds(1.2f);
                     FindObjectOfType<PipeGameLoader>().DestroyGame();
                     Debug.Log("Win");
                 }
             }
             else
             {
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(1.2f);
 
                 _firstRevealed.Unreveal();
                 _secondRevealed.Unreveal();

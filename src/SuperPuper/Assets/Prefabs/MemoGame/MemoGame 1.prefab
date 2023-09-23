@@ -291,14 +291,14 @@ MonoBehaviour:
   offsetY: 5
   originalCard: {fileID: 6794769455306829513}
   childObjects:
-  - {fileID: 60916888793858161, guid: a007ac9d6b3d42d418296a64839d8dc4, type: 3}
-  - {fileID: 8515723801504446943, guid: f6622e6ab8bc6ba41a1f2750b4d94469, type: 3}
-  - {fileID: 1370248317574940161, guid: 09d9a1b53863be2449e277524fe655de, type: 3}
-  - {fileID: 7933603320490275375, guid: 2f305c55e249f9d408002ea695cc9275, type: 3}
-  - {fileID: 591631176751930584, guid: f856e9f3f98068843b1cdf92e4e11345, type: 3}
-  - {fileID: 4077926127884143363, guid: 049dffa542c5a22459f260995a27dbc1, type: 3}
+  - {fileID: 159840407821323937, guid: a007ac9d6b3d42d418296a64839d8dc4, type: 3}
+  - {fileID: 6830228513101208719, guid: f6622e6ab8bc6ba41a1f2750b4d94469, type: 3}
+  - {fileID: 2850144429989022875, guid: 2f305c55e249f9d408002ea695cc9275, type: 3}
+  - {fileID: 8931923960950147828, guid: 09d9a1b53863be2449e277524fe655de, type: 3}
+  - {fileID: 6153870382783681797, guid: f856e9f3f98068843b1cdf92e4e11345, type: 3}
+  - {fileID: 5184778118272062719, guid: 049dffa542c5a22459f260995a27dbc1, type: 3}
   _timerUI: {fileID: 7671522085781985054}
-  _looseTimer: 21
+  _looseTimer: 36
 --- !u!1 &8884518247003355873
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,7 +333,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7, y: 419}
+  m_AnchoredPosition: {x: -7, y: 341.8}
   m_SizeDelta: {x: 422.8403, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1826330771195024528
@@ -373,8 +373,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -441,6 +441,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5566096006155992817}
     m_Modifications:
+    - target: {fileID: 1047643020697053513, guid: a52b3d04194a83f4cbcd0801cbf5a17b, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3438312761961112188, guid: a52b3d04194a83f4cbcd0801cbf5a17b, type: 3}
       propertyPath: controller
       value: 
@@ -487,6 +491,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7869798293103893546, guid: a52b3d04194a83f4cbcd0801cbf5a17b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7997394394951266133, guid: a52b3d04194a83f4cbcd0801cbf5a17b, type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
