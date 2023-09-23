@@ -21,7 +21,7 @@ namespace Units.Workers.States
 
         public void OnEnter()
         {
-            _animator.SetBool(_IsWorking, true);
+            // _animator.SetBool(_IsWorking, true);
         }
 
         public void Tick()
@@ -31,7 +31,7 @@ namespace Units.Workers.States
 
         public void OnExit()
         {
-            _animator.SetBool(_IsWorking, false);
+            // _animator.SetBool(_IsWorking, false);
         }
     }
 }

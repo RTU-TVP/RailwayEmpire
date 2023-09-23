@@ -10,11 +10,30 @@ namespace Units.Workers
 {
     public class WorkersManager : MonoBehaviour
     {
+        public static WorkersManager Instance;
+
         [SerializeField] private WorkersConfiguration _workersConfiguration;
         [SerializeField] private GameObject _workerPrefab;
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private Transform _home;
         [SerializeField] private Transform _shop;
+
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        private void Start()
+        {
+            CreateWorker(_shop);
+        }
 
         private void CreateWorker(Transform work)
         {
@@ -23,7 +42,7 @@ namespace Units.Workers
             int saleTimeLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_SALE_TIME);
 
             GameObject worker = Instantiate(_workerPrefab, _spawnPoint.position, Quaternion.identity);
-            worker.GetComponent<Worker>().SetUp(
+            worker.AddComponent<Worker>().SetUp(
                 work,
                 _home,
                 _shop,

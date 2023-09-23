@@ -28,11 +28,11 @@ namespace Units.Train
             return new Data.Static.Trains.Train(railwayCarriages);
         }
 
-        public static GameObject CreateTrain(Data.Static.Trains.Train train, RailTrackManager railTrackManager)
+        public static GameObject CreateTrain(Data.Static.Trains.Train train, Vector3 startPoint, RailTrackManager railTrackManager)
         {
             int count = train.RailwayCarriages.Length;
             Transform oldParent = new GameObject("Train").transform;
-            oldParent.position = railTrackManager._railTracks[0].StopPoint.position;
+            oldParent.position = startPoint;
             oldParent.rotation = Quaternion.Euler(0, 0, 0);
 
             for (int i = 0; i < count; i++)
