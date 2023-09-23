@@ -4,7 +4,7 @@ using UnityEngine;
 
 #endregion
 
-namespace Color
+namespace Colors
 {
     public class ColorChanger : MonoBehaviour
     {

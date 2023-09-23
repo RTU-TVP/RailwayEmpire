@@ -1,6 +1,6 @@
 #region
 
-using Coal_Minigame;
+using Minigames.Coal;
 using TMPro;
 using UnityEngine;
 

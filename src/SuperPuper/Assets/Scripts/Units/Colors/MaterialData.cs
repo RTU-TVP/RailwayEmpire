@@ -5,12 +5,12 @@ using UnityEngine;
 
 #endregion
 
-namespace Color
+namespace Colors
 {
     [Serializable]
     public class MaterialData
     {
         [field: SerializeField] public int MatIndex { get; private set; }
-        [field: SerializeField] public UnityEngine.Color[] Colors { get; private set; }
+        [field: SerializeField] public Color[] Colors { get; private set; }
     }
 }
