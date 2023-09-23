@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 
 public class MovementSpawn : MonoBehaviour {
-
+	[SerializeField] private TextMeshProUGUI _scoreText;
 	private bool conditionMovementHorizontal = true;
 	public Camera cameraPrincipal;
 	private int _score;
@@ -13,7 +13,6 @@ public class MovementSpawn : MonoBehaviour {
 	private bool _canSpawn = true;
 	private float _spawnTimer = 0;
 	public bool _hasStarted;
-	[SerializeField] private TextMeshProUGUI _scoreText;
 
 	private void Start()
 	{
