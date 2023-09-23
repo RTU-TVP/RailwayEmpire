@@ -6,7 +6,7 @@ using UnityEngine;
 
 #endregion
 
-namespace Coal_Minigame
+namespace Minigames.Coal
 {
     public class GameController : MonoBehaviour
     {
