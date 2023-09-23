@@ -9,7 +9,6 @@ namespace Units.Train
 {
     static public class RailwayCarriage
     {
-
         public static Data.Static.Trains.Train GenerationTrain(RailwayCarriagesDatabaseScriptableObject railwayCarriagesDatabaseScriptableObject)
         {
             int count = Random.Range(3, 5);
@@ -37,27 +36,22 @@ namespace Units.Train
             oldParent.position = startPointPosition;
             oldParent.rotation = Quaternion.Euler(0, 0, 0);
 
-            var tempParent = oldParent;
             for (int i = 0; i < count; i++)
             {
-                tempParent = CreateRailwayCarriage(
+                CreateRailwayCarriage(
                     train.RailwayCarriages[i].Prefab,
-                    tempParent).transform;
+                    oldParent,
+                    i);
             }
 
             return oldParent.gameObject;
         }
 
-        private static GameObject CreateRailwayCarriage(GameObject prefab, Transform parent)
+        private static void CreateRailwayCarriage(GameObject prefab, Transform parent, int count)
         {
-            GameObject railwayCarriage;
-
-            railwayCarriage = Object.Instantiate(prefab, parent);
-            railwayCarriage.transform.position = parent.position - new Vector3(16.5f, 0, 0);
+            var railwayCarriage = Object.Instantiate(prefab, parent);
+            railwayCarriage.transform.position = parent.position - new Vector3(16.5f * count, 0, 0);
             railwayCarriage.transform.rotation = Quaternion.Euler(0, 90, 0);
-
-            Debug.Log(railwayCarriage.GetComponentInChildren<MeshRenderer>().bounds.size.x);
-            return railwayCarriage;
         }
     }
 }

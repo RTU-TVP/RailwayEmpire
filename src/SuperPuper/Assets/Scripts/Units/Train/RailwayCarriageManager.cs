@@ -12,19 +12,16 @@ namespace Units.Train
         private Outline _outline;
         private InteractiveObject _interactiveObject;
 
-        private void Awake()
+        private void Start()
         {
             if (_railwayCarriageScriptableObject.IsInteractive == false) return;
-            
+
             _interactiveObject = gameObject.AddComponent<InteractiveObject>();
             _outline = gameObject.AddComponent<Outline>();
             _outline.OutlineWidth = _trainConfigurationScriptableObject.OutlineIntensity;
             _outline.OutlineMode = Outline.Mode.OutlineAll;
             _outline.enabled = false;
-        }
 
-        private void Start()
-        {
             RegisterCallbacks();
         }
 
@@ -39,7 +36,10 @@ namespace Units.Train
             _outline.OutlineColor = _trainConfigurationScriptableObject.OutlineColorDefault;
             _outline.enabled = true;
         }
-        private void OnMouseExit() => _outline.enabled = false;
+        private void OnMouseExit()
+        {
+            _outline.enabled = false;
+        }
         private void OnMouseClick()
         {
             _outline.OutlineColor = _trainConfigurationScriptableObject.OutlineColorChosen;

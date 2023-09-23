@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6045384370544991221}
   - component: {fileID: 3076824528306040013}
   - component: {fileID: 3085491907391254486}
-  - component: {fileID: 8665472612273505355}
   m_Layer: 0
   m_Name: carriage_base
   m_TagString: Untagged
@@ -87,27 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8665472612273505355
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2347893502664342997}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.04495712, y: 0.16443375, z: 0.022722196}
-  m_Center: {x: 0, y: 0, z: 0.017536439}
 --- !u!1 &8932910383068814492
 GameObject:
   m_ObjectHideFlags: 0
