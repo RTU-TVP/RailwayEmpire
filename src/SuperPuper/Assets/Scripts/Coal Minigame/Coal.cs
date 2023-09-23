@@ -16,6 +16,7 @@ public class Coal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Floor"))
         {
+            _player.AddLostScore(1);
             Destroy(gameObject);
         }
 

@@ -2,18 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnCubos : MonoBehaviour {
+public class SpawnCubes : MonoBehaviour {
 
-	public GameObject CuboPrefab;
-
-	void Start () {
-		
-	}
+	public GameObject CubePrefab;
 
 	void Update () {
 
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			Instantiate (CuboPrefab, transform.position, Quaternion.identity);
+			Instantiate (CubePrefab, transform.position, Quaternion.identity);
 		}
 	}
 }
