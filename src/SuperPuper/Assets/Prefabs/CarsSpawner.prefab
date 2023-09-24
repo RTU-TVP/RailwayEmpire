@@ -46,11 +46,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 305e2a0e122d6a34e8c48a42d33c46d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: 0
   _point1: {fileID: 5153333124724006936}
   _point2: {fileID: 4948079796851484533}
   _carTypes:
-  - {fileID: 2211309100523883363, guid: b57fb40593ca8fa4a9c2fd1a2f071778, type: 3}
-  - {fileID: 5117666725647837069, guid: f71c0a7ee29ce084da5cf6c358dae258, type: 3}
+  - {fileID: 1824255577561276207, guid: f74a6e921d3de614c9ef7dc36f0d20eb, type: 3}
+  - {fileID: 5403136037013572695, guid: 2a49af3a742aebf4887924639aaefa7d, type: 3}
+  - {fileID: 7014075198187722010, guid: fa7d89104d25f5241bad9071cafe9af2, type: 3}
+  - {fileID: 4082665522940635968, guid: f1d9732a7394a9342961844c35a0f399, type: 3}
+  - {fileID: 5048504245842329540, guid: 8924c2e7848059a4caae78c1553470e8, type: 3}
+  - {fileID: 8096072379882427613, guid: 5c4464fa5f4b5e6438bb1f4ecad6382f, type: 3}
+  - {fileID: 7938746145096588230, guid: 7c1d674eaae08f049a1c5c88240bab2e, type: 3}
+  - {fileID: 828636159846018185, guid: 65b1f7c74ba2469478fc188af43fb5aa, type: 3}
+  - {fileID: 3361934127411967482, guid: df30aaf69319e90459383010f33e0591, type: 3}
 --- !u!1 &4948079796851484533
 GameObject:
   m_ObjectHideFlags: 0
@@ -81,7 +89,7 @@ Transform:
   m_GameObject: {fileID: 4948079796851484533}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 37.58297, y: -3.7573318, z: -0.4807335}
+  m_LocalPosition: {x: -6.6, y: -3.7573318, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -102,7 +110,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4948079796851484533}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -225,7 +233,7 @@ Transform:
   m_GameObject: {fileID: 5153333124724006936}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.383156, y: -3.7573318, z: -0.4807335}
+  m_LocalPosition: {x: 449.6, y: -3.7573318, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -246,7 +254,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5153333124724006936}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

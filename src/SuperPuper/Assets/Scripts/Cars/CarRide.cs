@@ -6,6 +6,7 @@ public class CarRide : MonoBehaviour
 {
     GameObject point1;
     GameObject point2;
+    public bool direction;
     void Awake()
     {
         point1 = GameObject.Find("Point1");
@@ -14,6 +15,14 @@ public class CarRide : MonoBehaviour
 
     void Update()
     {
-        transform.position += (point2.transform.position - point1.transform.position).normalized * Time.deltaTime * Random.Range(5,15);
+        if(direction)
+        {
+            transform.position += (point2.transform.position - point1.transform.position).normalized * Time.deltaTime * Random.Range(30, 75);
+        }
+        else
+        {
+            transform.position -= (point2.transform.position - point1.transform.position).normalized * Time.deltaTime * Random.Range(30, 75);
+        }
+
     }
 }
