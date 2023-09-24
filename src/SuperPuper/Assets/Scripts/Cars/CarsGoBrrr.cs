@@ -33,7 +33,7 @@ public class CarsGoBrrr : MonoBehaviour
             newCar.transform.position = _point1.transform.position;
             Vector3 scale = newCar.transform.localScale;
             newCar.GetComponent<CarRide>().direction = direction;
-            if(direction)
+            if(!direction)
             {
                 scale.y = -newCar.transform.localScale.y;
                 newCar.transform.localScale = scale;
