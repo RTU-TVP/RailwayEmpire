@@ -1,10 +1,12 @@
 ﻿#region
 
+using System;
 using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 #endregion
 
@@ -21,6 +23,9 @@ namespace Units.Minigames.MemoGame
         [SerializeField] private MainCard originalCard;
         [SerializeField] private GameObject[] childObjects;
         private readonly int _targetScore = 6;
+        
+        public event Action OnGameCompleted; 
+        public event Action OnGameLost; 
 
         //-------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -35,7 +40,7 @@ namespace Units.Minigames.MemoGame
         {
             _looseTimer -= Time.deltaTime;
             _timerUI.text = "Осталось времени: "+((int)_looseTimer);
-            if (_looseTimer <= 0) {print("Loose"); FindObjectOfType<PipeGameLoader>().DestroyGame();}
+            if (_looseTimer <= 0) {print("Loose"); OnGameLost?.Invoke();}
         }
 
         public bool canReveal
@@ -114,14 +119,15 @@ namespace Units.Minigames.MemoGame
                 if (_score == _targetScore)
                 {
                     yield return new WaitForSeconds(1.2f);
-                    FindObjectOfType<PipeGameLoader>().DestroyGame();
+                   // FindObjectOfType<PipeGameLoader>().DestroyGame();
                     Debug.Log("Win");
+                    
+                    OnGameCompleted?.Invoke();
                 }
             }
             else
             {
                 yield return new WaitForSeconds(1.2f);
-
                 _firstRevealed.Unreveal();
                 _secondRevealed.Unreveal();
             }

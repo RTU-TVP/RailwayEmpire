@@ -1,5 +1,6 @@
 #region
 
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -14,12 +15,15 @@ namespace Units.Minigames.PipeGame
         [SerializeField] private int _totalPipes;
         [SerializeField] private TMP_Text _timerUI;
         [SerializeField] private float _looseTimer;
+        
+        public event Action OnGameCompleted;
+        public event Action OnGameFailed;
     
         void FixedUpdate()
         {
             _looseTimer -= Time.deltaTime;
             _timerUI.text = "Осталось времени: "+((int)_looseTimer);
-            if (_looseTimer <= 0) {print("Loose"); FindObjectOfType<PipeGameLoader>().DestroyGame();}
+            if (_looseTimer <= 0) {print("Loose"); OnGameFailed?.Invoke();}
         }
 
         void OnEnable()
@@ -33,8 +37,10 @@ namespace Units.Minigames.PipeGame
             _correctPipesCount++;
             if (_totalPipes == _correctPipesCount)
             {
-                FindObjectOfType<PipeGameLoader>().DestroyGame();
+               // FindObjectOfType<PipeGameLoader>().DestroyGame();
                 Debug.Log("Win");
+                
+                OnGameCompleted?.Invoke();
             }
         }
 

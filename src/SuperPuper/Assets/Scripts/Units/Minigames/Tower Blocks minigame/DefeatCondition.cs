@@ -1,16 +1,16 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using System;
+using UnityEngine;
 
 public class DefeatCondition : MonoBehaviour {
 
-	private Scene _scene;
 	private MovementSpawn _movementSpawn;
+
+	public event Action OnCubeFall;
 	
 
 	void Start ()
 	{
 		_movementSpawn = FindObjectOfType<MovementSpawn>();
-		_scene = SceneManager.GetActiveScene ();
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -25,8 +25,9 @@ public class DefeatCondition : MonoBehaviour {
 
 	void OnCollisionEnter(Collision col)
 	{
-		if (col.gameObject.CompareTag("Floor")) {
-			SceneManager.LoadScene (_scene.name);
+		if (col.gameObject.CompareTag("Floor")) 
+		{
+			OnCubeFall?.Invoke();
 		}
 	}
 }

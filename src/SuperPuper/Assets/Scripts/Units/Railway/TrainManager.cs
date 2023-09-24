@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Units.Money;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -53,7 +54,10 @@ namespace Units.Railway
         {
             if (_moveCoroutine != null) StopCoroutine(_moveCoroutine);
             _moveCoroutine = StartCoroutine(Move());
+            
             return;
+            
+            
 
             IEnumerator Move()
             {
@@ -62,18 +66,23 @@ namespace Units.Railway
                 float journeyLength = Vector3.Distance(startPosition, stopPoint);
                 float journeyTime = journeyLength / RailsTracksManager.Instance.trainConfiguration.Speed;
 
-                float startTime = Time.time;
-                float distanceCovered = 0.0f;
+                /*float startTime = Time.time;
+                float distanceCovered = 0.0f;*/
 
+                /*
                 while (distanceCovered < journeyLength)
                 {
                     float distanceFraction = (Time.time - startTime) / journeyTime;
                     train.position = Vector3.Lerp(startPosition, stopPoint, distanceFraction);
                     distanceCovered = distanceFraction * journeyLength;
                     yield return null;
-                }
+                }*/
+
+                train.transform.DOMove(stopPoint, journeyTime);
 
                 onTrainArrived?.Invoke();
+                
+                yield return null;
             }
         }
 

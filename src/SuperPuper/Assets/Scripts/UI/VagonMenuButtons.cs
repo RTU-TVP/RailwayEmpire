@@ -9,6 +9,9 @@ namespace UI
 {
     public class VagonMenuButtons : MonoBehaviour
     {
+        [field: SerializeField] public GameObject ButtonDoMyselfGameObject { get; private set; }
+        [field: SerializeField] public GameObject ButtonCallWorkersGameObject { get; private set; }
+        
         private UnityAction _onDoMyself;
         private UnityAction _onCallWorkers;
 

@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _scoreScreen;
     [SerializeField] private TextMeshProUGUI _lostScoreScreen;
     public float time = .25f;
+    
+    public event Action OnGameCompleted;
+    public event Action OnGameFailed;
 
     private void Update()
     {
@@ -28,9 +31,11 @@ public class PlayerController : MonoBehaviour
     {
         _score += points;
         _scoreScreen.text = "Score: " + _score;
-        if (_score == 25)
+        if (_score == 10)
         {
             print("WIN NAHUI, TI POBEDIL EBANA");
+            
+            OnGameCompleted?.Invoke();
         }
     }
     public void AddLostScore(int points)
@@ -41,27 +46,29 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             print("TI EBLAN, POPROBUY ESHE RAZ");
+            
+            OnGameFailed?.Invoke();
         }
         
     }
 
     void Move(float duration)
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            transform.DOMove(_playerPosition1.position,duration).SetAutoKill();
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            transform.DOMove(_playerPosition2.position,duration).SetAutoKill();
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            transform.DOMove(_playerPosition3.position,duration).SetAutoKill();
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            transform.DOMove(_playerPosition4.position,duration).SetAutoKill();
-        }
+    if (Input.GetKeyDown(KeyCode.A))
+    {
+        transform.DOMove(_playerPosition1.position,duration).SetAutoKill();
+    }
+    if (Input.GetKeyDown(KeyCode.D))
+    {
+        transform.DOMove(_playerPosition2.position,duration).SetAutoKill();
+    }
+    if (Input.GetKeyDown(KeyCode.Q))
+    {
+        transform.DOMove(_playerPosition3.position,duration).SetAutoKill();
+    }
+    if (Input.GetKeyDown(KeyCode.E))
+    {
+        transform.DOMove(_playerPosition4.position,duration).SetAutoKill();
+    }
     }
 }
