@@ -58,9 +58,17 @@ namespace Units.Railway
                 trainManager.MoveTrain(trainTransform, railTracks[index].EndPoint.position);
                 railTracks[index].SetIsRailTrackAvailable(true);
                 _trains.Remove(trainManager);
-                Destroy(trainGameObject);
+               
+                var sequence = DOTween.Sequence();
                 
-                CreateTrain(index);
+                sequence.Append(trainGameObject.transform.DOMoveX(200, 10));
+                
+                sequence.onComplete += () =>
+                {
+                    Destroy(trainGameObject);
+                    CreateTrain(index);
+                };
+              
             });
             _trains.Add(trainManager);
 
