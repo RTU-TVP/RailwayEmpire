@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-// using DG.Tweening;
+using DG.Tweening;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
@@ -47,21 +47,21 @@ public class PlayerController : MonoBehaviour
 
     void Move(float duration)
     {
-    //     if (Input.GetKeyDown(KeyCode.A))
-    //     {
-    //         transform.DOMove(_playerPosition1.position,duration).SetAutoKill();
-    //     }
-    //     if (Input.GetKeyDown(KeyCode.D))
-    //     {
-    //         transform.DOMove(_playerPosition2.position,duration).SetAutoKill();
-    //     }
-    //     if (Input.GetKeyDown(KeyCode.Q))
-    //     {
-    //         transform.DOMove(_playerPosition3.position,duration).SetAutoKill();
-    //     }
-    //     if (Input.GetKeyDown(KeyCode.E))
-    //     {
-    //         transform.DOMove(_playerPosition4.position,duration).SetAutoKill();
-    //     }
+    if (Input.GetKeyDown(KeyCode.A))
+    {
+        transform.DOMove(_playerPosition1.position,duration).SetAutoKill();
+    }
+    if (Input.GetKeyDown(KeyCode.D))
+    {
+        transform.DOMove(_playerPosition2.position,duration).SetAutoKill();
+    }
+    if (Input.GetKeyDown(KeyCode.Q))
+    {
+        transform.DOMove(_playerPosition3.position,duration).SetAutoKill();
+    }
+    if (Input.GetKeyDown(KeyCode.E))
+    {
+        transform.DOMove(_playerPosition4.position,duration).SetAutoKill();
+    }
     }
 }
