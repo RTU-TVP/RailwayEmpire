@@ -49,8 +49,6 @@ namespace Units.Railway
 
             if (WorkersManager.Instance.WorkersCount >= WorkersManager.Instance._workersConfiguration.MaxWorkers)
             {
-                Debug.Log("121");
-                
                 vagonMenuButtons.ButtonCallWorkersGameObject.SetActive(false);
             }
             
