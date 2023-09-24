@@ -52,7 +52,8 @@ namespace Units.Railway
                 railTracks[index].SetIsRailTrackAvailable(true);
                 _trains.Remove(trainManager);
                 Destroy(trainGameObject);
-                trainManager.CreateTrain(index);
+                
+                CreateTrain(index);
             });
             _trains.Add(trainManager);
 
