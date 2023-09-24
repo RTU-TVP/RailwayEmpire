@@ -405,16 +405,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1905806756}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8891fb2655945134094099631fc79951, type: 3}
+  m_Script: {fileID: 11500000, guid: ae371aba9c904f7594a58cce007ef017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <railwayCarriagesDatabaseScriptableObject>k__BackingField: {fileID: 11400000, guid: 5b0886c9e6997d243ae273549b42cac1, type: 2}
-  <trainConfigurationScriptableObject>k__BackingField: {fileID: 11400000, guid: cdc0449f504c1194d97882758fc929d5, type: 2}
-  <_railTracks>k__BackingField:
+  <railwayCarriagesDatabase>k__BackingField: {fileID: 11400000, guid: 5b0886c9e6997d243ae273549b42cac1, type: 2}
+  <trainConfiguration>k__BackingField: {fileID: 11400000, guid: cdc0449f504c1194d97882758fc929d5, type: 2}
+  <railTracks>k__BackingField:
   - {fileID: 2033145799}
   - {fileID: 532695783}
   - {fileID: 2069970550}
-  <_vagonButtonsScreen>k__BackingField: {fileID: 7839394952249355725, guid: e6ff45b2c36af284b9e7b099e276b21e, type: 3}
+  <vagonButtonsScreen>k__BackingField: {fileID: 7839394952249355725, guid: e6ff45b2c36af284b9e7b099e276b21e, type: 3}
 --- !u!4 &1931955532 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8169622514583856034, guid: 818f304c4e230d844870ea334512eac4, type: 3}
@@ -638,6 +638,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrainManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7259952447025773283, guid: 9b66aa096bfedda4da46ef0b09920562, type: 3}
+      propertyPath: <IsRailTrackAvailable>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7412487697206489146, guid: 9b66aa096bfedda4da46ef0b09920562, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -678,7 +682,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7875730106047584296, guid: 9b66aa096bfedda4da46ef0b09920562, type: 3}
+      propertyPath: <IsRailTrackAvailable>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308273679973911483, guid: 9b66aa096bfedda4da46ef0b09920562, type: 3}
+      propertyPath: <IsRailTrackAvailable>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7758479190050237939, guid: 9b66aa096bfedda4da46ef0b09920562, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
