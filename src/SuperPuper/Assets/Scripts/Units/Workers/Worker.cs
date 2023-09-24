@@ -20,12 +20,14 @@ namespace Units.Workers
         private Animator _animator;
         private RichAI _richAI;
         private StateMachine _stateMachine;
+        private AnimManager_worker _animManagerWorker;
 
         public bool isWorkDone = false;
         public bool isSaleDone = false;
 
         private void Awake()
         {
+            _animManagerWorker = GetComponentInChildren<AnimManager_worker>();
             _animator = GetComponentInChildren<Animator>();
             _richAI = GetComponent<RichAI>();
         }
@@ -37,13 +39,13 @@ namespace Units.Workers
 
             _stateMachine = new StateMachine();
 
-            MoveToWork moveToWork = new MoveToWork(_animator, _richAI, moveSpeed, workTransform);
-            MoveToSelling moveToSelling = new MoveToSelling(_animator, _richAI, moveSpeed, shopTransform);
-            MoveToHome moveToHome = new MoveToHome(_animator, _richAI, moveSpeed, homeTransform);
+            MoveToWork moveToWork = new MoveToWork(_animManagerWorker, _richAI, moveSpeed, workTransform);
+            MoveToSelling moveToSelling = new MoveToSelling(_animManagerWorker, _richAI, moveSpeed, shopTransform);
+            MoveToHome moveToHome = new MoveToHome(_animManagerWorker, _richAI, moveSpeed, homeTransform);
 
-            Work work = new Work(_animator, workTime);
+            Work work = new Work(_animManagerWorker, workTime);
 
-            SellingResources sellingResources = new SellingResources(_animator, saleTime);
+            SellingResources sellingResources = new SellingResources(_animManagerWorker, saleTime);
 
             #region Transitions
 

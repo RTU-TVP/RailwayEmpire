@@ -9,21 +9,18 @@ namespace Units.Workers.States
 {
     public class SellingResources : IState
     {
-        public SellingResources(Animator animator, float saleTime)
+        public SellingResources(AnimManager_worker animManagerWorker, float saleTime)
         {
-            _animator = animator;
+            _animManagerWorker = animManagerWorker;
             SaleTime = saleTime;
         }
 
-        private static readonly int _sellingResources = Animator.StringToHash("is_Idle");
-        private static readonly int _goIdle = Animator.StringToHash("go_Idle");
         public float SaleTime { get; private set; }
-        private readonly Animator _animator;
+        private readonly AnimManager_worker _animManagerWorker;
 
         public void OnEnter()
         {
-            _animator.SetBool(_sellingResources, true);
-            _animator.SetTrigger(_goIdle);
+            _animManagerWorker.SwitchAnimationState("Idle");
         }
         public void Tick()
         {
@@ -31,7 +28,6 @@ namespace Units.Workers.States
         }
         public void OnExit()
         {
-            _animator.SetBool(_sellingResources, false);
         }
     }
 }

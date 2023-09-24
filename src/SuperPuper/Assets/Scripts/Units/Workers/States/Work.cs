@@ -9,21 +9,18 @@ namespace Units.Workers.States
 {
     public class Work : IState
     {
-        public Work(Animator animator, float workTime)
+        public Work(AnimManager_worker animManagerWorker, float workTime)
         {
-            _animator = animator;
+            _animManagerWorker = animManagerWorker;
             WorkTime = workTime;
         }
 
-        private static readonly int _isWorking = Animator.StringToHash("is_Working");
-        private static readonly int _goWorking = Animator.StringToHash("go_Working");
         public float WorkTime { get; private set; }
-        private readonly Animator _animator;
+        private readonly AnimManager_worker _animManagerWorker;
 
         public void OnEnter()
         {
-            _animator.SetBool(_isWorking, true);
-            _animator.SetTrigger(_goWorking);
+            _animManagerWorker.SwitchAnimationState("Working");
         }
 
         public void Tick()
@@ -32,8 +29,6 @@ namespace Units.Workers.States
         }
 
         public void OnExit()
-        {
-            _animator.SetBool(_isWorking, false);
-        }
+        {}
     }
 }
