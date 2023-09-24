@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 83264376}
   - component: {fileID: 83264375}
   - component: {fileID: 83264378}
+  - component: {fileID: 83264379}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -274,6 +275,26 @@ MonoBehaviour:
   _nextLvlPriceText: {fileID: 1734342231}
   typeOfUpgrade: 1
   _costsPerLevel: 0000000064000000c80000002c010000
+--- !u!114 &83264379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83264373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cd25c62311d6dd44bb297ce2e596de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: tap
+    clip: {fileID: 8300000, guid: 451ec7972f36ab945bd07a1a7e5b19b7, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+    source: {fileID: 0}
 --- !u!1 &163588678
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,6 +1148,7 @@ GameObject:
   - component: {fileID: 1323038271}
   - component: {fileID: 1323038270}
   - component: {fileID: 1323038273}
+  - component: {fileID: 1323038274}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1265,6 +1287,26 @@ MonoBehaviour:
   _nextLvlPriceText: {fileID: 1666272000}
   typeOfUpgrade: 0
   _costsPerLevel: 0000000064000000c80000002c01000090010000
+--- !u!114 &1323038274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323038268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cd25c62311d6dd44bb297ce2e596de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: tap
+    clip: {fileID: 8300000, guid: 451ec7972f36ab945bd07a1a7e5b19b7, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+    source: {fileID: 0}
 --- !u!1 &1330446223
 GameObject:
   m_ObjectHideFlags: 0
@@ -2640,6 +2682,7 @@ GameObject:
   - component: {fileID: 2058888020}
   - component: {fileID: 2058888019}
   - component: {fileID: 2058888022}
+  - component: {fileID: 2058888023}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -2778,6 +2821,26 @@ MonoBehaviour:
   _nextLvlPriceText: {fileID: 1413036129}
   typeOfUpgrade: 2
   _costsPerLevel: 0000000064000000c8000000
+--- !u!114 &2058888023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058888017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cd25c62311d6dd44bb297ce2e596de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: tap
+    clip: {fileID: 8300000, guid: 451ec7972f36ab945bd07a1a7e5b19b7, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+    source: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

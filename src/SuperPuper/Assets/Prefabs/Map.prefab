@@ -17468,7 +17468,7 @@ PrefabInstance:
       objectReference: {fileID: 4769673116371036022}
     - target: {fileID: 7305075469351686459, guid: a463302723c5ff048858d620c0282684, type: 3}
       propertyPath: direction
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3289750000420441326, guid: a463302723c5ff048858d620c0282684, type: 3}
@@ -33222,7 +33222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7305075469351686459, guid: a463302723c5ff048858d620c0282684, type: 3}
       propertyPath: direction
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
