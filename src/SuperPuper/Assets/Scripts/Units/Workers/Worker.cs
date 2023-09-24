@@ -69,6 +69,15 @@ namespace Units.Workers
                 }
                 return false;
             });
+            At(moveToWork, moveToHome, () =>
+            {
+                if (moveToHome.IsArrived())
+                {
+                    onHomeDone?.Invoke();
+                    return false;
+                }
+                return false;
+            });
 
             #endregion
 
