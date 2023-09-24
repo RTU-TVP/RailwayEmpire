@@ -58,10 +58,14 @@ namespace Units.Minigames.MemoGame
                     if (i == 0 && j == 0)
                     {
                         card = originalCard;
+                        //card.Unreveal();
+                        
                     }
                     else
                     {
                         card = Instantiate(originalCard);
+                        //card.Unreveal();
+                        
                     }
 
                     int index = j * gridCols + i;
