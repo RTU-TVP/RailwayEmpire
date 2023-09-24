@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Units.Money;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -13,6 +14,7 @@ namespace Units.Railway
         private UnityAction _onTrainCompleted;
         private Coroutine _moveCoroutine;
         private int _index;
+        private int _money;
 
         public void RegisterOnTrainCompleted(UnityAction onTrainCompleted) => _onTrainCompleted += onTrainCompleted;
 
@@ -26,6 +28,7 @@ namespace Units.Railway
             
             for (int i = 0; i < train.RailwayCarriages.Length; i++)
             {
+                _money += train.RailwayCarriages[i].Money;
                 var railwayCarriage = RailwayCarriageManager.CreateRailwayCarriage(train.RailwayCarriages[i].Prefab, transform, i);
                 if (train.RailwayCarriages[i].IsInteractive)
                 {
@@ -39,6 +42,11 @@ namespace Units.Railway
                 }
             }
             CheckTrainCompleted();
+            _onTrainCompleted += () =>
+            {
+                MoneyManager.Instance.ChangeMoneyTo(_money);
+                Debug.Log($"{_money}");
+            };
         }
 
         public void MoveTrain(Transform train, Vector3 stopPoint, UnityAction onTrainArrived = null)
@@ -73,15 +81,12 @@ namespace Units.Railway
         {
             _countRailwayCarriagesNotCompleted--;
             CheckTrainCompleted();
-            Debug.Log($"RailwayCarriage {railwayCarriageManager} completed");
         }
 
         private void CheckTrainCompleted()
         {
-            Debug.Log($"Train {_index} check completed {_countRailwayCarriagesNotCompleted}");
             if (_countRailwayCarriagesNotCompleted != 0) return;
             _onTrainCompleted?.Invoke();
-            Debug.Log($"Train {_index} completed");
         }
     }
 }

@@ -21,12 +21,10 @@ namespace UI
         public void ButtonDoMyself()
         {
             _onDoMyself?.Invoke();
-            Debug.Log("Я сам разгружу вагон!");
         }
         public void ButtonCallWorkers()
         {
             _onCallWorkers?.Invoke();
-            Debug.Log("Я позову рабочих!");
         }
     }
 }

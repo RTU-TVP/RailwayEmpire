@@ -46,8 +46,6 @@ namespace Units.Railway
             trainManager.CreateTrain(index);
             trainManager.RegisterOnTrainCompleted(() =>
             {
-                Debug.Log($"Train {index} completed and destroyed");
-
                 trainManager.MoveTrain(trainTransform, railTracks[index].EndPoint.position);
                 railTracks[index].SetIsRailTrackAvailable(true);
                 _trains.Remove(trainManager);

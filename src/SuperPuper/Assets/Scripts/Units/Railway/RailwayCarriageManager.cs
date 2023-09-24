@@ -52,7 +52,6 @@ namespace Units.Railway
                         _onComplete?.Invoke();
                         _isTrainCompleted = true;
                         _screen.SetActive(false);
-                        Debug.Log("Work done");
                     }),
                 () => RailsTracksManager.Instance.CallWorkers(workerPosition,
                     () =>
@@ -60,7 +59,6 @@ namespace Units.Railway
                         _onComplete?.Invoke();
                         _isTrainCompleted = true;
                         _screen.SetActive(false);
-                        Debug.Log("Work done");
                     }));
 
             _screen.SetActive(false);
