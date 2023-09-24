@@ -128,7 +128,6 @@ namespace Units.Minigames.MemoGame
             else
             {
                 yield return new WaitForSeconds(1.2f);
-
                 _firstRevealed.Unreveal();
                 _secondRevealed.Unreveal();
             }

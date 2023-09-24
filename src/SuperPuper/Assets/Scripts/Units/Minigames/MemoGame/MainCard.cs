@@ -16,6 +16,7 @@ namespace Units.Minigames.MemoGame
         [SerializeField] private GameObject Card_Back;
         private Vector3 _startPosition;
         public int Id { get; private set; }
+        [field: SerializeField]public bool isRevealed { get; private set; }
 
         private void Start()
         {
@@ -24,28 +25,31 @@ namespace Units.Minigames.MemoGame
 
         public void Reveal()
         {
-            if (Card_Back.activeSelf && controller.canReveal)
+            if (Card_Back.activeSelf && controller.canReveal && !isRevealed)
             {
                 StartCoroutine(On());
-                controller.CardRevealed(this);
             }
         }
         
         IEnumerator On()
         {
-            //yield on a new YieldInstruction that waits for 5 seconds.
-            StartCoroutine(RotateAnim(0));
-            //GetComponentInChildren<ParticleSystem>().Play();
-            yield return new WaitForSeconds(0.3f);               
-            transform.GetChild(1).gameObject.SetActive(true);
+            
+                //yield on a new YieldInstruction that waits for 5 seconds.
+                controller.CardRevealed(this);
+                StartCoroutine(RotateAnim(0));
+                //GetComponentInChildren<ParticleSystem>().Play();
+                yield return new WaitForSeconds(0.1f);
+                transform.GetChild(1).gameObject.SetActive(true);
+                isRevealed = true;
+            
         }
         IEnumerator Off()
         {
             //yield on a new YieldInstruction that waits for 5 seconds.
-            yield return new WaitForSeconds(0.5f);
-            StartCoroutine(RotateAnim(180));
+
+            yield return new WaitForSeconds(0.3f);
+            StartCoroutine(RotateAnim(180));            isRevealed = false;
             //GetComponentInChildren<ParticleSystem>().Play(); 
-            yield return new WaitForSeconds(0.3f);     
             //transform.GetChild(1).gameObject.SetActive(false);
         }
 
@@ -78,7 +82,6 @@ namespace Units.Minigames.MemoGame
             transform.DORotate(new Vector3(0,side,0),.5f);
             yield return new WaitForSeconds(.5f);
             transform.DOMove(_startPosition,.5f);
-            yield return new WaitForSeconds(.5f);
         }
     }
 }
