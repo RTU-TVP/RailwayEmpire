@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6667008535899398332}
-  - component: {fileID: 1203292947663315521}
   - component: {fileID: -3725871016332705582}
+  - component: {fileID: -2258664577270158519}
   m_Layer: 0
   m_Name: 90deg
   m_TagString: Untagged
@@ -34,22 +34,6 @@ Transform:
   - {fileID: 6859047634083464580}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1203292947663315521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7892296100335358514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7aa988b237018be4bb06f87b47438fd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pipesGameManager: {fileID: 0}
-  _correctRotation: 
-  _currentRotation: 0
-  <IsPlaced>k__BackingField: 0
 --- !u!65 &-3725871016332705582
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -71,6 +55,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6, y: 0.3, z: 0.6}
   m_Center: {x: -0.15, y: 0, z: -0.15}
+--- !u!114 &-2258664577270158519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892296100335358514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cd25c62311d6dd44bb297ce2e596de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: PipeRotSound
+    clip: {fileID: 8300000, guid: b950fe6ca51647b438b0867099dc1e3a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+    source: {fileID: 0}
 --- !u!1001 &6393565583316230767
 PrefabInstance:
   m_ObjectHideFlags: 0

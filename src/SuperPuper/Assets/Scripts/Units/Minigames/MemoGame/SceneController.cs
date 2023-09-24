@@ -1,6 +1,8 @@
 ﻿#region
 
 using System.Collections;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,6 +28,15 @@ namespace Units.Minigames.MemoGame
 
         private int _score;
         private MainCard _secondRevealed;
+        [SerializeField] private TMP_Text _timerUI;
+        [SerializeField] private float _looseTimer;
+    
+        void FixedUpdate()
+        {
+            _looseTimer -= Time.deltaTime;
+            _timerUI.text = "Осталось времени: "+((int)_looseTimer);
+            if (_looseTimer <= 0) {print("Loose"); FindObjectOfType<PipeGameLoader>().DestroyGame();}
+        }
 
         public bool canReveal
         {
@@ -56,6 +67,7 @@ namespace Units.Minigames.MemoGame
                     int index = j * gridCols + i;
                     int id = numbers[index];
                     card.ChangeSprite(id, childObjects[id]);
+                    card.transform.SetParent(gameObject.transform);
 
                     float posX = offsetX * i + startPos.x;
                     float posY = offsetY * j + startPos.y;
@@ -97,12 +109,14 @@ namespace Units.Minigames.MemoGame
                 _score++;
                 if (_score == _targetScore)
                 {
+                    yield return new WaitForSeconds(1.2f);
+                    FindObjectOfType<PipeGameLoader>().DestroyGame();
                     Debug.Log("Win");
                 }
             }
             else
             {
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(1.2f);
 
                 _firstRevealed.Unreveal();
                 _secondRevealed.Unreveal();
