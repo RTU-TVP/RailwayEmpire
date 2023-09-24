@@ -80,7 +80,7 @@ public class MovementSpawn : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && _canSpawn)
         {
-            Instantiate(CubePrefab, transform.position, Quaternion.identity);
+            Instantiate(CubePrefab, transform.position, Quaternion.Euler(-90,0,90));
             _canSpawn = false;
         }
     }
