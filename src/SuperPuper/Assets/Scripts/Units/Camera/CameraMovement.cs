@@ -1,6 +1,7 @@
 #region
 
 using System.Collections;
+using Cinemachine;
 using Data.Static.Camera;
 using Services.Input;
 using UnityEngine;
@@ -11,10 +12,14 @@ namespace Units.Camera
 {
     public class CameraMovement : MonoBehaviour
     {
+        [field: SerializeField] public CinemachineVirtualCamera SecondVirtualCamera { get; private set; }
+        
         [SerializeField] private InputActionsReader _inputActionsReader;
         [SerializeField] private CameraMovementRestriction _cameraMovementRestriction;
         [SerializeField] private Transform _targetTransform;
         [SerializeField] private Transform _virtualCameraTransform;
+
+
         private Coroutine _moveCoroutine;
 
         private Vector2 _movementInput;
