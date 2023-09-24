@@ -37,7 +37,7 @@ namespace UI
         public void ContinueGame()
         {
             _progressBar.SetActive(true);
-            StartCoroutine(GameSceneStarter("GameTestScene"));
+            StartCoroutine(GameSceneStarter("_MainScene"));
             gameObject.SetActive(false);
             
         }
