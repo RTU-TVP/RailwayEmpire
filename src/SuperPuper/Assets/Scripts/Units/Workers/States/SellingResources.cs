@@ -15,13 +15,15 @@ namespace Units.Workers.States
             SaleTime = saleTime;
         }
 
-        private static readonly int _SellingResources = Animator.StringToHash("SellingResources");
+        private static readonly int _sellingResources = Animator.StringToHash("is_Idle");
+        private static readonly int _goIdle = Animator.StringToHash("go_Idle");
         public float SaleTime { get; private set; }
         private readonly Animator _animator;
 
         public void OnEnter()
         {
-            // _animator.SetBool(_SellingResources, true);
+            _animator.SetBool(_sellingResources, true);
+            _animator.SetTrigger(_goIdle);
         }
         public void Tick()
         {
@@ -29,7 +31,7 @@ namespace Units.Workers.States
         }
         public void OnExit()
         {
-            // _animator.SetBool(_SellingResources, false);
+            _animator.SetBool(_sellingResources, false);
         }
     }
 }

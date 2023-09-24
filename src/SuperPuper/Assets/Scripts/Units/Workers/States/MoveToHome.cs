@@ -14,7 +14,8 @@ namespace Units.Workers.States
             _targetTransform = targetTransform;
         }
 
-        private static readonly int _IsMoving = Animator.StringToHash("isMoving");
+        private static readonly int _isMoving = Animator.StringToHash("is_Moving");
+        private static readonly int _goMoving = Animator.StringToHash("go_Moving");
         private readonly Animator _animator;
         private readonly RichAI _richAI;
         private readonly float _speed;
@@ -27,13 +28,14 @@ namespace Units.Workers.States
             _richAI.SearchPath();
             _richAI.canMove = true;
             _richAI.maxSpeed = _speed;
-            // _animator.SetBool(_IsMoving, true);
+            _animator.SetBool(_isMoving, true);
+            _animator.SetTrigger(_goMoving);
         }
         public void Tick() {}
         public void OnExit()
         {
             _richAI.canMove = false;
-            // _animator.SetBool(_IsMoving, false);
+            _animator.SetBool(_isMoving, false);
         }
         
         public bool IsArrived()

@@ -14,7 +14,8 @@ namespace Units.Workers
         public static WorkersManager Instance;
 
         [SerializeField] private WorkersConfiguration _workersConfiguration;
-        [SerializeField] private GameObject _workerPrefab;
+        [SerializeField] private GameObject[] _workersPrefabs;
+        [SerializeField] private GameObject _workerParentPrefab;
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private Transform _home;
         [SerializeField] private Transform _shop;
@@ -31,7 +32,8 @@ namespace Units.Workers
             int workTimeLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_WORK_TIME);
             int saleTimeLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_SALE_TIME);
 
-            GameObject worker = Instantiate(_workerPrefab, _spawnPoint.position, Quaternion.identity);
+            GameObject worker = Instantiate(_workerParentPrefab, _spawnPoint.position, Quaternion.identity);
+            Instantiate(_workersPrefabs[Random.Range(0, _workersPrefabs.Length)], worker.transform);
             worker.AddComponent<Worker>().SetUp(
                 work,
                 _home,
