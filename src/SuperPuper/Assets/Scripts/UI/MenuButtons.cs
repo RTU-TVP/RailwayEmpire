@@ -39,6 +39,7 @@ namespace UI
             _progressBar.SetActive(true);
             StartCoroutine(GameSceneStarter("GameTestScene"));
             gameObject.SetActive(false);
+            
         }
         public void DeleteProgress()
         {
