@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 2959772781080456503}
   - component: {fileID: 2654572533486474001}
   - component: {fileID: 2894652130651259875}
+  - component: {fileID: 5768123966545171815}
+  - component: {fileID: 1167725071859520215}
   m_Layer: 0
   m_Name: WorkerParentPrefab
   m_TagString: Untagged
@@ -156,6 +158,108 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &5768123966545171815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092747965907881824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cd25c62311d6dd44bb297ce2e596de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: ch1
+    clip: {fileID: 8300000, guid: 4cfd3ed156b53f74aa4abc4cf155d9bc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 1
+    source: {fileID: 0}
+  - name: ch2
+    clip: {fileID: 8300000, guid: e20fab5f5c43f3e4a9a8be5491724428, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 1
+    source: {fileID: 0}
+  - name: ch3
+    clip: {fileID: 8300000, guid: 4c272efda5156644aabf35256fffc0f0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 1
+    source: {fileID: 0}
+  - name: ch4
+    clip: {fileID: 8300000, guid: 3959497c398bda942bacbaf37c5b437c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 1
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 8300000, guid: 5ae64202cac3dc34890043954319a767, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 1
+    source: {fileID: 0}
+  - name: ch5
+    clip: {fileID: 8300000, guid: 5ae64202cac3dc34890043954319a767, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 1
+    source: {fileID: 0}
+  - name: ch6
+    clip: {fileID: 8300000, guid: b256d1d3d64fd5242b6834b0e4911df3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 1
+    source: {fileID: 0}
+  - name: ch7
+    clip: {fileID: 8300000, guid: 1a4abb3480f5ead4f816e17c7941a535, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 1
+    source: {fileID: 0}
+  - name: ch8
+    clip: {fileID: 8300000, guid: 956ff687ea7f39e4b852592063709859, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 1
+    source: {fileID: 0}
+  - name: ch9
+    clip: {fileID: 8300000, guid: 108299fb02220b94ba85d6e568f227b4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 1
+    source: {fileID: 0}
+  - name: ch10
+    clip: {fileID: 8300000, guid: dd4cbbbaa1808654fbb33a1823d66238, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 1
+    source: {fileID: 0}
+--- !u!114 &1167725071859520215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2092747965907881824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53744699edb1bf34f9d335d7d1e54c42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4484426070202071869
 PrefabInstance:
   m_ObjectHideFlags: 0
