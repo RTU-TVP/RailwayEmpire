@@ -2,6 +2,7 @@ using Data.Static.Trains;
 using UI;
 using Units.Interactive;
 using Units.QuickOutline.Scripts;
+using Units.Workers;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -45,6 +46,14 @@ namespace Units.Railway
             _screen.transform.localRotation = trainConfiguration.ScreenRotation;
 
             var vagonMenuButtons = _screen.GetComponentInChildren<VagonMenuButtons>();
+
+            if (WorkersManager.Instance.WorkersCount >= WorkersManager.Instance._workersConfiguration.MaxWorkers)
+            {
+                Debug.Log("121");
+                
+                vagonMenuButtons.ButtonCallWorkersGameObject.SetActive(false);
+            }
+            
             vagonMenuButtons.SetActions(
                 () => RailsTracksManager.Instance.DoMyself(railwayCarriage.RailwayCarriageType,
                     () =>
@@ -104,12 +113,22 @@ namespace Units.Railway
 
         private void OnMouseEnter()
         {
+            if (_outline == null)
+            {
+                return;
+            }
+            
             _outline.OutlineColor = trainConfiguration.OutlineColorDefault;
             _outline.enabled = true;
         }
 
         private void OnMouseExit()
         {
+            if (_outline == null)
+            {
+                return;
+            }
+            
             _outline.enabled = false;
             _screen.SetActive(false);
         }

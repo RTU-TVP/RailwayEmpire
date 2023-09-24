@@ -788,6 +788,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 7.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5762684231954887862, guid: 0114bd868d3db494c8320de6512f725e, type: 3}
+      propertyPath: <_workersConfiguration>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 008fb70a3c0aed94d8fe1f9ae2d88e05, type: 2}
     - target: {fileID: 6332557300145035104, guid: 0114bd868d3db494c8320de6512f725e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
