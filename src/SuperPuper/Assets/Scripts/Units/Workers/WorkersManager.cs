@@ -3,6 +3,7 @@
 using Data.Constant;
 using Data.Static.Workers;
 using UnityEngine;
+using UnityEngine.Events;
 
 #endregion
 
@@ -20,22 +21,11 @@ namespace Units.Workers
 
         private void Awake()
         {
-            if (Instance == null)
-            {
-                Instance = this;
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            if (Instance == null) Instance = this;
+            else Destroy(gameObject);
         }
 
-        private void Start()
-        {
-            CreateWorker(_shop);
-        }
-
-        private void CreateWorker(Transform work)
+        public void CreateWorker(Transform work, UnityAction workDone, UnityAction saleDone)
         {
             int moveSpeedLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_MOVE_SPEED);
             int workTimeLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_WORK_TIME);
@@ -46,9 +36,9 @@ namespace Units.Workers
                 work,
                 _home,
                 _shop,
-                () => Debug.Log("Work done!"),
-                () => Debug.Log("Sale done!"),
-                () => Debug.Log("Home done!"),
+                workDone,
+                saleDone,
+                () => Destroy(worker),
                 _workersConfiguration.MoveSpeedDefault + moveSpeedLvl * _workersConfiguration.MoveSpeedDefault * 0.01f,
                 _workersConfiguration.WorkTimeDefault - workTimeLvl * _workersConfiguration.WorkTimeDefault * 0.01f,
                 _workersConfiguration.SaleTimeDefault - saleTimeLvl * _workersConfiguration.SaleTimeDefault * 0.01f);

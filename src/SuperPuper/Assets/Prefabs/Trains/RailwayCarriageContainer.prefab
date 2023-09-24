@@ -116,6 +116,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 395398343565632802}
   - {fileID: 5799070185150273213}
   - {fileID: 6564034492336824894}
   m_Father: {fileID: 0}
@@ -134,6 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _railwayCarriageScriptableObject: {fileID: 11400000, guid: 958ba05d60129da4f8ba0639794ae124, type: 2}
   _trainConfigurationScriptableObject: {fileID: 11400000, guid: cdc0449f504c1194d97882758fc929d5, type: 2}
+  _workerPosition: {fileID: 395398343565632802}
 --- !u!65 &7306191768352382880
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -155,6 +157,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5, y: 5, z: 16.5}
   m_Center: {x: 0, y: 3, z: 0}
+--- !u!1 &4356208861943948736
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 395398343565632802}
+  m_Layer: 0
+  m_Name: WorkerPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &395398343565632802
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4356208861943948736}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 3.25, y: 1.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8063186026844347549}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &6869609596162283861
 GameObject:
   m_ObjectHideFlags: 0

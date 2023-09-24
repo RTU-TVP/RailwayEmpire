@@ -2,6 +2,7 @@
 using UI;
 using Units.Interactive;
 using Units.QuickOutline.Scripts;
+using Units.ScenesManagers.MainGame;
 using UnityEngine;
 
 namespace Units.Train
@@ -10,10 +11,11 @@ namespace Units.Train
     {
         [SerializeField] private RailwayCarriageScriptableObject _railwayCarriageScriptableObject;
         [SerializeField] private TrainConfigurationScriptableObject _trainConfigurationScriptableObject;
+        [SerializeField] private Transform _workerPosition;
         private Outline _outline;
         private InteractiveObject _interactiveObject;
         private GameObject _screen;
-
+        private bool _isTrainCompleted;
 
         private void Start()
         {
@@ -28,16 +30,18 @@ namespace Units.Train
             RegisterCallbacks();
         }
 
-        public void CreatedScreen(GameObject srenePrefab, Vector3 position, Quaternion rotation, RailTrackManager railTrackManager)
+        public void CreatedScreen(Vector3 position, Quaternion rotation)
         {
-            _screen = Instantiate(srenePrefab, transform);
+            var trackManager = RailsTracksManager.Instance;
+
+            _screen = Instantiate(trackManager._vagonButtonsScreen, transform);
             _screen.transform.localPosition = position;
             _screen.transform.localRotation = rotation;
 
             var vagonMenuButtons = _screen.GetComponentInChildren<VagonMenuButtons>();
             vagonMenuButtons.SetActions(
-                railTrackManager.DoMyself,
-                railTrackManager.CallWorkers);
+                () => MainGameManager.Instance.DoMyself(_railwayCarriageScriptableObject.RailwayCarriageType),
+                () => MainGameManager.Instance.CallWorkers(_workerPosition, () => _isTrainCompleted = true));
             _screen.SetActive(false);
         }
 
@@ -59,6 +63,7 @@ namespace Units.Train
         }
         private void OnMouseClick()
         {
+            if (_isTrainCompleted) return;
             _outline.OutlineColor = _trainConfigurationScriptableObject.OutlineColorChosen;
             _screen.SetActive(true);
         }

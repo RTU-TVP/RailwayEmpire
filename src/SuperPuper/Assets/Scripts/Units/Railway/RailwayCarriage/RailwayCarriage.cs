@@ -28,32 +28,7 @@ namespace Units.Train
             return new Data.Static.Trains.Train(railwayCarriages);
         }
 
-        public static GameObject CreateTrain(Data.Static.Trains.Train train, Vector3 startPoint, RailTrackManager railTrackManager)
-        {
-            int count = train.RailwayCarriages.Length;
-            Transform oldParent = new GameObject("Train").transform;
-            oldParent.position = startPoint;
-            oldParent.rotation = Quaternion.Euler(0, 0, 0);
-
-            for (int i = 0; i < count; i++)
-            {
-                var go = CreateRailwayCarriage(
-                    train.RailwayCarriages[i].Prefab,
-                    oldParent,
-                    i);
-
-                go.GetComponent<RailwayCarriageManager>().CreatedScreen(
-                    railTrackManager._vagonButtonsScreen,
-                    railTrackManager.trainConfigurationScriptableObject.ScreenPosition,
-                    railTrackManager.trainConfigurationScriptableObject.ScreenRotation,
-                    railTrackManager);
-            }
-
-            return oldParent.gameObject;
-        }
-
-
-        private static GameObject CreateRailwayCarriage(GameObject prefab, Transform parent, int count)
+        public static GameObject CreateRailwayCarriage(GameObject prefab, Transform parent, int count)
         {
             var railwayCarriage = Object.Instantiate(prefab, parent);
             railwayCarriage.transform.position = parent.position - new Vector3(16.5f * count, 0, 0);
