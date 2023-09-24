@@ -51,7 +51,6 @@ namespace Units.Workers.State_Machine
             }
 
             transitions.Add(new Transition(to, predicate));
-            Debug.Log(transitions.Count);
         }
 
         private Transition GetTransition()

@@ -203,13 +203,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66cfd4fba7e048bebcb4494627ea8016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  railwayCarriagesDatabaseScriptableObject: {fileID: 11400000, guid: 5b0886c9e6997d243ae273549b42cac1, type: 2}
-  trainConfigurationScriptableObject: {fileID: 11400000, guid: cdc0449f504c1194d97882758fc929d5, type: 2}
-  _railTracks:
+  <railwayCarriagesDatabaseScriptableObject>k__BackingField: {fileID: 11400000, guid: 5b0886c9e6997d243ae273549b42cac1, type: 2}
+  <trainConfigurationScriptableObject>k__BackingField: {fileID: 11400000, guid: cdc0449f504c1194d97882758fc929d5, type: 2}
+  <_railTracks>k__BackingField:
   - {fileID: 7875730106047584296}
   - {fileID: 7259952447025773283}
   - {fileID: 8308273679973911483}
-  _vagonButtonsScreen: {fileID: 6508133739036750886, guid: e6ff45b2c36af284b9e7b099e276b21e, type: 3}
+  <_vagonButtonsScreen>k__BackingField: {fileID: 7839394952249355725, guid: e6ff45b2c36af284b9e7b099e276b21e, type: 3}
 --- !u!1 &4935281842352255520
 GameObject:
   m_ObjectHideFlags: 0
@@ -384,6 +384,7 @@ MonoBehaviour:
   <StartPoint>k__BackingField: {fileID: 7194709264555588967}
   <StopPoint>k__BackingField: {fileID: 4316332111030670385}
   <EndPoint>k__BackingField: {fileID: 3539087745865788995}
+  <IsOccupied>k__BackingField: 0
 --- !u!1 &7571532245184939001
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,6 +435,7 @@ MonoBehaviour:
   <StartPoint>k__BackingField: {fileID: 3322254669589911495}
   <StopPoint>k__BackingField: {fileID: 7737177526813933428}
   <EndPoint>k__BackingField: {fileID: 5757130231518851942}
+  <IsOccupied>k__BackingField: 0
 --- !u!1 &8186867411500136725
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,3 +517,4 @@ MonoBehaviour:
   <StartPoint>k__BackingField: {fileID: 4436903049877886418}
   <StopPoint>k__BackingField: {fileID: 5208310695855833380}
   <EndPoint>k__BackingField: {fileID: 5822692128922395512}
+  <IsOccupied>k__BackingField: 0

@@ -21,7 +21,7 @@ namespace Units.Workers.States
 
         public void OnEnter()
         {
-            _animator.SetBool(_SellingResources, true);
+            // _animator.SetBool(_SellingResources, true);
         }
         public void Tick()
         {
@@ -29,7 +29,7 @@ namespace Units.Workers.States
         }
         public void OnExit()
         {
-            _animator.SetBool(_SellingResources, false);
+            // _animator.SetBool(_SellingResources, false);
         }
     }
 }
