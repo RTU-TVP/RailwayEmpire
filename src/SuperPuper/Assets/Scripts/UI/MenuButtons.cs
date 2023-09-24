@@ -48,9 +48,5 @@ namespace UI
             PlayerPrefs.DeleteKey(WorkersConstantData.WORKERS_LVL_SALE_TIME);
             PlayerPrefs.DeleteKey(WorkersConstantData.MONEY);
         }
-        private void Start()
-        {
-            
-        }
     }
 }

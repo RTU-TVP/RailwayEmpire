@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: WorkersConfiguration_Test
   m_EditorClassIdentifier: 
   MoveSpeedDefault: 10
-  WorkTimeDefault: 5
+  WorkTimeDefault: 3
   SaleTimeDefault: 5
   MaxWorkers: 3

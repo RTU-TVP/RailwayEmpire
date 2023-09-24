@@ -15,7 +15,6 @@ namespace Units.Workers
 
         [SerializeField] private GameObject _workerParentPrefab;
         [field: SerializeField] public WorkersConfiguration _workersConfiguration { get; private set; }
-        [SerializeField] private GameObject _workerPrefab;
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private Transform _home;
         [SerializeField] private Transform _shop;

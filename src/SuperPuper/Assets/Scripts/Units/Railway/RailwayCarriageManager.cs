@@ -47,10 +47,10 @@ namespace Units.Railway
 
             var vagonMenuButtons = _screen.GetComponentInChildren<VagonMenuButtons>();
 
-            if (WorkersManager.Instance.WorkersCount >= WorkersManager.Instance._workersConfiguration.MaxWorkers)
+            /*if (WorkersManager.Instance.WorkersCount >= WorkersManager.Instance._workersConfiguration.MaxWorkers)
             {
                 vagonMenuButtons.ButtonCallWorkersGameObject.SetActive(false);
-            }
+            }*/
             
             vagonMenuButtons.SetActions(
                 () => RailsTracksManager.Instance.DoMyself(railwayCarriage.RailwayCarriageType,

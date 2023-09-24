@@ -59,7 +59,7 @@ namespace Units.Railway
                
                 var sequence = DOTween.Sequence();
                 
-                sequence.Append(trainGameObject.transform.DOMoveX(200, 10));
+                sequence.Append(trainGameObject.transform.DOMoveX(300, 10));
                 
                 sequence.onComplete += () =>
                 {
