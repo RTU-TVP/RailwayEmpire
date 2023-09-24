@@ -6,20 +6,19 @@ namespace Units.Workers.States
 {
     public class MoveToHome : IState
     {
-        public MoveToHome(AnimManager_worker animManagerWorker, RichAI richAI, float speed, Transform targetTransform)
+        public MoveToHome(AnimManager_worker animManagerWorker, RichAI richAI, float speed, Transform targetTransform, float speedForAnimation)
         {
             _animManagerWorker = animManagerWorker;
             _richAI = richAI;
             _speed = speed;
             _targetTransform = targetTransform;
         }
-
-        private static readonly int _isMoving = Animator.StringToHash("is_Moving");
-        private static readonly int _goMoving = Animator.StringToHash("go_Moving");
+        
         private readonly AnimManager_worker _animManagerWorker;
         private readonly RichAI _richAI;
         private readonly float _speed;
         private readonly Transform _targetTransform;
+        private readonly float _speedForAnimation;
 
 
         public void OnEnter()
@@ -29,6 +28,7 @@ namespace Units.Workers.States
             _richAI.canMove = true;
             _richAI.maxSpeed = _speed;
             _animManagerWorker.SwitchAnimationState("Moving");
+            _animManagerWorker.SetMovingBlend(_speedForAnimation);
         }
         public void Tick() {}
         public void OnExit()

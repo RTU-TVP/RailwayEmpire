@@ -31,6 +31,8 @@ namespace Units.Workers
             int workTimeLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_WORK_TIME);
             int saleTimeLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_SALE_TIME);
 
+            var speedForAnimation = moveSpeedLvl * 0.1f;
+
             GameObject worker = Instantiate(_workerParentPrefab, _spawnPoint.position, Quaternion.identity);
             worker.AddComponent<Worker>().SetUp(
                 work,
@@ -41,7 +43,8 @@ namespace Units.Workers
                 () => Destroy(worker),
                 _workersConfiguration.MoveSpeedDefault + moveSpeedLvl * _workersConfiguration.MoveSpeedDefault * 0.01f,
                 _workersConfiguration.WorkTimeDefault - workTimeLvl * _workersConfiguration.WorkTimeDefault * 0.01f,
-                _workersConfiguration.SaleTimeDefault - saleTimeLvl * _workersConfiguration.SaleTimeDefault * 0.01f);
+                _workersConfiguration.SaleTimeDefault - saleTimeLvl * _workersConfiguration.SaleTimeDefault * 0.01f,
+                speedForAnimation);
         }
     }
 }

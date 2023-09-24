@@ -34,14 +34,14 @@ namespace Units.Workers
 
         public void SetUp(Transform workTransform, Transform homeTransform, Transform shopTransform,
             UnityAction onWorkDone, UnityAction onSaleDone, UnityAction onHomeDone,
-            float moveSpeed, float workTime, float saleTime)
+            float moveSpeed, float workTime, float saleTime, float speedForAnimation)
         {
 
             _stateMachine = new StateMachine();
 
-            MoveToWork moveToWork = new MoveToWork(_animManagerWorker, _richAI, moveSpeed, workTransform);
-            MoveToSelling moveToSelling = new MoveToSelling(_animManagerWorker, _richAI, moveSpeed, shopTransform);
-            MoveToHome moveToHome = new MoveToHome(_animManagerWorker, _richAI, moveSpeed, homeTransform);
+            MoveToWork moveToWork = new MoveToWork(_animManagerWorker, _richAI, moveSpeed, workTransform, speedForAnimation);
+            MoveToSelling moveToSelling = new MoveToSelling(_animManagerWorker, _richAI, moveSpeed, shopTransform, speedForAnimation);
+            MoveToHome moveToHome = new MoveToHome(_animManagerWorker, _richAI, moveSpeed, homeTransform, speedForAnimation);
 
             Work work = new Work(_animManagerWorker, workTime);
 
