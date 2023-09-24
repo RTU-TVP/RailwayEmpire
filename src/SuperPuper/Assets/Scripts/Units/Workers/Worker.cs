@@ -1,11 +1,15 @@
 #region
 
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using Pathfinding;
 using Units.Workers.State_Machine;
 using Units.Workers.States;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 #endregion
 
@@ -13,25 +17,29 @@ namespace Units.Workers
 {
     public class Worker : MonoBehaviour
     {
-        [SerializeField] private Animator _animator;
-        [SerializeField] private NavMeshAgent _navMeshAgent;
+        private Animator _animator;
+        private RichAI _richAI;
         private StateMachine _stateMachine;
-        private void Update()
+
+        public bool isWorkDone = false;
+        public bool isSaleDone = false;
+
+        private void Awake()
         {
-            _stateMachine?.Tick();
+            _animator = GetComponent<Animator>();
+            _richAI = GetComponent<RichAI>();
         }
 
         public void SetUp(Transform workTransform, Transform homeTransform, Transform shopTransform,
             UnityAction onWorkDone, UnityAction onSaleDone, UnityAction onHomeDone,
             float moveSpeed, float workTime, float saleTime)
         {
-            bool isWorkDone = false;
-            bool isSaleDone = false;
 
             _stateMachine = new StateMachine();
 
-            Move move = new Move(_animator, _navMeshAgent, moveSpeed);
-            move.SetTarget(workTransform);
+            MoveToWork moveToWork = new MoveToWork(_animator, _richAI, moveSpeed, workTransform);
+            MoveToSelling moveToSelling = new MoveToSelling(_animator, _richAI, moveSpeed, shopTransform);
+            MoveToHome moveToHome = new MoveToHome(_animator, _richAI, moveSpeed, homeTransform);
 
             Work work = new Work(_animator, workTime);
 
@@ -39,47 +47,53 @@ namespace Units.Workers
 
             #region Transitions
 
-            At(move, work, () =>
+            At(work, moveToWork, () => moveToWork.IsArrived() && !isWorkDone);
+            At(moveToSelling, work, () =>
             {
-                if (!(work.WorkTime <= 0f)) return false;
-
-                move.SetTarget(shopTransform);
-                onWorkDone?.Invoke();
-                isWorkDone = true;
-                return true;
+                if (work.WorkTime <= 0)
+                {
+                    isWorkDone = true;
+                    onWorkDone?.Invoke();
+                    return true;
+                }
+                return false;
             });
-            At(work, move, () =>
+            At(sellingResources, moveToSelling, () => moveToSelling.IsArrived() && !isSaleDone);
+            At(moveToHome, sellingResources, () =>
             {
-                if (_navMeshAgent.remainingDistance > 0.5f && isWorkDone == false && isSaleDone == false) return false;
-
-                return true;
+                if (sellingResources.SaleTime <= 0)
+                {
+                    isSaleDone = true;
+                    onSaleDone?.Invoke();
+                    return true;
+                }
+                return false;
             });
-            At(sellingResources, move, () =>
+            At(moveToWork, moveToHome, () =>
             {
-                if (_navMeshAgent.remainingDistance > 0.5f && isWorkDone && isSaleDone == false) return false;
-
-                return true;
-            });
-            At(move, sellingResources, () =>
-            {
-                if (!(sellingResources.SaleTime <= 0f)) return false;
-
-                move.SetTarget(homeTransform);
-                onSaleDone?.Invoke();
-                isSaleDone = true;
-                return true;
-            });
-            At(move, null, () =>
-            {
-                if (_navMeshAgent.remainingDistance > 0.5f && isWorkDone && isSaleDone) return false;
-
-                onHomeDone?.Invoke();
-                return true;
+                if (moveToHome.IsArrived())
+                {
+                    onHomeDone?.Invoke();
+                    return false;
+                }
+                return false;
             });
 
             #endregion
 
-            _stateMachine.SetState(move);
+            _stateMachine.SetState(moveToWork);
+
+            StartCoroutine(Updated());
+        }
+
+
+        private IEnumerator Updated()
+        {
+            while (true)
+            {
+                _stateMachine.Tick();
+                yield return new WaitForSeconds(0.1f);
+            }
         }
 
         private void At(IState to, IState from, Func<bool> condition)
