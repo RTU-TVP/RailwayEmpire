@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using Data.Static.Trains;
+using DG.Tweening;
 using Units.Camera;
 using Units.Minigames.MemoGame;
+using Units.Minigames.PipeGame;
 using Units.Train;
 using Units.Workers;
 using Unity.VisualScripting;
@@ -149,17 +151,46 @@ namespace Units.Railway
                     break;
                 case RailwayCarriageType.Pipes:
                     
-                    var miniGamePipes = MiniGames.Find(x => x.RailwayCarriageType == railwayCarriageRailwayCarriageType);
+                    TryCreatePipes(railwayCarriageRailwayCarriageType, onComplete);
+
+                    break;
+                case RailwayCarriageType.Coal:
                     
-                    if (miniGamePipes != null)
+                    var miniGameCoal = MiniGames.Find(x => x.RailwayCarriageType == railwayCarriageRailwayCarriageType);
+                    
+                    if (miniGameCoal != null)
                     {
-                        var miniGamePrefab = Instantiate(miniGamePipes.MiniGamePrefab, miniGamePipes.MiniGamePosition, Quaternion.identity);
+                        var miniGamePrefab = Instantiate(miniGameCoal.MiniGamePrefab, miniGameCoal.MiniGamePosition, Quaternion.identity);
                         
                         CameraMovement.enabled = false;
                         
-                        CameraMovement.SecondVirtualCamera.transform.position = miniGamePipes.CameraPosition;
+                        CameraMovement.SecondVirtualCamera.transform.position = miniGameCoal.CameraPosition;
                         
                         CameraMovement.SecondVirtualCamera.gameObject.SetActive(true);
+                        
+                        var coalSpawner = miniGamePrefab.GetComponentInChildren<CoalSpawner>();
+                        
+                        coalSpawner._canStart = true;
+                        
+                        coalSpawner.GoGame();
+                        
+                        var playerController = miniGamePrefab.GetComponentInChildren<PlayerController>();
+                        
+                        playerController.OnGameCompleted += () =>
+                        {
+                            CameraMovement.SecondVirtualCamera.gameObject.SetActive(false);
+                            CameraMovement.enabled = true;
+                            Destroy(miniGamePrefab);
+                            onComplete?.Invoke();
+                        };
+                        
+                        playerController.OnGameFailed += () =>
+                        {
+                            CameraMovement.SecondVirtualCamera.gameObject.SetActive(false);
+                            CameraMovement.enabled = true;
+                            Destroy(miniGamePrefab);
+                        };
+                        
                     }
                     else
                     {
@@ -167,13 +198,59 @@ namespace Units.Railway
                     }
                     
                     break;
-                case RailwayCarriageType.Coal:
-                    break;
                 case RailwayCarriageType.Tank:
+                    
+                    TryCreatePipes(railwayCarriageRailwayCarriageType, onComplete);
+                    
                     break;
             }
 
             //onComplete?.Invoke();
+        }
+
+        private void TryCreatePipes(RailwayCarriageType railwayCarriageRailwayCarriageType, Action onComplete)
+        {
+            var miniGamePipes = MiniGames.Find(x => x.RailwayCarriageType == railwayCarriageRailwayCarriageType);
+
+            if (miniGamePipes != null)
+            {
+                var miniGamePrefab =
+                    Instantiate(miniGamePipes.MiniGamePrefab, miniGamePipes.MiniGamePosition, Quaternion.identity);
+
+                CameraMovement.enabled = false;
+
+                CameraMovement.SecondVirtualCamera.transform.position = miniGamePipes.CameraPosition;
+
+                CameraMovement.SecondVirtualCamera.transform.DOLocalRotate(new Vector3(90, 0, 90), 0.1f); 
+
+                CameraMovement.SecondVirtualCamera.gameObject.SetActive(true);
+
+                var pipesGameManager = miniGamePrefab.GetComponentInChildren<PipesGameManager>();
+
+                pipesGameManager.OnGameCompleted += () =>
+                {
+                    CameraMovement.SecondVirtualCamera.gameObject.SetActive(false);
+                    CameraMovement.enabled = true;
+                    Destroy(miniGamePrefab);
+                    onComplete?.Invoke();
+                    
+                    CameraMovement.SecondVirtualCamera.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.1f); 
+                };
+
+                pipesGameManager.OnGameFailed += () =>
+                {
+                    CameraMovement.SecondVirtualCamera.gameObject.SetActive(false);
+                    
+                    CameraMovement.SecondVirtualCamera.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.1f); 
+                    
+                    CameraMovement.enabled = true;
+                    Destroy(miniGamePrefab);
+                };
+            }
+            else
+            {
+                onComplete?.Invoke();
+            }
         }
 
         public void CallWorkers(Transform workerPosition, Action onComplete)

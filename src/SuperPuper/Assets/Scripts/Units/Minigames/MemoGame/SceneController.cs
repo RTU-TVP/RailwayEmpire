@@ -40,7 +40,7 @@ namespace Units.Minigames.MemoGame
         {
             _looseTimer -= Time.deltaTime;
             _timerUI.text = "Осталось времени: "+((int)_looseTimer);
-            if (_looseTimer <= 0) {print("Loose"); FindObjectOfType<PipeGameLoader>().DestroyGame(); OnGameLost?.Invoke();}
+            if (_looseTimer <= 0) {print("Loose"); OnGameLost?.Invoke();}
         }
 
         public bool canReveal
@@ -119,7 +119,7 @@ namespace Units.Minigames.MemoGame
                 if (_score == _targetScore)
                 {
                     yield return new WaitForSeconds(1.2f);
-                    FindObjectOfType<PipeGameLoader>().DestroyGame();
+                   // FindObjectOfType<PipeGameLoader>().DestroyGame();
                     Debug.Log("Win");
                     
                     OnGameCompleted?.Invoke();

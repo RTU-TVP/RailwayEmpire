@@ -322,6 +322,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.0002568219
       objectReference: {fileID: 0}
+    - target: {fileID: 7251085384973628458, guid: 54b3696ba3dc9f94ea1adf304252c237, type: 3}
+      propertyPath: field of view
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 7433946337559427171, guid: 54b3696ba3dc9f94ea1adf304252c237, type: 3}
       propertyPath: m_Name
       value: CameraManager
@@ -477,8 +481,8 @@ Transform:
   m_GameObject: {fileID: 1788700643}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -500, y: 0, z: -525}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2060618452}
@@ -560,10 +564,18 @@ MonoBehaviour:
     <MiniGamePrefab>k__BackingField: {fileID: 4286576956287162356, guid: 70228f22d8d55484fa1c4bbc701be861, type: 3}
     <MiniGamePosition>k__BackingField: {x: -500, y: 0, z: -500}
     <CameraPosition>k__BackingField: {x: -500, y: 0, z: -525}
-  - <RailwayCarriageType>k__BackingField: 4
-    <MiniGamePrefab>k__BackingField: {fileID: 5578616871148620876, guid: 9cfe37a353eee3149b4e6012cd80903a, type: 3}
+  - <RailwayCarriageType>k__BackingField: 6
+    <MiniGamePrefab>k__BackingField: {fileID: 3780840064854189921, guid: 8ef326b6c551bf64f8d9d4a9189eec46, type: 3}
     <MiniGamePosition>k__BackingField: {x: -500, y: 0, z: -500}
-    <CameraPosition>k__BackingField: {x: -500, y: 0, z: -525}
+    <CameraPosition>k__BackingField: {x: -501.05, y: 12.58, z: -498.8}
+  - <RailwayCarriageType>k__BackingField: 4
+    <MiniGamePrefab>k__BackingField: {fileID: 3780840064854189921, guid: 8ef326b6c551bf64f8d9d4a9189eec46, type: 3}
+    <MiniGamePosition>k__BackingField: {x: -500, y: 0, z: -500}
+    <CameraPosition>k__BackingField: {x: -501.05, y: 12.58, z: -498.8}
+  - <RailwayCarriageType>k__BackingField: 5
+    <MiniGamePrefab>k__BackingField: {fileID: 7914925616946854967, guid: 6eecf3e5eda797f41be3cc49ba7b7d0b, type: 3}
+    <MiniGamePosition>k__BackingField: {x: -500, y: 0, z: -500}
+    <CameraPosition>k__BackingField: {x: -1247.469, y: -266.892, z: -482.545}
   <vagonButtonsScreen>k__BackingField: {fileID: 7839394952249355725, guid: e6ff45b2c36af284b9e7b099e276b21e, type: 3}
   <CameraMovement>k__BackingField: {fileID: 1350011776}
 --- !u!4 &1931955532 stripped
