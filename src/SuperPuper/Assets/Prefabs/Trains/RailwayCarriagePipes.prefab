@@ -123,8 +123,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3801325635862756647}
-  - component: {fileID: 8584431391879869226}
   - component: {fileID: -2513514170122595623}
+  - component: {fileID: 268271914995834585}
   m_Layer: 0
   m_Name: RailwayCarriagePipes
   m_TagString: Untagged
@@ -150,21 +150,6 @@ Transform:
   - {fileID: 6854142627586655974}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8584431391879869226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4105052946346354956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b99e0ff13b742b081f57f3961eab844, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _railwayCarriageScriptableObject: {fileID: 11400000, guid: 056877c6cc2abec42a2a039ecaf5b054, type: 2}
-  _trainConfigurationScriptableObject: {fileID: 11400000, guid: cdc0449f504c1194d97882758fc929d5, type: 2}
-  _workerPosition: {fileID: 3083035326555829867}
 --- !u!65 &-2513514170122595623
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -186,6 +171,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5, y: 5, z: 16.5}
   m_Center: {x: 0, y: 3, z: 0}
+--- !u!114 &268271914995834585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4105052946346354956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 549c809376144241a6334e0338f51c90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trainConfiguration: {fileID: 11400000, guid: cdc0449f504c1194d97882758fc929d5, type: 2}
+  railwayCarriage: {fileID: 11400000, guid: 056877c6cc2abec42a2a039ecaf5b054, type: 2}
+  workerPosition: {fileID: 3083035326555829867}
 --- !u!1 &8192083795135892157
 GameObject:
   m_ObjectHideFlags: 0

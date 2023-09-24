@@ -210,8 +210,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6797251220226393593}
-  - component: {fileID: -3402759652783797596}
   - component: {fileID: -4743526666995678817}
+  - component: {fileID: 7387484989243013951}
   m_Layer: 0
   m_Name: RailwayCarriageLogs
   m_TagString: Untagged
@@ -237,21 +237,6 @@ Transform:
   - {fileID: 6045384370544991221}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-3402759652783797596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8963403324945233402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b99e0ff13b742b081f57f3961eab844, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _railwayCarriageScriptableObject: {fileID: 11400000, guid: 36e3ec8fa5c40624d91aaa49c13a46c7, type: 2}
-  _trainConfigurationScriptableObject: {fileID: 11400000, guid: cdc0449f504c1194d97882758fc929d5, type: 2}
-  _workerPosition: {fileID: 1270428523467085768}
 --- !u!65 &-4743526666995678817
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -273,3 +258,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5, y: 5, z: 16.5}
   m_Center: {x: 0, y: 3, z: 0}
+--- !u!114 &7387484989243013951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8963403324945233402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 549c809376144241a6334e0338f51c90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trainConfiguration: {fileID: 11400000, guid: cdc0449f504c1194d97882758fc929d5, type: 2}
+  railwayCarriage: {fileID: 11400000, guid: 36e3ec8fa5c40624d91aaa49c13a46c7, type: 2}
+  workerPosition: {fileID: 1270428523467085768}
