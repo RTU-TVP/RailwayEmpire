@@ -70,6 +70,7 @@ namespace UI
         }
         public void OnClickEvent()
         {
+            GetComponent<AudioManager>().Play("tap");
             if (currentLevel < _costsPerLevel.Count)
             {
                 currentLevel++;
