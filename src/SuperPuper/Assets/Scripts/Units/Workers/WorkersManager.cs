@@ -13,6 +13,7 @@ namespace Units.Workers
     {
         public static WorkersManager Instance;
 
+        [SerializeField] private GameObject _workerParentPrefab;
         [field: SerializeField] public WorkersConfiguration _workersConfiguration { get; private set; }
         [SerializeField] private GameObject _workerPrefab;
         [SerializeField] private Transform _spawnPoint;
@@ -38,10 +39,12 @@ namespace Units.Workers
             int workTimeLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_WORK_TIME);
             int saleTimeLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_SALE_TIME);
 
-            GameObject worker = Instantiate(_workerPrefab, _spawnPoint.position, Quaternion.identity);
+            var speedForAnimation = moveSpeedLvl * 0.1f;
+
+            GameObject worker = Instantiate(_workerParentPrefab, _spawnPoint.position, Quaternion.identity);
             
             WorkersCount++;
-            
+
             worker.AddComponent<Worker>().SetUp(
                 work,
                 _home,
@@ -55,7 +58,8 @@ namespace Units.Workers
                 },
                 _workersConfiguration.MoveSpeedDefault + moveSpeedLvl * _workersConfiguration.MoveSpeedDefault * 0.01f,
                 _workersConfiguration.WorkTimeDefault - workTimeLvl * _workersConfiguration.WorkTimeDefault * 0.01f,
-                _workersConfiguration.SaleTimeDefault - saleTimeLvl * _workersConfiguration.SaleTimeDefault * 0.01f);
+                _workersConfiguration.SaleTimeDefault - saleTimeLvl * _workersConfiguration.SaleTimeDefault * 0.01f,
+                speedForAnimation);
         }
     }
 }

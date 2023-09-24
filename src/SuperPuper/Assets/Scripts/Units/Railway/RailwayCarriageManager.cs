@@ -59,7 +59,6 @@ namespace Units.Railway
                         _onComplete?.Invoke();
                         _isTrainCompleted = true;
                         _screen.SetActive(false);
-                        Debug.Log("Work done");
                     }),
                 () => RailsTracksManager.Instance.CallWorkers(workerPosition,
                     () =>
@@ -67,7 +66,6 @@ namespace Units.Railway
                         _onComplete?.Invoke();
                         _isTrainCompleted = true;
                         _screen.SetActive(false);
-                        Debug.Log("Work done");
                     }));
 
             _screen.SetActive(false);
@@ -75,7 +73,7 @@ namespace Units.Railway
 
         public static Data.Static.Trains.Train GenerateTrain(RailwayCarriagesDatabaseScriptableObject railwayCarriagesDatabaseScriptableObject)
         {
-            int count = Random.Range(2, 4);
+            int count = Random.Range(4, 7);
 
             var railwayCarriages = new RailwayCarriageScriptableObject[count];
             railwayCarriages[0] = railwayCarriagesDatabaseScriptableObject.GetRailwayCarriage(RailwayCarriageType.Locomotive);
