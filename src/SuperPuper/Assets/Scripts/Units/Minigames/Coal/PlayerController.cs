@@ -44,7 +44,6 @@ public class PlayerController : MonoBehaviour
         _lostScoreScreen.text = "Lost Coals: " + _lostCoalScore;
         if (_lostCoalScore == 10)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             print("TI EBLAN, POPROBUY ESHE RAZ");
             
             OnGameFailed?.Invoke();
