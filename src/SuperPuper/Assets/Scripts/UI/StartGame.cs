@@ -44,7 +44,7 @@ public class StartGame : MonoBehaviour
     {
         if (_coalSpawner != null)
         {
-            _coalSpawner._canStart = true;
+            _coalSpawner.CanStart = true;
             _coalSpawner.GoGame();
         }
         if (_movementSpawn != null)

@@ -62,7 +62,7 @@ namespace Units.Railway
                 railTrack.SetIsRailTrackAvailable(true);
 
                 var sequence = DOTween.Sequence();
-                sequence.Append(trainGameObject.transform.DOMoveX(1500, 30).SetEase(Ease.InSine)); // тута я пытался, но чёто оно дёргается как-то странно, спасите
+                sequence.Append(trainGameObject.transform.DOMoveX(1500, 30).SetEase(Ease.InSine)); // пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 sequence.onComplete += () =>
                 {
                     Destroy(trainGameObject);
