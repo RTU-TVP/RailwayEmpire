@@ -32,6 +32,9 @@ namespace Units.Railway
                 _onComplete?.Invoke();
             }
         }
+
+        public void RegisterOnComplete(UnityAction onComplete) => _onComplete += onComplete;
+
         private void SettingOutline()
         {
             _outline = gameObject.AddComponent<Outline>();
@@ -51,7 +54,7 @@ namespace Units.Railway
             {
                 vagonMenuButtons.ButtonCallWorkersGameObject.SetActive(false);
             }*/
-            
+
             vagonMenuButtons.SetActions(
                 () => RailsTracksManager.Instance.DoMyself(railwayCarriage.RailwayCarriageType,
                     () =>
@@ -71,34 +74,6 @@ namespace Units.Railway
             _screen.SetActive(false);
         }
 
-        public static Data.Static.Trains.Train GenerateTrain(RailwayCarriagesDatabaseScriptableObject railwayCarriagesDatabaseScriptableObject)
-        {
-            int count = Random.Range(4, 7);
-
-            var railwayCarriages = new RailwayCarriageScriptableObject[count];
-            railwayCarriages[0] = railwayCarriagesDatabaseScriptableObject.GetRailwayCarriage(RailwayCarriageType.Locomotive);
-            for (int i = 1; i < count; i++)
-            {
-                railwayCarriages[i] = railwayCarriagesDatabaseScriptableObject.GetRandomRailwayCarriage();
-                if (railwayCarriages[i].RailwayCarriageType == RailwayCarriageType.Locomotive)
-                {
-                    i--;
-                }
-            }
-
-            return new Data.Static.Trains.Train(railwayCarriages);
-        }
-
-        public static GameObject CreateRailwayCarriage(GameObject prefab, Transform parent, int count)
-        {
-            var railwayCarriage = Instantiate(prefab, parent);
-            railwayCarriage.transform.position = parent.position - new Vector3(16.5f * count, 0, 0);
-            railwayCarriage.transform.rotation = Quaternion.Euler(0, 90, 0);
-            return railwayCarriage;
-        }
-
-        public void RegisterOnComplete(UnityAction onComplete) => _onComplete = onComplete;
-
         private void SettingInteractive()
         {
             _interactiveObject = gameObject.AddComponent<InteractiveObject>();
@@ -109,22 +84,14 @@ namespace Units.Railway
 
         private void OnMouseEnter()
         {
-            if (_outline == null)
-            {
-                return;
-            }
-            
+            if (_outline == null) return;
             _outline.OutlineColor = trainConfiguration.OutlineColorDefault;
             _outline.enabled = true;
         }
 
         private void OnMouseExit()
         {
-            if (_outline == null)
-            {
-                return;
-            }
-            
+            if (_outline == null) return;
             _outline.enabled = false;
             _screen.SetActive(false);
         }

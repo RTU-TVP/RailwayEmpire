@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using Data.Static.Trains;
 using DG.Tweening;
 using Units.Camera;
-using Units.Minigames.MemoGame;
-using Units.Minigames.PipeGame;
 using Units.Train;
 using Units.Workers;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
+using static Units.Minigames.MiniGames;
 
 namespace Units.Railway
 {
@@ -19,7 +18,6 @@ namespace Units.Railway
         [field: SerializeField] public RailTrack[] railTracks { get; private set; }
         [field: SerializeField] public List<MiniGame> MiniGames { get; private set; }
         [field: SerializeField] public GameObject vagonButtonsScreen { get; private set; }
-        
         [field: SerializeField] public CameraMovement CameraMovement { get; private set; }
 
         public static RailsTracksManager Instance { get; private set; }
@@ -44,218 +42,62 @@ namespace Units.Railway
 
         private void CreateTrain(int index)
         {
-            railTracks[index].SetIsRailTrackAvailable(false);
-            var trainGameObject = new GameObject($"Train {index}");
-            trainGameObject.transform.position = railTracks[index].StartPoint.position;
+            var railTrack = railTracks[index];
+            var trainGameObject = new GameObject($"Train {index}")
+            {
+                transform =
+                {
+                    position = railTrack.StartPoint.position
+                }
+            };
             var trainManager = trainGameObject.AddComponent<TrainManager>();
             var trainTransform = trainGameObject.transform;
-
-            trainManager.CreateTrain(index);
+            trainManager.CreateTrain();
+            trainManager.MoveTrain(trainTransform, railTrack.StopPoint.position);
             trainManager.RegisterOnTrainCompleted(() =>
             {
-                trainManager.MoveTrain(trainTransform, railTracks[index].EndPoint.position);
-                railTracks[index].SetIsRailTrackAvailable(true);
                 _trains.Remove(trainManager);
-               
+                trainManager.MoveTrain(trainTransform, railTrack.EndPoint.position);
+                railTrack.SetIsRailTrackAvailable(true);
+
                 var sequence = DOTween.Sequence();
-                
                 sequence.Append(trainGameObject.transform.DOMoveX(300, 10));
-                
                 sequence.onComplete += () =>
                 {
                     Destroy(trainGameObject);
                     CreateTrain(index);
                 };
-              
+
             });
             _trains.Add(trainManager);
-
-            trainManager.MoveTrain(trainTransform, railTracks[index].StopPoint.position);
+            railTracks[index].SetIsRailTrackAvailable(false);
         }
 
-        public void DoMyself(RailwayCarriageType railwayCarriageRailwayCarriageType, Action onComplete)
+        public void DoMyself(RailwayCarriageType railwayCarriageRailwayCarriageType, UnityAction onComplete)
         {
+            MiniGame miniGame;
             switch (railwayCarriageRailwayCarriageType)
             {
                 case RailwayCarriageType.Container:
-                    
-                    var miniGame = MiniGames.Find(x => x.RailwayCarriageType == railwayCarriageRailwayCarriageType);
-                    
-                    if (miniGame != null)
-                    {
-                        var miniGamePrefab = Instantiate(miniGame.MiniGamePrefab, miniGame.MiniGamePosition, Quaternion.identity);
-                        
-                        CameraMovement.enabled = false;
-                        
-                        CameraMovement.SecondVirtualCamera.transform.position = miniGame.CameraPosition;
-                        
-                        CameraMovement.SecondVirtualCamera.gameObject.SetActive(true);
-                        
-                        var miniGameController = miniGamePrefab.GetComponentInChildren<SceneController>();
-                        
-                        miniGameController.OnGameCompleted += () =>
-                        {
-                            CameraMovement.SecondVirtualCamera.gameObject.SetActive(false);
-                            CameraMovement.enabled = true;
-                            Destroy(miniGamePrefab);
-                            onComplete?.Invoke();
-                        };
-                        
-                        miniGameController.OnGameLost += () =>
-                        {
-                            CameraMovement.SecondVirtualCamera.gameObject.SetActive(false);
-                            CameraMovement.enabled = true;
-                            Destroy(miniGamePrefab);
-                        };
-                    }
-                    else
-                    {
-                        onComplete?.Invoke();
-                    }
-                    
+                    miniGame = MiniGames.Find(x => x.RailwayCarriageType == railwayCarriageRailwayCarriageType);
+                    StartContainer(CameraMovement, miniGame, onComplete);
                     break;
                 case RailwayCarriageType.Logs:
-                    
-                    var miniGameLogs = MiniGames.Find(x => x.RailwayCarriageType == railwayCarriageRailwayCarriageType);
-                    
-                    if (miniGameLogs != null)
-                    {
-                        var miniGamePrefab = Instantiate(miniGameLogs.MiniGamePrefab, miniGameLogs.MiniGamePosition, Quaternion.identity);
-                        
-                        CameraMovement.enabled = false;
-                        
-                        CameraMovement.SecondVirtualCamera.transform.position = miniGameLogs.CameraPosition;
-                        
-                        CameraMovement.SecondVirtualCamera.gameObject.SetActive(true);
-                        
-                        var movementSpawn = miniGamePrefab.GetComponentInChildren<MovementSpawn>();
-
-                        movementSpawn.cameraPrincipal = CameraMovement.SecondVirtualCamera;
-
-                        movementSpawn._hasStarted = true;
-                        
-                        movementSpawn.OnGameCompleted += () =>
-                        {
-                            CameraMovement.SecondVirtualCamera.gameObject.SetActive(false);
-                            CameraMovement.enabled = true;
-                            Destroy(miniGamePrefab);
-                            onComplete?.Invoke();
-                        };
-                        
-                        movementSpawn.OnGameLost += () =>
-                        {
-                            CameraMovement.SecondVirtualCamera.gameObject.SetActive(false);
-                            CameraMovement.enabled = true;
-                            Destroy(miniGamePrefab);
-                        };
-                    }
-                    else
-                    {
-                        onComplete?.Invoke();
-                    }
-                    
+                    miniGame = MiniGames.Find(x => x.RailwayCarriageType == railwayCarriageRailwayCarriageType);
+                    StartLogs(CameraMovement, miniGame, onComplete);
                     break;
                 case RailwayCarriageType.Pipes:
-                    
-                    TryCreatePipes(railwayCarriageRailwayCarriageType, onComplete);
-
+                    miniGame = MiniGames.Find(x => x.RailwayCarriageType == railwayCarriageRailwayCarriageType);
+                    StartPipes(CameraMovement, miniGame, onComplete);
                     break;
                 case RailwayCarriageType.Coal:
-                    
-                    var miniGameCoal = MiniGames.Find(x => x.RailwayCarriageType == railwayCarriageRailwayCarriageType);
-                    
-                    if (miniGameCoal != null)
-                    {
-                        var miniGamePrefab = Instantiate(miniGameCoal.MiniGamePrefab, miniGameCoal.MiniGamePosition, Quaternion.identity);
-                        
-                        CameraMovement.enabled = false;
-                        
-                        CameraMovement.SecondVirtualCamera.transform.position = miniGameCoal.CameraPosition;
-                        
-                        CameraMovement.SecondVirtualCamera.gameObject.SetActive(true);
-                        
-                        var coalSpawner = miniGamePrefab.GetComponentInChildren<CoalSpawner>();
-                        
-                        coalSpawner._canStart = true;
-                        
-                        coalSpawner.GoGame();
-                        
-                        var playerController = miniGamePrefab.GetComponentInChildren<PlayerController>();
-                        
-                        playerController.OnGameCompleted += () =>
-                        {
-                            CameraMovement.SecondVirtualCamera.gameObject.SetActive(false);
-                            CameraMovement.enabled = true;
-                            Destroy(miniGamePrefab);
-                            onComplete?.Invoke();
-                        };
-                        
-                        playerController.OnGameFailed += () =>
-                        {
-                            CameraMovement.SecondVirtualCamera.gameObject.SetActive(false);
-                            CameraMovement.enabled = true;
-                            Destroy(miniGamePrefab);
-                        };
-                        
-                    }
-                    else
-                    {
-                        onComplete?.Invoke();
-                    }
-                    
+                    miniGame = MiniGames.Find(x => x.RailwayCarriageType == railwayCarriageRailwayCarriageType);
+                    StartCoal(CameraMovement, miniGame, onComplete);
                     break;
                 case RailwayCarriageType.Tank:
-                    
-                    TryCreatePipes(railwayCarriageRailwayCarriageType, onComplete);
-                    
+                    miniGame = MiniGames.Find(x => x.RailwayCarriageType == railwayCarriageRailwayCarriageType);
+                    StartPipes(CameraMovement, miniGame, onComplete);
                     break;
-            }
-
-            //onComplete?.Invoke();
-        }
-
-        private void TryCreatePipes(RailwayCarriageType railwayCarriageRailwayCarriageType, Action onComplete)
-        {
-            var miniGamePipes = MiniGames.Find(x => x.RailwayCarriageType == railwayCarriageRailwayCarriageType);
-
-            if (miniGamePipes != null)
-            {
-                var miniGamePrefab =
-                    Instantiate(miniGamePipes.MiniGamePrefab, miniGamePipes.MiniGamePosition, Quaternion.identity);
-
-                CameraMovement.enabled = false;
-
-                CameraMovement.SecondVirtualCamera.transform.position = miniGamePipes.CameraPosition;
-
-                CameraMovement.SecondVirtualCamera.transform.DOLocalRotate(new Vector3(90, 0, 90), 0.1f); 
-
-                CameraMovement.SecondVirtualCamera.gameObject.SetActive(true);
-
-                var pipesGameManager = miniGamePrefab.GetComponentInChildren<PipesGameManager>();
-
-                pipesGameManager.OnGameCompleted += () =>
-                {
-                    CameraMovement.SecondVirtualCamera.gameObject.SetActive(false);
-                    CameraMovement.enabled = true;
-                    Destroy(miniGamePrefab);
-                    onComplete?.Invoke();
-                    
-                    CameraMovement.SecondVirtualCamera.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.1f); 
-                };
-
-                pipesGameManager.OnGameFailed += () =>
-                {
-                    CameraMovement.SecondVirtualCamera.gameObject.SetActive(false);
-                    
-                    CameraMovement.SecondVirtualCamera.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.1f); 
-                    
-                    CameraMovement.enabled = true;
-                    Destroy(miniGamePrefab);
-                };
-            }
-            else
-            {
-                onComplete?.Invoke();
             }
         }
 
