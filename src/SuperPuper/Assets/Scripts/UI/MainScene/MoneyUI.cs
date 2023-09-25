@@ -5,14 +5,19 @@ using UnityEngine;
 
 namespace UI
 {
-    public class MoneUI : MonoBehaviour
+    public class MoneyUI : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _moneyText;
 
-        private void Start()
+        private void OnEnable()
         {
             SetMoney(MoneyManager.Instance.GetMoney());
             MoneyManager.Instance.RegisterOnMoneyChanged(SetMoney);
+        }
+        
+        private void OnDisable()
+        {
+            MoneyManager.Instance.UnregisterOnMoneyChanged(SetMoney);
         }
 
         public void SetMoney(int money)
