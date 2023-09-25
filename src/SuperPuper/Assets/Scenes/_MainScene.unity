@@ -1051,6 +1051,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map
       objectReference: {fileID: 0}
+    - target: {fileID: 6950227091820040763, guid: 818f304c4e230d844870ea334512eac4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950227091820040763, guid: 818f304c4e230d844870ea334512eac4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950227091820040763, guid: 818f304c4e230d844870ea334512eac4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6950227091820040763, guid: 818f304c4e230d844870ea334512eac4, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8169622514583856034, guid: 818f304c4e230d844870ea334512eac4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1924,7 +1940,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560814543617951647, guid: 8e83d1865a7d62744af4b8191146c30d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 17.5
+      value: 17.2
       objectReference: {fileID: 0}
     - target: {fileID: 3560814543617951647, guid: 8e83d1865a7d62744af4b8191146c30d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1944,11 +1960,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3560814543617951647, guid: 8e83d1865a7d62744af4b8191146c30d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -37
+      value: -37.76
       objectReference: {fileID: 0}
     - target: {fileID: 3560814543617951647, guid: 8e83d1865a7d62744af4b8191146c30d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 12
+      value: 12.42
       objectReference: {fileID: 0}
     - target: {fileID: 3560814543617951647, guid: 8e83d1865a7d62744af4b8191146c30d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
