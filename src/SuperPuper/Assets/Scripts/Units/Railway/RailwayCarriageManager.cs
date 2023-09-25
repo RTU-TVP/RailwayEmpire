@@ -33,7 +33,7 @@ namespace Units.Railway
             }
         }
 
-        public void RegisterOnComplete(UnityAction onComplete) => _onComplete = onComplete;
+        public void RegisterOnComplete(UnityAction onComplete) => _onComplete += onComplete;
 
         private void SettingOutline()
         {
