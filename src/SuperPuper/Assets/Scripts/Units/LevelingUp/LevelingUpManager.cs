@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using Data.Static.Skills;
+using UI.MainScene;
 using Units.Money;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,12 +10,24 @@ namespace Units.LevelingUp
     public class LevelingUpManager : MonoBehaviour
     {
         public static LevelingUpManager Instance { get; private set; }
+        [SerializeField] private SkillScriptableObject[] _skillsData;
+        [SerializeField] private GameObject _levelUpScreen;
+        [SerializeField] private Transform _instanceParent;
+        private Dictionary<SkillType, SkillScriptableObject> _skillsDictionary = new Dictionary<SkillType, SkillScriptableObject>();
+        private LevelingUpUI _levelingUpUI;
         private UnityAction _onLevelUp;
 
         private void Awake()
         {
             if (Instance == null) Instance = this;
             else Destroy(gameObject);
+        }
+
+        private void Start()
+        {
+            foreach (var skill in _skillsData) _skillsDictionary.Add(skill.Type, skill);
+            _levelingUpUI = Instantiate(_levelUpScreen, _instanceParent).GetComponent<LevelingUpUI>();
+            _levelingUpUI.CreateSkillsUI(_skillsData);
         }
 
         public void RegisterOnLevelUp(UnityAction onLevelUp) => _onLevelUp += onLevelUp;
