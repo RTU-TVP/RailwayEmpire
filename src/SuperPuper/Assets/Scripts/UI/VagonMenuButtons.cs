@@ -11,15 +11,12 @@ namespace UI
     {
         [field: SerializeField] public GameObject ButtonDoMyselfGameObject { get; private set; }
         [field: SerializeField] public GameObject ButtonCallWorkersGameObject { get; private set; }
-        
+
         private UnityAction _onDoMyself;
         private UnityAction _onCallWorkers;
 
-        public void SetActions(UnityAction onDoMyself, UnityAction onCallWorkers)
-        {
-            _onDoMyself = onDoMyself;
-            _onCallWorkers = onCallWorkers;
-        }
+        public void RegisterOnDoMyself(UnityAction onDoMyself) => _onDoMyself += onDoMyself;
+        public void RegisterOnCallWorkers(UnityAction onCallWorkers) => _onCallWorkers += onCallWorkers;
 
         public void ButtonDoMyself()
         {

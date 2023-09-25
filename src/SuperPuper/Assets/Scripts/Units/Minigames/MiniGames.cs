@@ -1,10 +1,8 @@
-using System;
 using DG.Tweening;
 using Units.Camera;
 using Units.Minigames.MemoGame;
 using Units.Minigames.PipeGame;
 using Units.Railway;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using static UnityEngine.Object;
@@ -17,159 +15,81 @@ namespace Units.Minigames
         {
             if (miniGame != null)
             {
+                ConfigureCamera(cameraMovement, miniGame);
                 var miniGamePrefab = Instantiate(miniGame.MiniGamePrefab, miniGame.MiniGamePosition, Quaternion.identity);
-
-                cameraMovement.enabled = false;
-
-                cameraMovement.SecondVirtualCamera.transform.position = miniGame.CameraPosition;
-
-                cameraMovement.SecondVirtualCamera.gameObject.SetActive(true);
-
                 var miniGameController = miniGamePrefab.GetComponentInChildren<SceneController>();
-
-                miniGameController.OnGameCompleted += () =>
-                {
-                    cameraMovement.SecondVirtualCamera.gameObject.SetActive(false);
-                    cameraMovement.enabled = true;
-                    Destroy(miniGamePrefab);
-                    onComplete?.Invoke();
-                };
-
-                miniGameController.OnGameLost += () =>
-                {
-                    cameraMovement.SecondVirtualCamera.gameObject.SetActive(false);
-                    cameraMovement.enabled = true;
-                    Destroy(miniGamePrefab);
-                };
+                miniGameController.OnGameCompleted += () => EndGame(cameraMovement, miniGamePrefab, onComplete);
+                miniGameController.OnGameLost += () => EndGame(cameraMovement, miniGamePrefab);
             }
-            else
-            {
-                onComplete?.Invoke();
-            }
+            else onComplete?.Invoke();
         }
 
-        public static void StartLogs(CameraMovement cameraMovement, MiniGame miniGameLogs, UnityAction onComplete)
+        public static void StartLogs(CameraMovement cameraMovement, MiniGame miniGame, UnityAction onComplete)
         {
-            if (miniGameLogs != null)
+            if (miniGame != null)
             {
-                var miniGamePrefab = Instantiate(miniGameLogs.MiniGamePrefab, miniGameLogs.MiniGamePosition, Quaternion.identity);
-
-                cameraMovement.enabled = false;
-
-                cameraMovement.SecondVirtualCamera.transform.position = miniGameLogs.CameraPosition;
-
-                cameraMovement.SecondVirtualCamera.gameObject.SetActive(true);
-
+                ConfigureCamera(cameraMovement, miniGame);
+                var miniGamePrefab = Instantiate(miniGame.MiniGamePrefab, miniGame.MiniGamePosition, Quaternion.identity);
                 var movementSpawn = miniGamePrefab.GetComponentInChildren<MovementSpawn>();
-
                 movementSpawn.cameraPrincipal = cameraMovement.SecondVirtualCamera;
-
                 movementSpawn._hasStarted = true;
-
-                movementSpawn.OnGameCompleted += () =>
-                {
-                    cameraMovement.SecondVirtualCamera.gameObject.SetActive(false);
-                    cameraMovement.enabled = true;
-                    Destroy(miniGamePrefab);
-                    onComplete?.Invoke();
-                };
-
-                movementSpawn.OnGameLost += () =>
-                {
-                    cameraMovement.SecondVirtualCamera.gameObject.SetActive(false);
-                    cameraMovement.enabled = true;
-                    Destroy(miniGamePrefab);
-                };
+                movementSpawn.OnGameCompleted += () => { EndGame(cameraMovement, miniGamePrefab, onComplete); };
+                movementSpawn.OnGameLost += () => { EndGame(cameraMovement, miniGamePrefab); };
             }
-            else
-            {
-                onComplete?.Invoke();
-            }
+            else onComplete?.Invoke();
         }
 
-        public static void StartPipes(CameraMovement cameraMovement, MiniGame miniGamePipes, UnityAction onComplete)
+        public static void StartPipes(CameraMovement cameraMovement, MiniGame miniGame, UnityAction onComplete)
         {
-            if (miniGamePipes != null)
+            if (miniGame != null)
             {
-                var miniGamePrefab =
-                    Instantiate(miniGamePipes.MiniGamePrefab, miniGamePipes.MiniGamePosition, Quaternion.identity);
-
-                cameraMovement.enabled = false;
-
-                cameraMovement.SecondVirtualCamera.transform.position = miniGamePipes.CameraPosition;
-
+                ConfigureCamera(cameraMovement, miniGame);
+                var miniGamePrefab = Instantiate(miniGame.MiniGamePrefab, miniGame.MiniGamePosition, Quaternion.identity);
                 cameraMovement.SecondVirtualCamera.transform.DOLocalRotate(new Vector3(90, 0, 90), 0.1f);
-
-                cameraMovement.SecondVirtualCamera.gameObject.SetActive(true);
-
                 var pipesGameManager = miniGamePrefab.GetComponentInChildren<PipesGameManager>();
-
                 pipesGameManager.OnGameCompleted += () =>
                 {
-                    cameraMovement.SecondVirtualCamera.gameObject.SetActive(false);
-                    cameraMovement.enabled = true;
-                    Destroy(miniGamePrefab);
-                    onComplete?.Invoke();
-
+                    EndGame(cameraMovement, miniGamePrefab, onComplete);
                     cameraMovement.SecondVirtualCamera.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.1f);
                 };
-
                 pipesGameManager.OnGameFailed += () =>
                 {
-                    cameraMovement.SecondVirtualCamera.gameObject.SetActive(false);
-
+                    EndGame(cameraMovement, miniGamePrefab);
                     cameraMovement.SecondVirtualCamera.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.1f);
-
-                    cameraMovement.enabled = true;
-                    Destroy(miniGamePrefab);
                 };
             }
-            else
-            {
-                onComplete?.Invoke();
-            }
+            else onComplete?.Invoke();
         }
 
-        public static void StartCoal(CameraMovement cameraMovement, MiniGame miniGameCoal, UnityAction onComplete)
+        public static void StartCoal(CameraMovement cameraMovement, MiniGame miniGame, UnityAction onComplete)
         {
-            if (miniGameCoal != null)
+            if (miniGame != null)
             {
-                var miniGamePrefab = Instantiate(miniGameCoal.MiniGamePrefab, miniGameCoal.MiniGamePosition, Quaternion.identity);
-
-                cameraMovement.enabled = false;
-
-                cameraMovement.SecondVirtualCamera.transform.position = miniGameCoal.CameraPosition;
-
-                cameraMovement.SecondVirtualCamera.gameObject.SetActive(true);
-
+                ConfigureCamera(cameraMovement, miniGame);
+                var miniGamePrefab = Instantiate(miniGame.MiniGamePrefab, miniGame.MiniGamePosition, Quaternion.identity);
                 var coalSpawner = miniGamePrefab.GetComponentInChildren<CoalSpawner>();
-
-                coalSpawner._canStart = true;
-
+                coalSpawner.CanStart = true;
                 coalSpawner.GoGame();
-
                 var playerController = miniGamePrefab.GetComponentInChildren<PlayerController>();
-
-                playerController.OnGameCompleted += () =>
-                {
-                    cameraMovement.SecondVirtualCamera.gameObject.SetActive(false);
-                    cameraMovement.enabled = true;
-                    Destroy(miniGamePrefab);
-                    onComplete?.Invoke();
-                };
-
-                playerController.OnGameFailed += () =>
-                {
-                    cameraMovement.SecondVirtualCamera.gameObject.SetActive(false);
-                    cameraMovement.enabled = true;
-                    Destroy(miniGamePrefab);
-                };
-
+                playerController.OnGameCompleted += () => { EndGame(cameraMovement, miniGamePrefab, onComplete); };
+                playerController.OnGameFailed += () => { EndGame(cameraMovement, miniGamePrefab); };
             }
-            else
-            {
-                onComplete?.Invoke();
-            }
+            else onComplete?.Invoke();
+        }
+
+        private static void ConfigureCamera(CameraMovement cameraMovement, MiniGame miniGame)
+        {
+            cameraMovement.enabled = false;
+            cameraMovement.SecondVirtualCamera.transform.position = miniGame.CameraPosition;
+            cameraMovement.SecondVirtualCamera.gameObject.SetActive(true);
+        }
+
+        private static void EndGame(CameraMovement cameraMovement, Object miniGamePrefab, UnityAction onComplete = null)
+        {
+            cameraMovement.SecondVirtualCamera.gameObject.SetActive(false);
+            cameraMovement.enabled = true;
+            Destroy(miniGamePrefab);
+            onComplete?.Invoke();
         }
     }
 }

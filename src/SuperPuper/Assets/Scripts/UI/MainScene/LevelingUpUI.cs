@@ -6,32 +6,26 @@ namespace UI.MainScene
 {
     public class LevelingUpUI : MonoBehaviour
     {
-        [SerializeField] private SkillScriptableObject[] _skillsData;
         [SerializeField] private GameObject _skillPrefab;
         [SerializeField] private Transform _skillsParent;
         private SkillUI[] _skillsUI;
+        private SkillScriptableObject[] _skillsData;
 
-        private void Awake()
+        public void CreateSkillsUI(SkillScriptableObject[] skillsData)
         {
-            _skillsUI = new SkillUI[_skillsData.Length];
-            for (int i = 0; i < _skillsData.Length; i++)
+            _skillsData = skillsData;
+            _skillsUI = new SkillUI[skillsData.Length];
+            for (int i = 0; i < skillsData.Length; i++)
             {
                 var skillUI = Instantiate(_skillPrefab, _skillsParent).GetComponent<SkillUI>();
                 _skillsUI[i] = skillUI;
             }
-        }
-
-        private void OnEnable()
-        {
             SetSkillsDefaultData();
             UpdateSkillsData();
-            LevelingUpManager.Instance.RegisterOnLevelUp(UpdateSkillsData);
         }
 
-        private void OnDisable()
-        {
-            LevelingUpManager.Instance.UnregisterOnLevelUp(UpdateSkillsData);
-        }
+        private void OnEnable() => LevelingUpManager.Instance.RegisterOnLevelUp(UpdateSkillsData);
+        private void OnDisable() => LevelingUpManager.Instance.UnregisterOnLevelUp(UpdateSkillsData);
 
         private void SetSkillsDefaultData()
         {
@@ -59,9 +53,6 @@ namespace UI.MainScene
             }
         }
 
-        private void OnImprovementsPurchase(SkillType type)
-        {
-            LevelingUpManager.Instance.LevelUp(type);
-        }
+        private void OnImprovementsPurchase(SkillType type) => LevelingUpManager.Instance.LevelUp(type);
     }
 }

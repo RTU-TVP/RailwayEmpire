@@ -19,7 +19,7 @@ namespace Units.Railway
         private GameObject _screen;
         private Outline _outline;
 
-        private void Start()
+        public void OnTrainArrived()
         {
             if (railwayCarriage.IsInteractive)
             {
@@ -49,27 +49,27 @@ namespace Units.Railway
             _screen.transform.localRotation = trainConfiguration.ScreenRotation;
 
             var vagonMenuButtons = _screen.GetComponentInChildren<VagonMenuButtons>();
-
-            /*if (WorkersManager.Instance.WorkersCount >= WorkersManager.Instance._workersConfiguration.MaxWorkers)
+            vagonMenuButtons.RegisterOnCallWorkers(() =>
             {
-                vagonMenuButtons.ButtonCallWorkersGameObject.SetActive(false);
-            }*/
+                _screen.SetActive(false);
+                RailsTracksManager.Instance.CallWorkers(workerPosition,
+                    () =>
+                    {
+                        _isTrainCompleted = true;
+                        _onComplete?.Invoke();
+                    });
+            });
 
-            vagonMenuButtons.SetActions(
-                () => RailsTracksManager.Instance.DoMyself(railwayCarriage.RailwayCarriageType,
+            vagonMenuButtons.RegisterOnDoMyself(() =>
+            {
+                _screen.SetActive(false);
+                RailsTracksManager.Instance.DoMyself(railwayCarriage.RailwayCarriageType,
                     () =>
                     {
-                        _onComplete?.Invoke();
                         _isTrainCompleted = true;
-                        _screen.SetActive(false);
-                    }),
-                () => RailsTracksManager.Instance.CallWorkers(workerPosition,
-                    () =>
-                    {
                         _onComplete?.Invoke();
-                        _isTrainCompleted = true;
-                        _screen.SetActive(false);
-                    }));
+                    });
+            });
 
             _screen.SetActive(false);
         }

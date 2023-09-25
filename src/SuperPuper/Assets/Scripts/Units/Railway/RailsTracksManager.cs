@@ -57,11 +57,12 @@ namespace Units.Railway
             trainManager.RegisterOnTrainCompleted(() =>
             {
                 _trains.Remove(trainManager);
-                trainManager.MoveTrain(trainTransform, railTrack.EndPoint.position);
+                trainManager.GetComponentInChildren<AudioManager>().Play($"leaving1");
+                //trainManager.MoveTrain(trainTransform, railTrack.EndPoint.position);
                 railTrack.SetIsRailTrackAvailable(true);
 
                 var sequence = DOTween.Sequence();
-                sequence.Append(trainGameObject.transform.DOMoveX(300, 10));
+                sequence.Append(trainGameObject.transform.DOMoveX(1500, 30).SetEase(Ease.InSine)); // ���� � �������, �� ���� ��� �������� ���-�� �������, �������
                 sequence.onComplete += () =>
                 {
                     Destroy(trainGameObject);

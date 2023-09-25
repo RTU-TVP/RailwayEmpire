@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2468850311641475608}
   - component: {fileID: 1007791350559800405}
   - component: {fileID: 8141022335690160700}
+  - component: {fileID: 3242572947379622032}
+  - component: {fileID: 6176196947414627097}
   m_Layer: 0
   m_Name: RailwayCarriageLocomotive
   m_TagString: Untagged
@@ -71,6 +73,45 @@ MonoBehaviour:
   trainConfiguration: {fileID: 11400000, guid: cdc0449f504c1194d97882758fc929d5, type: 2}
   railwayCarriage: {fileID: 11400000, guid: d3c9240bebddafc4d815562ecf41b202, type: 2}
   workerPosition: {fileID: 1157114727859677235}
+--- !u!114 &3242572947379622032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2259460985200945643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cd25c62311d6dd44bb297ce2e596de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: arrive
+    clip: {fileID: 8300000, guid: 0baa5beec7cd59e4cae51937b795f104, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 0.7
+    source: {fileID: 0}
+  - name: leaving1
+    clip: {fileID: 8300000, guid: 379888c34d22abf44b8fdeec12605753, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 0.8
+    source: {fileID: 0}
+--- !u!114 &6176196947414627097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2259460985200945643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa8346e67e490643b1ec5b14176310d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7143593139047909218
 GameObject:
   m_ObjectHideFlags: 0

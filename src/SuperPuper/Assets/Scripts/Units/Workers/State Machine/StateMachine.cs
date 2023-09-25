@@ -38,8 +38,6 @@ namespace Units.Workers.State_Machine
             _currentTransitions ??= EmptyTransitions;
 
             _currentState.OnEnter();
-
-            Debug.Log(_currentState.GetType().Name);
         }
 
         public void AddTransition(IState to, IState from, Func<bool> predicate)

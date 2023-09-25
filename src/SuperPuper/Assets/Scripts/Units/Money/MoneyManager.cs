@@ -1,6 +1,6 @@
 using System;
 using Data.Constant;
-using Data.Static.Workers;
+using UI;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,17 +9,21 @@ namespace Units.Money
     public class MoneyManager : MonoBehaviour
     {
         public static MoneyManager Instance { get; private set; }
+        [SerializeField] private GameObject _moneyScreen;
+        [SerializeField] private Transform _instanceParent;
         private UnityAction<int> _onMoneyChanged;
         private int _money;
+        private MoneyUI _moneyUI;
 
         private void Awake()
         {
             if (Instance == null) Instance = this;
             else Destroy(gameObject);
         }
-        
+
         private void Start()
         {
+            _moneyUI = Instantiate(_moneyScreen, _instanceParent).GetComponent<MoneyUI>();
             _money = PlayerPrefs.GetInt(WorkersConstantData.MONEY);
             _onMoneyChanged?.Invoke(_money);
         }

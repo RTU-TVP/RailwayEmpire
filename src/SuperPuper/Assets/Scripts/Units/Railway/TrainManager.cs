@@ -13,6 +13,7 @@ namespace Units.Railway
         private RailwayCarriageManager[] _railwayCarriageManagers;
         private int _countRailwayCarriagesNotCompleted;
         private UnityAction _onTrainCompleted;
+        private UnityAction _onTrainArrived;
         private Coroutine _moveCoroutine;
 
         public void RegisterOnTrainCompleted(UnityAction onTrainCompleted) => _onTrainCompleted += onTrainCompleted;
@@ -30,6 +31,7 @@ namespace Units.Railway
                 var railwayCarriage = CreateRailwayCarriage(train.RailwayCarriages[i].Prefab, transform, i);
                 railwayCarriage.RegisterOnComplete(() => MoneyManager.Instance.ChangeMoneyTo(money));
                 railwayCarriage.RegisterOnComplete(CompletedRailwayCarriage);
+                _onTrainArrived += railwayCarriage.OnTrainArrived;
                 _railwayCarriageManagers[i] = railwayCarriage;
             }
 
@@ -39,19 +41,15 @@ namespace Units.Railway
         public void MoveTrain(Transform train, Vector3 stopPoint, UnityAction onTrainArrived = null)
         {
             if (_moveCoroutine != null) StopCoroutine(_moveCoroutine);
-            _moveCoroutine = StartCoroutine(Move());
-
-            return;
-
-            IEnumerator Move()
+            _onTrainArrived += onTrainArrived;
+            Vector3 startPosition = train.position;
+            float journeyLength = Vector3.Distance(startPosition, stopPoint);
+            float journeyTime = journeyLength / RailsTracksManager.Instance.trainConfiguration.Speed;
+            train.transform.DOMove(stopPoint, journeyTime).SetEase(Ease.InOutSine).OnComplete(() =>
             {
-                Vector3 startPosition = train.position;
-                float journeyLength = Vector3.Distance(startPosition, stopPoint);
-                float journeyTime = journeyLength / RailsTracksManager.Instance.trainConfiguration.Speed;
-                train.transform.DOMove(stopPoint, journeyTime);
-                onTrainArrived?.Invoke();
-                yield return null;
-            }
+                _onTrainArrived?.Invoke();
+                _onTrainArrived = null;
+            });
         }
 
         private Data.Static.Trains.Train GenerateRailwaysCarriages(RailwayCarriagesDatabaseScriptableObject railwayCarriagesDatabaseScriptableObject)

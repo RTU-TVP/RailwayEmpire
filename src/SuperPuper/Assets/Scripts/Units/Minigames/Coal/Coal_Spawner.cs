@@ -1,6 +1,7 @@
 using System.Collections;
 using Units.Minigames.Coal;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = System.Random;
 
 public class CoalSpawner : MonoBehaviour
@@ -10,7 +11,7 @@ public class CoalSpawner : MonoBehaviour
     [SerializeField] private Transform _pos3;
     [SerializeField] private Transform _pos4;
     [SerializeField] private GameObject _coal;
-    public bool _canStart;
+    public bool CanStart;
     private WarningController _warningController;
     private Random rnd = new Random();
     private Vector3 _spawnPosition;
@@ -18,7 +19,7 @@ public class CoalSpawner : MonoBehaviour
         
     public void GoGame()
     {
-        if (_canStart)
+        if (CanStart)
         {
             _warningController = FindObjectOfType<WarningController>();
             StartCoroutine(wait(waitTime));
