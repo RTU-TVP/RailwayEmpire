@@ -45,7 +45,7 @@ namespace Units.Railway
             Vector3 startPosition = train.position;
             float journeyLength = Vector3.Distance(startPosition, stopPoint);
             float journeyTime = journeyLength / RailsTracksManager.Instance.trainConfiguration.Speed;
-            train.transform.DOMove(stopPoint, journeyTime).SetEase(Ease.Linear).OnComplete(() =>
+            train.transform.DOMove(stopPoint, journeyTime).SetEase(Ease.InOutSine).OnComplete(() =>
             {
                 _onTrainArrived?.Invoke();
                 _onTrainArrived = null;
