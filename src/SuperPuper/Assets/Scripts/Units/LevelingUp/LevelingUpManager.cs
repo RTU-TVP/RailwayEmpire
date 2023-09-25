@@ -29,5 +29,17 @@ namespace Units.LevelingUp
             var level = PlayerPrefs.GetInt(type);
             return (int)Mathf.Pow(1.618f, level);
         }
+
+        public string GetKeyByType(SkillType type)
+        {
+            return type switch
+            {
+                SkillType.MoveSpeed => Data.Constant.WorkersConstantData.WORKERS_LVL_MOVE_SPEED,
+                SkillType.WorkTime => Data.Constant.WorkersConstantData.WORKERS_LVL_WORK_TIME,
+                SkillType.SaleTime => Data.Constant.WorkersConstantData.WORKERS_LVL_SALE_TIME,
+                _ => string.Empty
+            };
+        }
     }
+
 }
