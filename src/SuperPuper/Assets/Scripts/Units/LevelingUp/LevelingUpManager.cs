@@ -21,12 +21,12 @@ namespace Units.LevelingUp
         public void LevelUp(SkillType type)
         {
             var key = GetKeyByType(type);
-            MoneyManager.Instance.ChangeMoneyTo(GetPrice(key));
-            if (MoneyManager.Instance.IsEnoughMoney(GetPrice(key)))
+            var price = GetPrice(key);
+            var currentLevel = PlayerPrefs.GetInt(key);
+            if (MoneyManager.Instance.IsEnoughMoney(price) && currentLevel < _skillsDictionary[type].MaxLevel)
             {
-                MoneyManager.Instance.ChangeMoneyTo(-GetPrice(key));
-                var level = PlayerPrefs.GetInt(key);
-                PlayerPrefs.SetInt(key, level + 1);
+                MoneyManager.Instance.ChangeMoneyTo(-price);
+                PlayerPrefs.SetInt(key, currentLevel + 1);
                 _onLevelUp?.Invoke();
             }
         }

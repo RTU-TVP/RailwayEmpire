@@ -10,5 +10,6 @@ namespace Data.Static.Skills
         [field: SerializeField] public string Description { get; private set; }
         [field: SerializeField] public Sprite Icon { get; private set; }
         [field: SerializeField] public SkillType Type { get; private set; }
+        [field: SerializeField] public int MaxLevel { get; private set; }
     }
 }
