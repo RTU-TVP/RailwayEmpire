@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1812770796631926351}
   - component: {fileID: -7195973836052712125}
   - component: {fileID: -1647404091533046263}
+  - component: {fileID: 3221861259362672329}
   m_Layer: 0
   m_Name: car_speueueuen
   m_TagString: Untagged
@@ -128,3 +129,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.05447215, y: 0.13343908, z: 0.040596705}
   m_Center: {x: -0.00019171182, y: 0.0032975478, z: 0.020331405}
+--- !u!114 &3221861259362672329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4082665522940635968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cd25c62311d6dd44bb297ce2e596de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: rideSound
+    clip: {fileID: 8300000, guid: df417143a6642b74dba49d8a25475f9a, type: 3}
+    volume: 1
+    pitch: 2
+    loop: 1
+    spatialBlend: 1
+    source: {fileID: 0}

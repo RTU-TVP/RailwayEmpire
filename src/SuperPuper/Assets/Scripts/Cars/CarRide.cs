@@ -12,6 +12,10 @@ public class CarRide : MonoBehaviour
         point1 = GameObject.Find("Point1");
         point2 = GameObject.Find("Point2");
     }
+    private void Start()
+    {
+        GetComponent<AudioManager>().Play("rideSound");
+    }
 
     void Update()
     {
