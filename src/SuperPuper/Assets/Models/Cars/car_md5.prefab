@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6112842247610176981}
   - component: {fileID: 8301259542392966334}
   - component: {fileID: -8532633126883347544}
+  - component: {fileID: 2193517017664612471}
   m_Layer: 0
   m_Name: car_md5
   m_TagString: Untagged
@@ -128,3 +129,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.053715967, y: 0.14060986, z: 0.037393864}
   m_Center: {x: -0.000011973083, y: 0.008364055, z: 0.020006899}
+--- !u!114 &2193517017664612471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5403136037013572695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cd25c62311d6dd44bb297ce2e596de1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: rideSound
+    clip: {fileID: 8300000, guid: df417143a6642b74dba49d8a25475f9a, type: 3}
+    volume: 1
+    pitch: 2
+    loop: 1
+    spatialBlend: 1
+    source: {fileID: 0}
