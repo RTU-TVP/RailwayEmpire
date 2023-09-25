@@ -1,3 +1,4 @@
+using Units.Money;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -17,16 +18,22 @@ namespace Units.LevelingUp
         public void RegisterOnLevelUp(UnityAction onLevelUp) => _onLevelUp += onLevelUp;
         public void UnregisterOnLevelUp(UnityAction onLevelUp) => _onLevelUp -= onLevelUp;
 
-        public void LevelUp(string type)
+        public void LevelUp(SkillType type)
         {
-            var level = PlayerPrefs.GetInt(type);
-            PlayerPrefs.SetInt(type, level + 1);
-            _onLevelUp?.Invoke();
+            var key = GetKeyByType(type);
+            MoneyManager.Instance.ChangeMoneyTo(GetPrice(key));
+            if (MoneyManager.Instance.IsEnoughMoney(GetPrice(key)))
+            {
+                MoneyManager.Instance.ChangeMoneyTo(-GetPrice(key));
+                var level = PlayerPrefs.GetInt(key);
+                PlayerPrefs.SetInt(key, level + 1);
+                _onLevelUp?.Invoke();
+            }
         }
 
-        public int GetPrice(string type)
+        public int GetPrice(string key)
         {
-            var level = PlayerPrefs.GetInt(type);
+            var level = PlayerPrefs.GetInt(key);
             return (int)Mathf.Pow(1.618f, level);
         }
 
