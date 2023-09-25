@@ -23,5 +23,11 @@ namespace Units.LevelingUp
             PlayerPrefs.SetInt(type, level + 1);
             _onLevelUp?.Invoke();
         }
+
+        public int GetPrice(string type)
+        {
+            var level = PlayerPrefs.GetInt(type);
+            return (int)Mathf.Pow(1.618f, level);
+        }
     }
 }
