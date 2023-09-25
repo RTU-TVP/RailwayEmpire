@@ -57,11 +57,12 @@ namespace Units.Railway
             trainManager.RegisterOnTrainCompleted(() =>
             {
                 _trains.Remove(trainManager);
+                trainManager.GetComponentInChildren<AudioManager>().Play($"leaving1");
                 trainManager.MoveTrain(trainTransform, railTrack.EndPoint.position);
                 railTrack.SetIsRailTrackAvailable(true);
 
                 var sequence = DOTween.Sequence();
-                sequence.Append(trainGameObject.transform.DOMoveX(300, 10));
+                sequence.Append(trainGameObject.transform.DOMoveX(1500, 30).SetEase(Ease.InSine)); // тута я пытался, но чёто оно дёргается как-то странно, спасите
                 sequence.onComplete += () =>
                 {
                     Destroy(trainGameObject);
