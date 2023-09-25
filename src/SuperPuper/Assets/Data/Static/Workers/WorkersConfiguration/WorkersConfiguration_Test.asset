@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48404aac162743919369b52449d85b5b, type: 3}
   m_Name: WorkersConfiguration_Test
   m_EditorClassIdentifier: 
-  MoveSpeedDefault: 10
+  MoveSpeedDefault: 5
   WorkTimeDefault: 3
   SaleTimeDefault: 5
   MaxWorkers: 3
