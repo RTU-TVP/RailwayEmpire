@@ -235,7 +235,6 @@ Transform:
   - {fileID: 1348520791}
   - {fileID: 2105146593}
   - {fileID: 1191025606}
-  - {fileID: 1931955532}
   - {fileID: 874295035}
   - {fileID: 135962197}
   - {fileID: 2079631187}
@@ -443,6 +442,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 643194211}
   m_CullTransparentMesh: 1
+--- !u!1 &658108716 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3922205566907940999, guid: 818f304c4e230d844870ea334512eac4, type: 3}
+  m_PrefabInstance: {fileID: 1705665852}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &658108722
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658108716}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &675280878
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,7 +811,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1632634801
 Transform:
@@ -920,11 +951,23 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 386042474}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2531077295332518249, guid: 818f304c4e230d844870ea334512eac4, type: 3}
       propertyPath: m_Name
       value: Map
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933003875888690690, guid: 818f304c4e230d844870ea334512eac4, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933003875888690690, guid: 818f304c4e230d844870ea334512eac4, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933003875888690690, guid: 818f304c4e230d844870ea334512eac4, type: 3}
+      propertyPath: m_Size.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8169622514583856034, guid: 818f304c4e230d844870ea334512eac4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -966,10 +1009,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8466988986190486854, guid: 818f304c4e230d844870ea334512eac4, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466988986190486854, guid: 818f304c4e230d844870ea334512eac4, type: 3}
+      propertyPath: m_Size.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466988986190486854, guid: 818f304c4e230d844870ea334512eac4, type: 3}
+      propertyPath: m_Size.z
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3922205566907940999, guid: 818f304c4e230d844870ea334512eac4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 658108722}
   m_SourcePrefab: {fileID: 100100000, guid: 818f304c4e230d844870ea334512eac4, type: 3}
 --- !u!1 &1737401589
 GameObject:
@@ -985,7 +1043,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1737401590
 Transform:
@@ -1185,11 +1243,6 @@ MonoBehaviour:
     <CameraPosition>k__BackingField: {x: -1247.469, y: -266.892, z: -482.545}
   <vagonButtonsScreen>k__BackingField: {fileID: 7839394952249355725, guid: e6ff45b2c36af284b9e7b099e276b21e, type: 3}
   <CameraMovement>k__BackingField: {fileID: 1350011776}
---- !u!4 &1931955532 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8169622514583856034, guid: 818f304c4e230d844870ea334512eac4, type: 3}
-  m_PrefabInstance: {fileID: 1705665852}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2033145799 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7875730106047584296, guid: 9b66aa096bfedda4da46ef0b09920562, type: 3}
@@ -1671,4 +1724,5 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 386042474}
+  - {fileID: 1705665852}
   - {fileID: 1661340771}
