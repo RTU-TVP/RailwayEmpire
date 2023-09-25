@@ -19,7 +19,7 @@ namespace Units.Railway
         private GameObject _screen;
         private Outline _outline;
 
-        private void Start()
+        public void OnTrainArrived()
         {
             if (railwayCarriage.IsInteractive)
             {
@@ -59,7 +59,7 @@ namespace Units.Railway
                         _onComplete?.Invoke();
                     });
             });
-            
+
             vagonMenuButtons.RegisterOnDoMyself(() =>
             {
                 _screen.SetActive(false);
