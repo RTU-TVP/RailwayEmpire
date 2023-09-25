@@ -58,7 +58,7 @@ namespace Units.Railway
             {
                 _trains.Remove(trainManager);
                 trainManager.GetComponentInChildren<AudioManager>().Play($"leaving1");
-                trainManager.MoveTrain(trainTransform, railTrack.EndPoint.position);
+                //trainManager.MoveTrain(trainTransform, railTrack.EndPoint.position);
                 railTrack.SetIsRailTrackAvailable(true);
 
                 var sequence = DOTween.Sequence();
