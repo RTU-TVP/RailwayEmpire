@@ -49,27 +49,27 @@ namespace Units.Railway
             _screen.transform.localRotation = trainConfiguration.ScreenRotation;
 
             var vagonMenuButtons = _screen.GetComponentInChildren<VagonMenuButtons>();
-
-            /*if (WorkersManager.Instance.WorkersCount >= WorkersManager.Instance._workersConfiguration.MaxWorkers)
+            vagonMenuButtons.RegisterOnCallWorkers(() =>
             {
-                vagonMenuButtons.ButtonCallWorkersGameObject.SetActive(false);
-            }*/
-
-            vagonMenuButtons.SetActions(
-                () => RailsTracksManager.Instance.DoMyself(railwayCarriage.RailwayCarriageType,
+                _screen.SetActive(false);
+                RailsTracksManager.Instance.CallWorkers(workerPosition,
                     () =>
                     {
-                        _onComplete?.Invoke();
                         _isTrainCompleted = true;
-                        _screen.SetActive(false);
-                    }),
-                () => RailsTracksManager.Instance.CallWorkers(workerPosition,
+                        _onComplete?.Invoke();
+                    });
+            });
+            
+            vagonMenuButtons.RegisterOnDoMyself(() =>
+            {
+                _screen.SetActive(false);
+                RailsTracksManager.Instance.DoMyself(railwayCarriage.RailwayCarriageType,
                     () =>
                     {
-                        _onComplete?.Invoke();
                         _isTrainCompleted = true;
-                        _screen.SetActive(false);
-                    }));
+                        _onComplete?.Invoke();
+                    });
+            });
 
             _screen.SetActive(false);
         }
