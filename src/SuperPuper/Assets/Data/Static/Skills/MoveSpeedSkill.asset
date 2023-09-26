@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: MoveSpeedSkill
   m_EditorClassIdentifier: 
   <AdditionalPrice>k__BackingField: 5
-  <Description>k__BackingField: "\u0423\u0432\u0435\u0434\u0435\u0447\u0435\u043D\u0438\u0435
-    \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0438 \u0440\u0430\u0431\u043E\u0447\u0438\u0445"
-  <Icon>k__BackingField: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  <Description>k__BackingField: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C
+    \u043F\u0435\u0440\u0435\u0434\u0432\u0438\u0436\u0435\u043D\u0438\u044F"
+  <Icon>k__BackingField: {fileID: 21300000, guid: 5dce2740ac164ae47921dc8e7d872d6a, type: 3}
   <Type>k__BackingField: 0
   <MaxLevel>k__BackingField: 35

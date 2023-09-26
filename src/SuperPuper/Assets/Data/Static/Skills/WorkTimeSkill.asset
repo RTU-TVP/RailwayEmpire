@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: WorkTimeSkill
   m_EditorClassIdentifier: 
   <AdditionalPrice>k__BackingField: 5
-  <Description>k__BackingField: "\u0423\u0432\u0435\u043B\u0435\u0447\u0435\u043D\u0438\u0435
-    \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u0438 \u0440\u0430\u0431\u043E\u0442\u044B"
-  <Icon>k__BackingField: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  <Description>k__BackingField: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C
+    \u0440\u0430\u0431\u043E\u0442\u044B"
+  <Icon>k__BackingField: {fileID: 21300000, guid: f7976a4e0c6515045872cded3c240c7c, type: 3}
   <Type>k__BackingField: 1
   <MaxLevel>k__BackingField: 35
