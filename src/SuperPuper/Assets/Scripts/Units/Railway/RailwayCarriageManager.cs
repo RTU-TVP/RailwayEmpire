@@ -14,10 +14,12 @@ namespace Units.Railway
         [SerializeField] private RailwayCarriageScriptableObject railwayCarriage;
         [SerializeField] private Transform workerPosition;
         private InteractiveObject _interactiveObject;
-        private UnityAction _onComplete;
-        private bool _isTrainCompleted;
+        private UnityAction _onCompletedSuccessful;
+        private UnityAction _onCompletedNotSuccessful;
         private GameObject _screen;
         private Outline _outline;
+        private bool _isTrainCompleted;
+        private bool _isProgress;
 
         public void OnTrainArrived()
         {
@@ -29,11 +31,14 @@ namespace Units.Railway
             }
             else
             {
-                _onComplete?.Invoke();
+                _onCompletedSuccessful?.Invoke();
             }
         }
 
-        public void RegisterOnComplete(UnityAction onComplete) => _onComplete += onComplete;
+        public void RegisterOnComplete(UnityAction onComplete) => _onCompletedSuccessful += onComplete;
+        public void UnregisterOnComplete(UnityAction onComplete) => _onCompletedSuccessful -= onComplete;
+        public void RegisterOnCompletedNotSuccessful(UnityAction onCompletedNotSuccessful) => _onCompletedNotSuccessful += onCompletedNotSuccessful;
+        public void UnregisterOnCompletedNotSuccessful(UnityAction onCompletedNotSuccessful) => _onCompletedNotSuccessful -= onCompletedNotSuccessful;
 
         private void SettingOutline()
         {
@@ -52,22 +57,29 @@ namespace Units.Railway
             vagonMenuButtons.RegisterOnCallWorkers(() =>
             {
                 _screen.SetActive(false);
+                _isProgress = true;
                 RailsTracksManager.Instance.CallWorkers(workerPosition,
                     () =>
                     {
                         _isTrainCompleted = true;
-                        _onComplete?.Invoke();
+                        _onCompletedSuccessful?.Invoke();
                     });
             });
 
             vagonMenuButtons.RegisterOnDoMyself(() =>
             {
                 _screen.SetActive(false);
+                _isProgress = true;
                 RailsTracksManager.Instance.DoMyself(railwayCarriage.RailwayCarriageType,
                     () =>
                     {
                         _isTrainCompleted = true;
-                        _onComplete?.Invoke();
+                        _onCompletedSuccessful?.Invoke();
+                    },
+                    () =>
+                    {
+                        _isProgress = false;
+                        _onCompletedNotSuccessful?.Invoke();
                     });
             });
 
@@ -98,7 +110,7 @@ namespace Units.Railway
 
         private void OnMouseClick()
         {
-            if (_isTrainCompleted) return;
+            if (_isTrainCompleted || _isProgress) return;
             _outline.OutlineColor = trainConfiguration.OutlineColorChosen;
             _screen.SetActive(true);
         }

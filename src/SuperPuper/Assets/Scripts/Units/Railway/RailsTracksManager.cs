@@ -58,11 +58,10 @@ namespace Units.Railway
             {
                 _trains.Remove(trainManager);
                 trainManager.GetComponentInChildren<AudioManager>().Play($"leaving1");
-                //trainManager.MoveTrain(trainTransform, railTrack.EndPoint.position);
                 railTrack.SetIsRailTrackAvailable(true);
 
                 var sequence = DOTween.Sequence();
-                sequence.Append(trainGameObject.transform.DOMoveX(1500, 30).SetEase(Ease.InSine)); // ���� � �������, �� ���� ��� �������� ���-�� �������, �������
+                sequence.Append(trainGameObject.transform.DOMoveX(1500, 30).SetEase(Ease.InSine));
                 sequence.onComplete += () =>
                 {
                     Destroy(trainGameObject);
@@ -74,35 +73,40 @@ namespace Units.Railway
             railTracks[index].SetIsRailTrackAvailable(false);
         }
 
-        public void DoMyself(RailwayCarriageType railwayCarriageRailwayCarriageType, UnityAction onComplete)
+        public void DoMyself(
+            RailwayCarriageType railwayCarriageRailwayCarriageType,
+            UnityAction onCompletedSuccessfully,
+            UnityAction onCompletedNotSuccessful)
         {
             MiniGame miniGame;
             switch (railwayCarriageRailwayCarriageType)
             {
                 case RailwayCarriageType.Container:
                     miniGame = MiniGames.Find(x => x.RailwayCarriageType == railwayCarriageRailwayCarriageType);
-                    StartContainer(CameraMovement, miniGame, onComplete);
+                    StartContainer(CameraMovement, miniGame, onCompletedSuccessfully, onCompletedNotSuccessful);
                     break;
                 case RailwayCarriageType.Logs:
                     miniGame = MiniGames.Find(x => x.RailwayCarriageType == railwayCarriageRailwayCarriageType);
-                    StartLogs(CameraMovement, miniGame, onComplete);
+                    StartLogs(CameraMovement, miniGame, onCompletedSuccessfully, onCompletedNotSuccessful);
                     break;
                 case RailwayCarriageType.Pipes:
                     miniGame = MiniGames.Find(x => x.RailwayCarriageType == railwayCarriageRailwayCarriageType);
-                    StartPipes(CameraMovement, miniGame, onComplete);
+                    StartPipes(CameraMovement, miniGame, onCompletedSuccessfully, onCompletedNotSuccessful);
                     break;
                 case RailwayCarriageType.Coal:
                     miniGame = MiniGames.Find(x => x.RailwayCarriageType == railwayCarriageRailwayCarriageType);
-                    StartCoal(CameraMovement, miniGame, onComplete);
+                    StartCoal(CameraMovement, miniGame, onCompletedSuccessfully, onCompletedNotSuccessful);
                     break;
                 case RailwayCarriageType.Tank:
                     miniGame = MiniGames.Find(x => x.RailwayCarriageType == railwayCarriageRailwayCarriageType);
-                    StartPipes(CameraMovement, miniGame, onComplete);
+                    StartPipes(CameraMovement, miniGame, onCompletedSuccessfully, onCompletedNotSuccessful);
                     break;
             }
         }
 
-        public void CallWorkers(Transform workerPosition, Action onComplete)
+        public void CallWorkers(
+            Transform workerPosition,
+            Action onComplete)
         {
             WorkersManager.Instance.CreateWorker(workerPosition, () => onComplete?.Invoke(), () => {});
         }
