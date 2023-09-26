@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Data.Static.Trains;
 using DG.Tweening;
@@ -8,6 +9,7 @@ using Units.Workers;
 using UnityEngine;
 using UnityEngine.Events;
 using static Units.Minigames.MiniGames;
+using Random = UnityEngine.Random;
 
 namespace Units.Railway
 {
@@ -29,13 +31,16 @@ namespace Units.Railway
             else Destroy(gameObject);
         }
 
-        private void Start()
+        private IEnumerator Start()
         {
             for (int i = 0; i < railTracks.Length; i++)
             {
                 if (railTracks[i].IsRailTrackAvailable)
                 {
                     CreateTrain(i);
+                    yield return new WaitForSeconds(Random.Range(
+                        trainConfiguration.WaitingTimeForNextTrainMin,
+                        trainConfiguration.WaitingTimeForNextTrainMax));
                 }
             }
         }

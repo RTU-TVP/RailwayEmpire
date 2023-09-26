@@ -20,5 +20,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4278190335
   <OutlineIntensity>k__BackingField: 10
+  <WaitingTimeForNextTrainMin>k__BackingField: 4
+  <WaitingTimeForNextTrainMax>k__BackingField: 7
   <ScreenPosition>k__BackingField: {x: 2.75, y: 6.5, z: 0}
   <_screenRotation>k__BackingField: {x: 15, y: -90, z: 0}
