@@ -46,6 +46,7 @@ namespace UI
             PlayerPrefs.DeleteKey(WorkersConstantData.WORKERS_LVL_MOVE_SPEED);
             PlayerPrefs.DeleteKey(WorkersConstantData.WORKERS_LVL_WORK_TIME);
             PlayerPrefs.DeleteKey(WorkersConstantData.WORKERS_LVL_SALE_TIME);
+            PlayerPrefs.DeleteKey(WorkersConstantData.WORKERS_COUNT_MAX);
             PlayerPrefs.DeleteKey(WorkersConstantData.MONEY);
         }
     }

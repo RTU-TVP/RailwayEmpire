@@ -6,11 +6,14 @@ public class CharScreams : MonoBehaviour
 {
     void Start()
     {
-        StartCoroutine(scream(7));
+        StartCoroutine(scream());
     }
-    IEnumerator scream(int time)
+    IEnumerator scream()
     {
-        GetComponent<AudioManager>().Play($"ch{Random.Range(1, 11)}");
-        yield return new WaitForSeconds(time);
+        while(true)
+        {
+            GetComponent<AudioManager>().Play($"ch{Random.Range(1, 11)}");
+            yield return new WaitForSeconds(Random.Range(5,10));
+        }
     }
 }
