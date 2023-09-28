@@ -2,6 +2,7 @@
 
 using Data.Constant;
 using Data.Static.Workers;
+using Units.LevelingUp;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -20,6 +21,7 @@ namespace Units.Workers
         [SerializeField] private Transform _shop;
 
         private int _workersCountCurrent;
+        private int _workersCountMax;
 
         private void Awake()
         {
@@ -27,9 +29,15 @@ namespace Units.Workers
             else Destroy(gameObject);
         }
 
+        private void Start()
+        {
+            UpdateWorkersCountMax();
+            LevelingUpManager.Instance.RegisterOnLevelUp(UpdateWorkersCountMax);
+        }
+
         public void CreateWorker(Transform work, UnityAction workDone, UnityAction saleDone, UnityAction onWorkersCreated)
         {
-            if (_workersCountCurrent >= _workersConfiguration.MaxWorkers)
+            if (TryCreatedWorker())
             {
                 return;
             }
@@ -60,6 +68,21 @@ namespace Units.Workers
                 _workersConfiguration.WorkTimeDefault - workTimeLvl * _workersConfiguration.WorkTimeDefault * 0.01f,
                 _workersConfiguration.SaleTimeDefault - saleTimeLvl * _workersConfiguration.SaleTimeDefault * 0.01f,
                 speedForAnimation);
+        }
+
+        private bool TryCreatedWorker()
+        {
+            if (_workersCountCurrent >= _workersConfiguration.MaxWorkers)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private void UpdateWorkersCountMax()
+        {
+            _workersCountMax = _workersConfiguration.MaxWorkers + PlayerPrefs.GetInt(WorkersConstantData.WORKERS_COUNT_MAX);
         }
     }
 }
