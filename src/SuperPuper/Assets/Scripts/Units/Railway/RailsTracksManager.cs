@@ -109,11 +109,9 @@ namespace Units.Railway
             }
         }
 
-        public void CallWorkers(
-            Transform workerPosition,
-            Action onComplete)
+        public void CallWorkers(Transform workerPosition, UnityAction onComplete, UnityAction onWorkersCreated)
         {
-            WorkersManager.Instance.CreateWorker(workerPosition, () => onComplete?.Invoke(), () => {});
+            WorkersManager.Instance.CreateWorker(workerPosition, () => onComplete?.Invoke(), () => {}, onWorkersCreated);
         }
     }
 }

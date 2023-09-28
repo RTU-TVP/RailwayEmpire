@@ -59,6 +59,7 @@ namespace Units.LevelingUp
                 SkillType.MoveSpeed => Data.Constant.WorkersConstantData.WORKERS_LVL_MOVE_SPEED,
                 SkillType.WorkTime => Data.Constant.WorkersConstantData.WORKERS_LVL_WORK_TIME,
                 SkillType.SaleTime => Data.Constant.WorkersConstantData.WORKERS_LVL_SALE_TIME,
+                SkillType.IncreaseNumberWorkers => Data.Constant.WorkersConstantData.WORKERS_COUNT_MAX,
                 _ => string.Empty
             };
         }

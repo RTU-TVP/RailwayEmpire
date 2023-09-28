@@ -48,5 +48,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: da9c5cc75f2dcc74eb191663b3547fa2, type: 2}
   - {fileID: 11400000, guid: 0ed33a26bf5c37a4f8e51b6413bbd2f8, type: 2}
   - {fileID: 11400000, guid: fd63e800fea60c3458cae0cb0be60376, type: 2}
+  - {fileID: 11400000, guid: 6e7e21b6084d24f44abc391b3715bf6d, type: 2}
   _levelUpScreen: {fileID: 5974275411609000217, guid: 21704b878d110704ca285645e5afb64a, type: 3}
   _instanceParent: {fileID: 0}

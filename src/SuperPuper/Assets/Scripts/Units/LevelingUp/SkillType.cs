@@ -5,5 +5,6 @@ namespace Units.LevelingUp
         MoveSpeed,
         WorkTime,
         SaleTime,
+        IncreaseNumberWorkers
     }
 }

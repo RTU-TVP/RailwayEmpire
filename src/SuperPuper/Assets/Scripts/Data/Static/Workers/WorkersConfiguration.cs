@@ -12,7 +12,7 @@ namespace Data.Static.Workers
         public float MoveSpeedDefault;
         public float WorkTimeDefault;
         public float SaleTimeDefault;
-        
+
         public int MaxWorkers;
     }
 }

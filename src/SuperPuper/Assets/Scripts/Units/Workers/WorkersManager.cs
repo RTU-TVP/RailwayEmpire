@@ -2,6 +2,7 @@
 
 using Data.Constant;
 using Data.Static.Workers;
+using Units.LevelingUp;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -19,7 +20,8 @@ namespace Units.Workers
         [SerializeField] private Transform _home;
         [SerializeField] private Transform _shop;
 
-        public int WorkersCount;
+        private int _workersCountCurrent;
+        private int _workersCountMax;
 
         private void Awake()
         {
@@ -27,13 +29,17 @@ namespace Units.Workers
             else Destroy(gameObject);
         }
 
-        public void CreateWorker(Transform work, UnityAction workDone, UnityAction saleDone)
+        private void Start()
         {
-            if (WorkersCount >= _workersConfiguration.MaxWorkers)
-            {
-                return;
-            }
-            
+            UpdateWorkersCountMax();
+            LevelingUpManager.Instance.RegisterOnLevelUp(UpdateWorkersCountMax);
+        }
+
+        public void CreateWorker(Transform work, UnityAction workDone, UnityAction saleDone, UnityAction onWorkersCreated)
+        {
+            if (TryCreatedWorker() == false) return;
+            onWorkersCreated?.Invoke();
+
             int moveSpeedLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_MOVE_SPEED);
             int workTimeLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_WORK_TIME);
             int saleTimeLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_SALE_TIME);
@@ -41,8 +47,8 @@ namespace Units.Workers
             var speedForAnimation = moveSpeedLvl * 0.1f;
 
             GameObject worker = Instantiate(_workerParentPrefab, _spawnPoint.position, Quaternion.identity);
-            
-            WorkersCount++;
+
+            _workersCountCurrent++;
 
             worker.AddComponent<Worker>().SetUp(
                 work,
@@ -52,7 +58,7 @@ namespace Units.Workers
                 saleDone,
                 () =>
                 {
-                    WorkersCount--;
+                    _workersCountCurrent--;
                     Destroy(worker);
                 },
                 _workersConfiguration.MoveSpeedDefault + moveSpeedLvl * _workersConfiguration.MoveSpeedDefault * 0.01f,
@@ -60,5 +66,8 @@ namespace Units.Workers
                 _workersConfiguration.SaleTimeDefault - saleTimeLvl * _workersConfiguration.SaleTimeDefault * 0.01f,
                 speedForAnimation);
         }
+
+        private bool TryCreatedWorker() => _workersCountCurrent < _workersCountMax;
+        private void UpdateWorkersCountMax() => _workersCountMax = _workersConfiguration.MaxWorkers + PlayerPrefs.GetInt(WorkersConstantData.WORKERS_COUNT_MAX);
     }
 }
