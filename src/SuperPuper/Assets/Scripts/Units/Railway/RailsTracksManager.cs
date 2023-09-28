@@ -66,7 +66,7 @@ namespace Units.Railway
                 railTrack.SetIsRailTrackAvailable(true);
 
                 var sequence = DOTween.Sequence();
-                sequence.Append(trainGameObject.transform.DOMoveX(1500, 30).SetEase(Ease.InSine));
+                sequence.Append(trainGameObject.transform.DOMoveX(1000, 30).SetEase(Ease.InSine));
                 sequence.onComplete += () =>
                 {
                     Destroy(trainGameObject);
