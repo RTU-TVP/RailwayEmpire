@@ -57,13 +57,13 @@ namespace Units.Railway
             vagonMenuButtons.RegisterOnCallWorkers(() =>
             {
                 _screen.SetActive(false);
-                _isProgress = true;
                 RailsTracksManager.Instance.CallWorkers(workerPosition,
                     () =>
                     {
                         _isTrainCompleted = true;
                         _onCompletedSuccessful?.Invoke();
-                    });
+                    },
+                    () => _isProgress = true);
             });
 
             vagonMenuButtons.RegisterOnDoMyself(() =>

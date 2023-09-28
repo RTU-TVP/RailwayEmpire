@@ -19,7 +19,7 @@ namespace Units.Workers
         [SerializeField] private Transform _home;
         [SerializeField] private Transform _shop;
 
-        public int WorkersCount;
+        private int _workersCountCurrent;
 
         private void Awake()
         {
@@ -27,13 +27,14 @@ namespace Units.Workers
             else Destroy(gameObject);
         }
 
-        public void CreateWorker(Transform work, UnityAction workDone, UnityAction saleDone)
+        public void CreateWorker(Transform work, UnityAction workDone, UnityAction saleDone, UnityAction onWorkersCreated)
         {
-            if (WorkersCount >= _workersConfiguration.MaxWorkers)
+            if (_workersCountCurrent >= _workersConfiguration.MaxWorkers)
             {
                 return;
             }
-            
+            onWorkersCreated?.Invoke();
+
             int moveSpeedLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_MOVE_SPEED);
             int workTimeLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_WORK_TIME);
             int saleTimeLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_SALE_TIME);
@@ -41,8 +42,8 @@ namespace Units.Workers
             var speedForAnimation = moveSpeedLvl * 0.1f;
 
             GameObject worker = Instantiate(_workerParentPrefab, _spawnPoint.position, Quaternion.identity);
-            
-            WorkersCount++;
+
+            _workersCountCurrent++;
 
             worker.AddComponent<Worker>().SetUp(
                 work,
@@ -52,7 +53,7 @@ namespace Units.Workers
                 saleDone,
                 () =>
                 {
-                    WorkersCount--;
+                    _workersCountCurrent--;
                     Destroy(worker);
                 },
                 _workersConfiguration.MoveSpeedDefault + moveSpeedLvl * _workersConfiguration.MoveSpeedDefault * 0.01f,
