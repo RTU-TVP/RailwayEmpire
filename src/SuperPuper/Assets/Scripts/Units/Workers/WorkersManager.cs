@@ -37,10 +37,7 @@ namespace Units.Workers
 
         public void CreateWorker(Transform work, UnityAction workDone, UnityAction saleDone, UnityAction onWorkersCreated)
         {
-            if (TryCreatedWorker())
-            {
-                return;
-            }
+            if (TryCreatedWorker() == false) return;
             onWorkersCreated?.Invoke();
 
             int moveSpeedLvl = PlayerPrefs.GetInt(WorkersConstantData.WORKERS_LVL_MOVE_SPEED);
@@ -70,19 +67,7 @@ namespace Units.Workers
                 speedForAnimation);
         }
 
-        private bool TryCreatedWorker()
-        {
-            if (_workersCountCurrent >= _workersConfiguration.MaxWorkers)
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        private void UpdateWorkersCountMax()
-        {
-            _workersCountMax = _workersConfiguration.MaxWorkers + PlayerPrefs.GetInt(WorkersConstantData.WORKERS_COUNT_MAX);
-        }
+        private bool TryCreatedWorker() => _workersCountCurrent < _workersCountMax;
+        private void UpdateWorkersCountMax() => _workersCountMax = _workersConfiguration.MaxWorkers + PlayerPrefs.GetInt(WorkersConstantData.WORKERS_COUNT_MAX);
     }
 }
