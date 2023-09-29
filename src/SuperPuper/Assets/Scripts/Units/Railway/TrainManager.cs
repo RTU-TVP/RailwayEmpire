@@ -10,7 +10,7 @@ namespace Units.Railway
 {
     public class TrainManager : MonoBehaviour
     {
-        public float Lifetime { get; private set; }
+        private float _lifetime;
         private RailwayCarriageManager[] _railwayCarriageManagers;
         private int _countRailwayCarriagesNotCompleted;
         private UnityAction _onTrainCompleted;
@@ -28,7 +28,7 @@ namespace Units.Railway
             var train = GenerateRailwaysCarriages(RailsTracksManager.Instance.railwayCarriagesDatabase);
             _railwayCarriageManagers = new RailwayCarriageManager[train.RailwayCarriages.Length];
             _countRailwayCarriagesNotCompleted = train.RailwayCarriages.Length;
-            Lifetime = train.Lifetime;
+            _lifetime = train.Lifetime;
 
             for (int i = 0; i < train.RailwayCarriages.Length; i++)
             {
@@ -69,14 +69,14 @@ namespace Units.Railway
 
         private IEnumerator UpdateTimer()
         {
-            var time = 1f / Lifetime;
+            var time = 1f / _lifetime;
             while (true)
             {
-                Lifetime -= Time.deltaTime;
+                _lifetime -= Time.deltaTime;
 
-                if (Lifetime <= 0) break;
+                if (_lifetime <= 0) break;
 
-                _timerOnTrainUI.SetSliderValue(Lifetime * time);
+                _timerOnTrainUI.SetSliderValue(_lifetime * time);
                 yield return null;
             }
             _onTimerZero?.Invoke();

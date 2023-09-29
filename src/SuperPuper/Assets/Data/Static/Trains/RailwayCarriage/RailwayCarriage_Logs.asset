@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <RailwayCarriageType>k__BackingField: 3
   <IsInteractive>k__BackingField: 1
-  <Lifetime>k__BackingField: 2
+  <Lifetime>k__BackingField: 20
   <Prefab>k__BackingField: {fileID: 8963403324945233402, guid: 3a539887b61cce542a300f8d7c85e36b, type: 3}
   <Money>k__BackingField: 25
+  <Fine>k__BackingField: -10

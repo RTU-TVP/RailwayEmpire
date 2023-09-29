@@ -17,3 +17,4 @@ MonoBehaviour:
   <Lifetime>k__BackingField: 2
   <Prefab>k__BackingField: {fileID: 2932870643663083793, guid: 3b1be32358fb4f449b7b5ee89bcb17f4, type: 3}
   <Money>k__BackingField: 10
+  <Fine>k__BackingField: 0
