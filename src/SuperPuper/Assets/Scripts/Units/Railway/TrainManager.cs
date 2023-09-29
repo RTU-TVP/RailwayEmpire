@@ -2,6 +2,7 @@ using System.Collections;
 using Data.Static.Trains;
 using Units.Money;
 using DG.Tweening;
+using UI.MainScene;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -15,8 +16,12 @@ namespace Units.Railway
         private UnityAction _onTrainCompleted;
         private UnityAction _onTrainArrived;
         private Coroutine _moveCoroutine;
+        private Coroutine _updateTimerCoroutine;
+        private TimerOnTrainUI _timerOnTrainUI;
+        private UnityAction _onTimerZero;
 
-        public void RegisterOnTrainCompleted(UnityAction onTrainCompleted) => _onTrainCompleted += onTrainCompleted;
+        public void RegisterOnTrainCompleted(UnityAction onTimerZero) => _onTrainCompleted += onTimerZero;
+        public void RegisterOnTimerZero(UnityAction onTimerZero) => _onTimerZero += onTimerZero;
 
         public void CreateTrain()
         {
@@ -27,15 +32,25 @@ namespace Units.Railway
 
             for (int i = 0; i < train.RailwayCarriages.Length; i++)
             {
-                var money = train.RailwayCarriages[i].Money;
+                var trainRailwayCarriage = train.RailwayCarriages[i];
                 var railwayCarriage = CreateRailwayCarriage(train.RailwayCarriages[i].Prefab, transform, i);
-                railwayCarriage.RegisterOnComplete(() => MoneyManager.Instance.ChangeMoneyTo(money));
+                railwayCarriage.RegisterOnComplete(() => MoneyManager.Instance.ChangeMoneyTo(trainRailwayCarriage.Money));
                 railwayCarriage.RegisterOnComplete(CompletedRailwayCarriage);
                 _onTrainArrived += railwayCarriage.OnTrainArrived;
                 _railwayCarriageManagers[i] = railwayCarriage;
+                RegisterOnTimerZero(() => MoneyManager.Instance.ChangeMoneyTo(trainRailwayCarriage.Fine));
             }
 
+            _timerOnTrainUI = GetComponentInChildren<TimerOnTrainUI>();
+            _timerOnTrainUI.SetActivePanel(false);
+
             CheckTrainCompleted();
+            _onTrainArrived += () =>
+            {
+                _updateTimerCoroutine = StartCoroutine(UpdateTimer());
+                _timerOnTrainUI.SetActivePanel(true);
+            };
+            RegisterOnTrainCompleted(() => StopCoroutine(_updateTimerCoroutine));
         }
 
         public void MoveTrain(Transform train, Vector3 stopPoint, UnityAction onTrainArrived = null)
@@ -50,6 +65,21 @@ namespace Units.Railway
                 _onTrainArrived?.Invoke();
                 _onTrainArrived = null;
             });
+        }
+
+        private IEnumerator UpdateTimer()
+        {
+            var time = 1f / Lifetime;
+            while (true)
+            {
+                Lifetime -= Time.deltaTime;
+
+                if (Lifetime <= 0) break;
+
+                _timerOnTrainUI.SetSliderValue(Lifetime * time);
+                yield return null;
+            }
+            _onTimerZero?.Invoke();
         }
 
         private Data.Static.Trains.Train GenerateRailwaysCarriages(RailwayCarriagesDatabaseScriptableObject railwayCarriagesDatabaseScriptableObject)

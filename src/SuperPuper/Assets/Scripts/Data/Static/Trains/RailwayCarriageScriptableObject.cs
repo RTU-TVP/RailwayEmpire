@@ -14,5 +14,6 @@ namespace Data.Static.Trains
         [field: SerializeField] public float Lifetime { get; private set; }
         [field: SerializeField] public GameObject Prefab { get; private set; }
         [field: SerializeField] public int Money { get; private set; }
+        [field: SerializeField] public int Fine { get; private set; }
     }
 }
