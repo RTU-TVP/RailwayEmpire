@@ -59,7 +59,12 @@ namespace Units.Railway
             var trainTransform = trainGameObject.transform;
             trainManager.CreateTrain();
             trainManager.MoveTrain(trainTransform, railTrack.StopPoint.position);
-            trainManager.RegisterOnTrainCompleted(() =>
+            trainManager.RegisterOnTrainCompleted(TrainLeaving);
+            trainManager.RegisterOnTimerZero(TrainLeaving);
+            _trains.Add(trainManager);
+            railTracks[index].SetIsRailTrackAvailable(false);
+
+            void TrainLeaving()
             {
                 _trains.Remove(trainManager);
                 trainManager.GetComponentInChildren<AudioManager>().Play($"leaving1");
@@ -72,10 +77,7 @@ namespace Units.Railway
                     Destroy(trainGameObject);
                     CreateTrain(index);
                 };
-
-            });
-            _trains.Add(trainManager);
-            railTracks[index].SetIsRailTrackAvailable(false);
+            }
         }
 
         public void DoMyself(
