@@ -1,52 +1,50 @@
-﻿Eng | [Rus](Localization%20Readme/README_rus.md)
+Rus | [Eng](Localization%20Readme/README_eng.md)
 
-# Project Description
+# Unity project - Railway empire
 
-This game was developed during a two-day hackathon and later refined.
+Этот проект игры был создан в рамках двухдневного хакатона и позднее доработан.
 
-## Technologies
+## Технологии
 
-* **Game Engine:** Unity
-* **Programming Language:** C#
-* **Version Control System:** Git
-* **User Input Management:** Input System and Input Manager
-* **Game Data and Settings Storage:** PlayerPrefs
-* **Scene Settings Management:** ScriptableObject
-* **Artificial Intelligence for Characters:** Finite State Machines (FSM)
-* **Visual Experience and Animations:** DOTween
-* **User Interface and Location Elements Design:** Photoshop, Blender, Mixamo
+* **Движок:** Unity
+* **Язык программирования:** C#
+* **Система контроля версий:** Git
+* **Управление пользовательским вводом:** Input System и Input Manager
+* **Сохранение игровых данных и настроек:** PlayerPrefs
+* **Управление настройками игровых сцен:** ScriptableObject
+* **Искусственный интеллект персонажей:** Конечные автоматы (FSM)
+* **Визуальный опыт и анимации:** DOTween
+* **Дизайн пользовательского интерфейса и локации:** Photoshop, Blender, Mixamo
 
-## Platform
+## Платформа
 
 * Windows
 
-## Game Description
+## Описание игры
 
-The game is a railway station management simulator where the player takes on the role of a station manager. The player's
-tasks include station management, infrastructure improvement, employee supervision, and unloading arriving trains for
-cargo resale.
+Игра представляет собой симулятор управления железнодорожной станцией, где игрок берет на себя роль управляющего. Задачи
+игрока включают управление станцией, улучшение ее инфраструктуры, контроль за работниками и разгрузка прибывших поездов
+с целью перепродажи грузов.
 
-The game draws inspiration from "The Battle of Polytopia" and adopts its "Low Poly" visual style, camera placement, and
-user-friendly gameplay simplicity.
+Игра рассматривает "The Battle of Polytopia" как референс и позаимствовала от нее визуальный стиль "Low Poly",
+расположение камеры и простоту геймплея в угоду удобства пользователя.
 
-The player's goal is to make the station successful and prosperous, with a primary focus on unloading trains. To achieve
-this, gameplay involves mini-games corresponding to different types of train cars.
+Цель игрока - сделать станцию успешной и процветающей, основное внимание уделяется разгрузке поездов. Для этого был
+создан геймплей, который включает в себя мини-игры, соответствующие различным типам вагонов.
 
-**Note:** For complete documentation and the game's code, please visit the GitHub repository.
+**Примечание:** Для полной документации и кода игры, пожалуйста, посетите репозиторий на GitHub.
 
-* [GitHub Link](https://github.com/ShutovKS/RailwayEmpire)
+* [Ссылка на GitHub](https://github.com/ShutovKS/RailwayEmpire)
 
-## Game Screenshots
+## Скриншоты игры
 
 ![Main Menu](Screenshots/main_menu.png)
 ![Money](Screenshots/money.png)
 ![Skills](Screenshots/skills.png)
 
-### Mini-games:
+### Мини игры:
 
 ![Coal game](Screenshots/coal_game.png)
 ![Memp game](Screenshots/memp_game.png)
 ![Pipe game](Screenshots/pipe_game.png)
 ![Tower blocks game](Screenshots/tower_blocks_game.png)
-
-
